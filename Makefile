@@ -16,4 +16,12 @@ OBJS = base10.o \
 	curve_checks.o
 
 reference_signer: $(OBJS) reference_signer.c
-	$(CC) $(CFLAGS) -Wall -Werror $@.c -o $@ $(OBJS) -l
+	$(CC) $(CFLAGS) -Wall -Werror $@.c -o $@ $(OBJS) -lm
+
+.PRECIOUS: unit_tests
+unit_tests: $(OBJS) *.c *.h
+	$(CC) $(CFLAGS) -Wall -Werror $@.c -o $@ $(OBJS) -lm
+	@./$@
+
+%.o: %.c %.h
+	$(CC) $(CFLAGS) -Wall -Werror 
