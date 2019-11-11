@@ -24,4 +24,7 @@ unit_tests: $(OBJS) *.c *.h
 	@./$@
 
 %.o: %.c %.h
-	$(CC) $(CFLAGS) -Wall -Werror 
+	$(CC) $(CFLAGS) -Wall -Werror $< -c
+
+clean:
+	rm -rf *.o *.log reference_signer unit_tests
