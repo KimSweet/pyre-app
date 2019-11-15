@@ -10,3 +10,12 @@
    - Apache 2.0        : http://www.apache.org/licenses/LICENSE-2.0
 
    More information about the BLAKE2 hash function can be found at
+   https://blake2.net.
+*/
+#ifndef BLAKE2_IMPL_H
+#define BLAKE2_IMPL_H
+
+#include <stdint.h>
+#include <string.h>
+
+#if !defined(__cplusplus
