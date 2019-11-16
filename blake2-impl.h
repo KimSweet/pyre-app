@@ -22,4 +22,12 @@
   #if   defined(_MSC_VER)
     #define BLAKE2_INLINE __inline
   #elif defined(__GNUC__)
-    #define
+    #define BLAKE2_INLINE __inline__
+  #else
+    #define BLAKE2_INLINE
+  #endif
+#else
+  #define BLAKE2_INLINE inline
+#endif
+
+static BLAKE2_INLINE uin
