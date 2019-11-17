@@ -51,4 +51,8 @@ static BLAKE2_INLINE uint64_t load64( const void *src )
   uint64_t w;
   memcpy(&w, src, sizeof w);
   return w;
-#e
+#else
+  const uint8_t *p = ( const uint8_t * )src;
+  return (( uint64_t )( p[0] ) <<  0) |
+         (( uint64_t )( p[1] ) <<  8) |
+         (( uin
