@@ -55,4 +55,8 @@ static BLAKE2_INLINE uint64_t load64( const void *src )
   const uint8_t *p = ( const uint8_t * )src;
   return (( uint64_t )( p[0] ) <<  0) |
          (( uint64_t )( p[1] ) <<  8) |
-         (( uin
+         (( uint64_t )( p[2] ) << 16) |
+         (( uint64_t )( p[3] ) << 24) |
+         (( uint64_t )( p[4] ) << 32) |
+         (( uint64_t )( p[5] ) << 40) |
+         (( uint64_
