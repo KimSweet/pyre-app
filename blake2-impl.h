@@ -41,4 +41,14 @@ static BLAKE2_INLINE uint32_t load32( const void *src )
   return (( uint32_t )( p[0] ) <<  0) |
          (( uint32_t )( p[1] ) <<  8) |
          (( uint32_t )( p[2] ) << 16) |
-         (( uint32_t )( p[3] ) << 24)
+         (( uint32_t )( p[3] ) << 24) ;
+#endif
+}
+
+static BLAKE2_INLINE uint64_t load64( const void *src )
+{
+#if defined(NATIVE_LITTLE_ENDIAN)
+  uint64_t w;
+  memcpy(&w, src, sizeof w);
+  return w;
+#e
