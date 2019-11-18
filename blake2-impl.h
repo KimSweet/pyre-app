@@ -66,4 +66,10 @@ static BLAKE2_INLINE uint64_t load64( const void *src )
 
 static BLAKE2_INLINE uint16_t load16( const void *src )
 {
-#if defined(NATI
+#if defined(NATIVE_LITTLE_ENDIAN)
+  uint16_t w;
+  memcpy(&w, src, sizeof w);
+  return w;
+#else
+  const uint8_t *p = ( const uint8_t * )src;
+  return ( uint1
