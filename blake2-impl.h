@@ -72,4 +72,9 @@ static BLAKE2_INLINE uint16_t load16( const void *src )
   return w;
 #else
   const uint8_t *p = ( const uint8_t * )src;
-  return ( uint1
+  return ( uint16_t )((( uint32_t )( p[0] ) <<  0) |
+                      (( uint32_t )( p[1] ) <<  8));
+#endif
+}
+
+static BLAKE2_INLINE void store16( void *dst, 
