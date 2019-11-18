@@ -59,4 +59,11 @@ static BLAKE2_INLINE uint64_t load64( const void *src )
          (( uint64_t )( p[3] ) << 24) |
          (( uint64_t )( p[4] ) << 32) |
          (( uint64_t )( p[5] ) << 40) |
-         (( uint64_
+         (( uint64_t )( p[6] ) << 48) |
+         (( uint64_t )( p[7] ) << 56) ;
+#endif
+}
+
+static BLAKE2_INLINE uint16_t load16( const void *src )
+{
+#if defined(NATI
