@@ -106,4 +106,9 @@ static BLAKE2_INLINE void store64( void *dst, uint64_t w )
 #if defined(NATIVE_LITTLE_ENDIAN)
   memcpy(dst, &w, sizeof w);
 #else
-  uint8_t *p 
+  uint8_t *p = ( uint8_t * )dst;
+  p[0] = (uint8_t)(w >>  0);
+  p[1] = (uint8_t)(w >>  8);
+  p[2] = (uint8_t)(w >> 16);
+  p[3] = (uint8_t)(w >> 24);
+  p[4] = (uint8_t)(w >> 32
