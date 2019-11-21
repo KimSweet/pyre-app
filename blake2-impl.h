@@ -111,4 +111,11 @@ static BLAKE2_INLINE void store64( void *dst, uint64_t w )
   p[1] = (uint8_t)(w >>  8);
   p[2] = (uint8_t)(w >> 16);
   p[3] = (uint8_t)(w >> 24);
-  p[4] = (uint8_t)(w >> 32
+  p[4] = (uint8_t)(w >> 32);
+  p[5] = (uint8_t)(w >> 40);
+  p[6] = (uint8_t)(w >> 48);
+  p[7] = (uint8_t)(w >> 56);
+#endif
+}
+
+static BLAKE2_INLINE uint64_t load48( const void *s
