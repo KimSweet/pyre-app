@@ -118,4 +118,9 @@ static BLAKE2_INLINE void store64( void *dst, uint64_t w )
 #endif
 }
 
-static BLAKE2_INLINE uint64_t load48( const void *s
+static BLAKE2_INLINE uint64_t load48( const void *src )
+{
+  const uint8_t *p = ( const uint8_t * )src;
+  return (( uint64_t )( p[0] ) <<  0) |
+         (( uint64_t )( p[1] ) <<  8) |
+         (( uint6
