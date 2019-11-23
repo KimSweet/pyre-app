@@ -145,4 +145,9 @@ static BLAKE2_INLINE uint32_t rotr32( const uint32_t w, const unsigned c )
   return ( w >> c ) | ( w << ( 32 - c ) );
 }
 
-static BLAKE2_INL
+static BLAKE2_INLINE uint64_t rotr64( const uint64_t w, const unsigned c )
+{
+  return ( w >> c ) | ( w << ( 64 - c ) );
+}
+
+/* prevents compiler optimizing out mem
