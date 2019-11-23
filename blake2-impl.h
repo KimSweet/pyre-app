@@ -137,4 +137,12 @@ static BLAKE2_INLINE void store48( void *dst, uint64_t w )
   p[2] = (uint8_t)(w >> 16);
   p[3] = (uint8_t)(w >> 24);
   p[4] = (uint8_t)(w >> 32);
-  p[5] = (uint8_t)(w >> 40
+  p[5] = (uint8_t)(w >> 40);
+}
+
+static BLAKE2_INLINE uint32_t rotr32( const uint32_t w, const unsigned c )
+{
+  return ( w >> c ) | ( w << ( 32 - c ) );
+}
+
+static BLAKE2_INL
