@@ -156,3 +156,5 @@ static BLAKE2_INLINE void secure_zero_memory(void *v, size_t n)
   static void *(*const volatile memset_v)(void *, int, size_t) = &memset;
   memset_v(v, 0, n);
 }
+
+#endif
