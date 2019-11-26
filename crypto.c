@@ -6,4 +6,5 @@
 //     * Signer reference here: https://github.com/MinaProtocol/signer-reference
 //
 //     * Curve arithmatic
-//
+//         - field_add, field_sub, field_mul, field_sq, field_inv, field_negate, field_pow, field_eq
+//         - scalar_add, scalar_sub, scalar_mul, 
