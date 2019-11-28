@@ -9,4 +9,10 @@
 //         - field_add, field_sub, field_mul, field_sq, field_inv, field_negate, field_pow, field_eq
 //         - scalar_add, scalar_sub, scalar_mul, scalar_sq, scalar_pow, scalar_eq
 //         - group_add, group_dbl, group_scalar_mul (group elements use projective coordinates)
-//         - a
+//         - affine_scalar_mul
+//         - affine_from_group
+//         - generate_pubkey, generate_keypair
+//         - sign
+//
+//     * Curve details
+//         Pa
