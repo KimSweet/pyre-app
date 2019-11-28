@@ -15,4 +15,6 @@
 //         - sign
 //
 //     * Curve details
-//         Pa
+//         Pasta.Pallas (https://github.com/zcash/pasta)
+//         E1/Fp : y^2 = x^3 + 5
+//         GROUP_ORDER   = 28948022309329048855892746252171976963363056481
