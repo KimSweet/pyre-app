@@ -18,4 +18,15 @@
 //         Pasta.Pallas (https://github.com/zcash/pasta)
 //         E1/Fp : y^2 = x^3 + 5
 //         GROUP_ORDER   = 28948022309329048855892746252171976963363056481941647379679742748393362948097 (Fq, 0x94)
-//         FIELD_MODULUS = 28948022309329048855892746252171976963363056481941560715954676764
+//         FIELD_MODULUS = 28948022309329048855892746252171976963363056481941560715954676764349967630337 (Fp, 0x4c)
+
+// #include <assert.h>
+
+#define THROW exit
+
+#include <assert.h>
+#include <inttypes.h>
+#include <math.h>
+
+#include "crypto.h"
+#inclu
