@@ -29,4 +29,13 @@
 #include <math.h>
 
 #include "crypto.h"
-#inclu
+#include "utils.h"
+#include "poseidon.h"
+#include "pasta_fp.h"
+#include "pasta_fq.h"
+#include "blake2.h"
+#include "libbase58.h"
+#include "sha256.h"
+
+// a = 0, b = 5
+sta
