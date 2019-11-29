@@ -38,4 +38,8 @@
 #include "sha256.h"
 
 // a = 0, b = 5
-sta
+static const Field GROUP_COEFF_B = {
+  0xa1a55e68ffffffed, 0x74c2a54b4f4982f3, 0xfffffffffffffffd, 0x3fffffffffffffff
+};
+
+static const Field FI
