@@ -46,4 +46,7 @@ static const Field FIELD_ONE = {
   0x34786d38fffffffd, 0x992c350be41914ad, 0xffffffffffffffff, 0x3fffffffffffffff
 };
 static const Field FIELD_THREE = {
-  
+  0x6b0ee5d0fffffff5, 0x86f76d2b99b14bd0, 0xfffffffffffffffe, 0x3fffffffffffffff
+};
+static const Field FIELD_FOUR = {
+  0x65a221cfffffff1, 0xfddd093b747
