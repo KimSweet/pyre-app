@@ -60,4 +60,9 @@ static const Scalar SCALAR_ZERO = { 0, 0, 0, 0 };
 // (X : Y : Z) = (0 : 1 : 0)
 static const Group GROUP_ZERO = {
     { 0, 0, 0, 0},
-    { 0x34786d38fffffffd, 0x992c350be41914ad, 0xffffffffffffffff, 0x3fffffffffffffff 
+    { 0x34786d38fffffffd, 0x992c350be41914ad, 0xffffffffffffffff, 0x3fffffffffffffff },
+    { 0, 0, 0, 0}
+};
+
+// g_generator = (1 : 12418654782883325593414442427049395787963493412651469444558597405572177144507)
+static co
