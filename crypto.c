@@ -58,4 +58,6 @@ static const Field FIELD_ZERO = { 0, 0, 0, 0 };
 static const Scalar SCALAR_ZERO = { 0, 0, 0, 0 };
 
 // (X : Y : Z) = (0 : 1 : 0)
-sta
+static const Group GROUP_ZERO = {
+    { 0, 0, 0, 0},
+    { 0x34786d38fffffffd, 0x992c350be41914ad, 0xffffffffffffffff, 0x3fffffffffffffff 
