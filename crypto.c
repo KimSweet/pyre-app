@@ -53,4 +53,9 @@ static const Field FIELD_FOUR = {
 };
 static const Field FIELD_EIGHT = {
   0x7387134cffffffe1, 0xd973797adfadd5a8, 0xfffffffffffffffb, 0x3fffffffffffffff
-}
+};
+static const Field FIELD_ZERO = { 0, 0, 0, 0 };
+static const Scalar SCALAR_ZERO = { 0, 0, 0, 0 };
+
+// (X : Y : Z) = (0 : 1 : 0)
+sta
