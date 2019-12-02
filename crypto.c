@@ -65,4 +65,9 @@ static const Group GROUP_ZERO = {
 };
 
 // g_generator = (1 : 12418654782883325593414442427049395787963493412651469444558597405572177144507)
-static co
+static const Affine AFFINE_ONE = {
+    {
+        0x34786d38fffffffd, 0x992c350be41914ad, 0xffffffffffffffff, 0x3fffffffffffffff
+    },
+    {
+        0x2f474795455d409d, 0x
