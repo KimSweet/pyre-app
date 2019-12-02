@@ -70,4 +70,10 @@ static const Affine AFFINE_ONE = {
         0x34786d38fffffffd, 0x992c350be41914ad, 0xffffffffffffffff, 0x3fffffffffffffff
     },
     {
-        0x2f474795455d409d, 0x
+        0x2f474795455d409d, 0xb443b9b74b8255d9, 0x270c412f2c9a5d66, 0x8e00f71ba43dd6b
+    }
+};
+
+bool field_from_hex(Field b, const char *hex) {
+  if (strnlen(hex, 64) != 64) {
+    retur
