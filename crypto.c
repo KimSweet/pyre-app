@@ -83,4 +83,14 @@ bool field_from_hex(Field b, const char *hex) {
     sscanf(&hex[2*i], "%02hhx", &bytes[i]);
   }
 
-  if (bytes[31] & 0xc0)
+  if (bytes[31] & 0xc0) {
+      return false;
+  }
+
+  fiat_pasta_fp_to_montgomery(b, (uint64_t *)bytes);
+  return true;
+}
+
+void field_copy(Field c, const Field a)
+{
+    fiat_pasta_fp_copy(
