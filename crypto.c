@@ -93,4 +93,14 @@ bool field_from_hex(Field b, const char *hex) {
 
 void field_copy(Field c, const Field a)
 {
-    fiat_pasta_fp_copy(
+    fiat_pasta_fp_copy(c, a);
+}
+
+bool field_is_odd(const Field y)
+{
+    uint64_t tmp[4];
+    fiat_pasta_fp_from_montgomery(tmp, y);
+    return tmp[0] & 1;
+}
+
+void field_add
