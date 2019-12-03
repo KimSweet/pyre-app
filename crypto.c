@@ -103,4 +103,11 @@ bool field_is_odd(const Field y)
     return tmp[0] & 1;
 }
 
-void field_add
+void field_add(Field c, const Field a, const Field b)
+{
+    fiat_pasta_fp_add(c, a, b);
+}
+
+void field_sub(Field c, const Field a, const Field b)
+{
+    fiat_pasta_fp_sub(c, a, b)
