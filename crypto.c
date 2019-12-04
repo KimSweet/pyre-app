@@ -110,4 +110,14 @@ void field_add(Field c, const Field a, const Field b)
 
 void field_sub(Field c, const Field a, const Field b)
 {
-    fiat_pasta_fp_sub(c, a, b)
+    fiat_pasta_fp_sub(c, a, b);
+}
+
+void field_mul(Field c, const Field a, const Field b)
+{
+    fiat_pasta_fp_mul(c, a, b);
+}
+
+void field_sq(Field c, const Field a)
+{
+    fiat_pasta_fp_square
