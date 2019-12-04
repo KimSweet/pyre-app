@@ -120,4 +120,16 @@ void field_mul(Field c, const Field a, const Field b)
 
 void field_sq(Field c, const Field a)
 {
-    fiat_pasta_fp_square
+    fiat_pasta_fp_square(c, a);
+}
+
+void field_pow(Field c, const Field a, const uint8_t b)
+{
+    field_copy(c, FIELD_ONE);
+
+    if (b == 0) {
+      return;
+    }
+
+    Field tmp;
+    for 
