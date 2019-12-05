@@ -155,4 +155,12 @@ void field_negate(Field c, const Field a)
 
 unsigned int field_eq(const Field a, const Field b)
 {
-    if (fiat_pasta_fp_equals(a,
+    if (fiat_pasta_fp_equals(a, b)) {
+      return 1;
+    } else {
+      return 0;
+    }
+}
+
+bool scalar_from_hex(Field b, const char *hex) {
+  if (strnlen(hex, 64) != 64) {
