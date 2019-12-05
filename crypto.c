@@ -137,4 +137,15 @@ void field_pow(Field c, const Field a, const uint8_t b)
         field_sq(c, tmp);
 
         if (b & (1 << (i - 1))) {
-            field_copy(
+            field_copy(tmp, c);
+            field_mul(c, tmp, a);
+        }
+    }
+}
+
+void field_inv(Field c, const Field a)
+{
+    fiat_pasta_fp_inv(c, a);
+}
+
+void field_negate
