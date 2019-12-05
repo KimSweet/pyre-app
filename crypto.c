@@ -148,4 +148,11 @@ void field_inv(Field c, const Field a)
     fiat_pasta_fp_inv(c, a);
 }
 
-void field_negate
+void field_negate(Field c, const Field a)
+{
+    fiat_pasta_fp_opp(c, a);
+}
+
+unsigned int field_eq(const Field a, const Field b)
+{
+    if (fiat_pasta_fp_equals(a,
