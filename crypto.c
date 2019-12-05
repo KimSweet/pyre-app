@@ -132,4 +132,9 @@ void field_pow(Field c, const Field a, const uint8_t b)
     }
 
     Field tmp;
-    for 
+    for (size_t i = log2(b) + 1; i > 0; i--) {
+        field_copy(tmp, c);
+        field_sq(c, tmp);
+
+        if (b & (1 << (i - 1))) {
+            field_copy(
