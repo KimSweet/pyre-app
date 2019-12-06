@@ -171,4 +171,12 @@ bool scalar_from_hex(Field b, const char *hex) {
     sscanf(&hex[2*i], "%02hhx", &bytes[i]);
   }
 
-  if (by
+  if (bytes[31] & 0xc0) {
+      return false;
+  }
+
+  fiat_pasta_fq_to_montgomery(b, (uint64_t *)bytes);
+  return true;
+}
+
+void scalar_from_words(Scalar b, const uint64_t words[4
