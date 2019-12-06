@@ -185,3 +185,13 @@ void scalar_from_words(Scalar b, const uint64_t words[4])
     memcpy(tmp, words, sizeof(tmp));
     tmp[3] &= (((uint64_t)1 << 62) - 1); // drop top two bits
     fiat_pasta_fq_to_montgomery(b, tmp);
+}
+
+void scalar_copy(Scalar b, const Scalar a)
+{
+    fiat_pasta_fq_copy(b, a);
+}
+
+void scalar_add(Scalar c, const Scalar a, const Scalar b)
+{
+ 
