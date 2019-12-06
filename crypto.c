@@ -164,3 +164,11 @@ unsigned int field_eq(const Field a, const Field b)
 
 bool scalar_from_hex(Field b, const char *hex) {
   if (strnlen(hex, 64) != 64) {
+    return false;
+  }
+  uint8_t bytes[32];
+  for (size_t i = 0; i < sizeof(bytes); i++) {
+    sscanf(&hex[2*i], "%02hhx", &bytes[i]);
+  }
+
+  if (by
