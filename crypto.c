@@ -194,4 +194,12 @@ void scalar_copy(Scalar b, const Scalar a)
 
 void scalar_add(Scalar c, const Scalar a, const Scalar b)
 {
- 
+    fiat_pasta_fq_add(c, a, b);
+}
+
+void scalar_sub(Scalar c, const Scalar a, const Scalar b)
+{
+    fiat_pasta_fq_sub(c, a, b);
+}
+
+void scalar_mul(Scalar c, c
