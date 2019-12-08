@@ -228,4 +228,11 @@ unsigned int is_zero(const Group *p)
     return field_eq(p->Z, FIELD_ZERO);
 }
 
-unsigned int affine_is_ze
+unsigned int affine_is_zero(const Affine *p)
+{
+    return (field_eq(p->x, FIELD_ZERO) && field_eq(p->y, FIELD_ZERO));
+}
+
+unsigned int group_is_on_curve(const Group *p)
+{
+    if (is_zero(p)) 
