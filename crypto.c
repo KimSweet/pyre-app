@@ -202,4 +202,14 @@ void scalar_sub(Scalar c, const Scalar a, const Scalar b)
     fiat_pasta_fq_sub(c, a, b);
 }
 
-void scalar_mul(Scalar c, c
+void scalar_mul(Scalar c, const Scalar a, const Scalar b)
+{
+    fiat_pasta_fq_mul(c, a, b);
+}
+
+void scalar_sq(Scalar c, const Scalar a)
+{
+    fiat_pasta_fq_square(c, a);
+}
+
+void scalar_negate(Scalar c
