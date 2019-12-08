@@ -222,4 +222,10 @@ bool scalar_eq(const Scalar a, const Scalar b)
     return fiat_pasta_fq_equals(a, b);
 }
 
-// zero is the o
+// zero is the only point with Z = 0 in jacobian coordinates
+unsigned int is_zero(const Group *p)
+{
+    return field_eq(p->Z, FIELD_ZERO);
+}
+
+unsigned int affine_is_ze
