@@ -212,4 +212,14 @@ void scalar_sq(Scalar c, const Scalar a)
     fiat_pasta_fq_square(c, a);
 }
 
-void scalar_negate(Scalar c
+void scalar_negate(Scalar c, const Scalar a)
+{
+    fiat_pasta_fq_opp(c, a);
+}
+
+bool scalar_eq(const Scalar a, const Scalar b)
+{
+    return fiat_pasta_fq_equals(a, b);
+}
+
+// zero is the o
