@@ -242,4 +242,7 @@ unsigned int group_is_on_curve(const Group *p)
     Field lhs, rhs;
     if (field_eq(p->Z, FIELD_ONE)) {
         // we can check y^2 == x^3 + ax + b
-        field_sq(lhs, p->Y);  
+        field_sq(lhs, p->Y);                // y^2
+        field_sq(rhs, p->X);                // x^2
+        field_mul(rhs, rhs, p->X);          // x^3
+    
