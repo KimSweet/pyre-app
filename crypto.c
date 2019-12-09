@@ -235,4 +235,11 @@ unsigned int affine_is_zero(const Affine *p)
 
 unsigned int group_is_on_curve(const Group *p)
 {
-    if (is_zero(p)) 
+    if (is_zero(p)) {
+        return 1;
+    }
+
+    Field lhs, rhs;
+    if (field_eq(p->Z, FIELD_ONE)) {
+        // we can check y^2 == x^3 + ax + b
+        field_sq(lhs, p->Y);  
