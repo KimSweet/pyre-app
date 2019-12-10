@@ -253,4 +253,7 @@ unsigned int group_is_on_curve(const Group *p)
         Field x3, z6;
         field_sq(x3, p->X);                 // x^2
         field_mul(x3, x3, p->X);            // x^3
-        field_sq(lhs, p->Y);      
+        field_sq(lhs, p->Y);                // y^2
+        field_sq(z6, p->Z);                 // z^2
+        field_sq(z6, z6);                   // z^4
+        field_mul(z6, z6, p->
