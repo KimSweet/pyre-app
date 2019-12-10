@@ -256,4 +256,8 @@ unsigned int group_is_on_curve(const Group *p)
         field_sq(lhs, p->Y);                // y^2
         field_sq(z6, p->Z);                 // z^2
         field_sq(z6, z6);                   // z^4
-        field_mul(z6, z6, p->
+        field_mul(z6, z6, p->Z);            // z^5
+        field_mul(z6, z6, p->Z);            // z^6
+
+        field_mul(rhs, z6, GROUP_COEFF_B);  // bz^6
+        field_add(rhs, x3, rhs);       
