@@ -245,4 +245,9 @@ unsigned int group_is_on_curve(const Group *p)
         field_sq(lhs, p->Y);                // y^2
         field_sq(rhs, p->X);                // x^2
         field_mul(rhs, rhs, p->X);          // x^3
-    
+        field_add(rhs, rhs, GROUP_COEFF_B); // x^3 + b
+    }
+    else {
+        // we check (y/z^3)^2 == (x/z^2)^3 + b
+        // => y^2 == x^3 + bz^6
+        Field x3, z6
