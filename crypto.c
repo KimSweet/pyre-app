@@ -268,4 +268,7 @@ unsigned int group_is_on_curve(const Group *p)
 
 void affine_to_group(Group *r, const Affine *p)
 {
-    if (field_eq(p->x, FIELD_ZERO) 
+    if (field_eq(p->x, FIELD_ZERO) && field_eq(p->y, FIELD_ZERO)) {
+        memcpy(r->X, FIELD_ZERO, FIELD_BYTES);
+        memcpy(r->Y, FIELD_ONE, FIELD_BYTES);
+        memcpy(r->Z, FIELD_Z
