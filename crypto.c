@@ -271,4 +271,13 @@ void affine_to_group(Group *r, const Affine *p)
     if (field_eq(p->x, FIELD_ZERO) && field_eq(p->y, FIELD_ZERO)) {
         memcpy(r->X, FIELD_ZERO, FIELD_BYTES);
         memcpy(r->Y, FIELD_ONE, FIELD_BYTES);
-        memcpy(r->Z, FIELD_Z
+        memcpy(r->Z, FIELD_ZERO, FIELD_BYTES);
+        return;
+    }
+
+    memcpy(r->X, p->x, FIELD_BYTES);
+    memcpy(r->Y, p->y, FIELD_BYTES);
+    memcpy(r->Z, FIELD_ONE, FIELD_BYTES);
+}
+
+vo
