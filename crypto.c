@@ -280,4 +280,8 @@ void affine_to_group(Group *r, const Affine *p)
     memcpy(r->Z, FIELD_ONE, FIELD_BYTES);
 }
 
-vo
+void affine_from_group(Affine *r, const Group *p)
+{
+    if (field_eq(p->Z, FIELD_ZERO)) {
+        memcpy(r->x, FIELD_ZERO, FIELD_BYTES);
+  
