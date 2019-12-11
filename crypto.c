@@ -260,4 +260,12 @@ unsigned int group_is_on_curve(const Group *p)
         field_mul(z6, z6, p->Z);            // z^6
 
         field_mul(rhs, z6, GROUP_COEFF_B);  // bz^6
-        field_add(rhs, x3, rhs);       
+        field_add(rhs, x3, rhs);            // x^3 + bz^6
+    }
+
+    return field_eq(lhs, rhs);
+}
+
+void affine_to_group(Group *r, const Affine *p)
+{
+    if (field_eq(p->x, FIELD_ZERO) 
