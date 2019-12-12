@@ -290,4 +290,7 @@ void affine_from_group(Affine *r, const Group *p)
 
     Field zi, zi2, zi3;
     field_inv(zi, p->Z);        // 1/Z
-    field_mul(zi
+    field_mul(zi2, zi, zi);     // 1/Z^2
+    field_mul(zi3, zi2, zi);    // 1/Z^3
+    field_mul(r->x, p->X, zi2); // X/Z^2
+    field_mul(r->y, p->Y, zi3); // Y/Z^3
