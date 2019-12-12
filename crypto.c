@@ -284,4 +284,10 @@ void affine_from_group(Affine *r, const Group *p)
 {
     if (field_eq(p->Z, FIELD_ZERO)) {
         memcpy(r->x, FIELD_ZERO, FIELD_BYTES);
-  
+        memcpy(r->y, FIELD_ZERO, FIELD_BYTES);
+        return;
+    }
+
+    Field zi, zi2, zi3;
+    field_inv(zi, p->Z);        // 1/Z
+    field_mul(zi
