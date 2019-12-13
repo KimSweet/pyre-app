@@ -301,4 +301,9 @@ void group_one(Group *a)
     affine_to_group(a, &AFFINE_ONE);
 }
 
-// https://www.hyperelliptic.org/EFD/g1p/auto-code/shortw/jaco
+// https://www.hyperelliptic.org/EFD/g1p/auto-code/shortw/jacobian-0/doubling/dbl-2009-l.op3
+// cost 2M + 5S + 6add + 3*2 + 1*3 + 1*8
+void group_dbl(Group *r, const Group *p)
+{
+    if (is_zero(p)) {
+        
