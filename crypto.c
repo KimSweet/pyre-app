@@ -294,3 +294,11 @@ void affine_from_group(Affine *r, const Group *p)
     field_mul(zi3, zi2, zi);    // 1/Z^3
     field_mul(r->x, p->X, zi2); // X/Z^2
     field_mul(r->y, p->Y, zi3); // Y/Z^3
+}
+
+void group_one(Group *a)
+{
+    affine_to_group(a, &AFFINE_ONE);
+}
+
+// https://www.hyperelliptic.org/EFD/g1p/auto-code/shortw/jaco
