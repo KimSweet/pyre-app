@@ -313,4 +313,9 @@ void group_dbl(Group *r, const Group *p)
     Field a, b, c;
     field_sq(a, p->X);            // a = X1^2
     field_sq(b, p->Y);            // b = Y1^2
-    field_sq(c,
+    field_sq(c, b);               // c = b^2
+
+    Field d, e, f;
+    field_add(r->X, p->X, b);     // t0 = X1 + b
+    field_sq(r->Y, r->X);         // t1 = t0^2
+    field_
