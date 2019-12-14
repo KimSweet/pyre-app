@@ -318,4 +318,6 @@ void group_dbl(Group *r, const Group *p)
     Field d, e, f;
     field_add(r->X, p->X, b);     // t0 = X1 + b
     field_sq(r->Y, r->X);         // t1 = t0^2
-    field_
+    field_sub(r->Z, r->Y, a);     // t2 = t1 - a
+    field_sub(r->X, r->Z, c);     // t3 = t2 - c
+    field_add(d, r->X, r->X);   
