@@ -306,4 +306,11 @@ void group_one(Group *a)
 void group_dbl(Group *r, const Group *p)
 {
     if (is_zero(p)) {
-        
+        *r = *p;
+        return;
+    }
+
+    Field a, b, c;
+    field_sq(a, p->X);            // a = X1^2
+    field_sq(b, p->Y);            // b = Y1^2
+    field_sq(c,
