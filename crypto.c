@@ -328,4 +328,8 @@ void group_dbl(Group *r, const Group *p)
     field_sub(r->X, f, r->Y);     // X = f - t4
 
     field_sub(r->Y, d, r->X);     // t5 = d - X
-    field_mul(f, FIELD_EIGHT, c); // t6 =
+    field_mul(f, FIELD_EIGHT, c); // t6 = 8 * c
+    field_mul(r->Z, e, r->Y);     // t7 = e * t5
+    field_sub(r->Y, r->Z, f);     // Y = t7 - t6
+
+    field_mul(f, p->Y, p->Z);     
