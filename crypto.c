@@ -320,4 +320,9 @@ void group_dbl(Group *r, const Group *p)
     field_sq(r->Y, r->X);         // t1 = t0^2
     field_sub(r->Z, r->Y, a);     // t2 = t1 - a
     field_sub(r->X, r->Z, c);     // t3 = t2 - c
-    field_add(d, r->X, r->X);   
+    field_add(d, r->X, r->X);     // d = 2 * t3
+    field_mul(e, FIELD_THREE, a); // e = 3 * a
+    field_sq(f, e);               // f = e^2
+
+    field_add(r->Y, d, d);        // t4 = 2 * d
+   
