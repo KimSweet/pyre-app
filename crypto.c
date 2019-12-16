@@ -332,4 +332,8 @@ void group_dbl(Group *r, const Group *p)
     field_mul(r->Z, e, r->Y);     // t7 = e * t5
     field_sub(r->Y, r->Z, f);     // Y = t7 - t6
 
-    field_mul(f, p->Y, p->Z);     
+    field_mul(f, p->Y, p->Z);     // t8 = Y1 * Z1
+    field_add(r->Z, f, f);        // Z = 2 * t8
+}
+
+// https://www.hyperelliptic.org/EFD/g1p/auto-code/shortw/jacobian-0/ad
