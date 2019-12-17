@@ -336,4 +336,10 @@ void group_dbl(Group *r, const Group *p)
     field_add(r->Z, f, f);        // Z = 2 * t8
 }
 
-// https://www.hyperelliptic.org/EFD/g1p/auto-code/shortw/jacobian-0/ad
+// https://www.hyperelliptic.org/EFD/g1p/auto-code/shortw/jacobian-0/addition/add-2007-bl.op3
+// cost 11M + 5S + 9add + 4*2
+void group_add(Group *r, const Group *p, const Group *q)
+{
+    if (is_zero(p)) {
+        *r = *q;
+    
