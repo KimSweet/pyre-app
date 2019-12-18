@@ -342,4 +342,12 @@ void group_add(Group *r, const Group *p, const Group *q)
 {
     if (is_zero(p)) {
         *r = *q;
-    
+        return;
+    }
+
+    if (is_zero(q)) {
+        *r = *p;
+        return;
+    }
+
+    if (field_eq(p->X, q->X) && field_eq(p->Y, q->Y)
