@@ -360,4 +360,7 @@ void group_add(Group *r, const Group *p, const Group *q)
 
     Field u1, u2, s1, s2;
     field_mul(u1, p->X, z2z2);    // u1 = x1 * z2z2
-    field
+    field_mul(u2, q->X, z1z1);    // u2 = x2 * z1z1
+    field_mul(r->X, q->Z, z2z2);  // t0 = z2 * z2z2
+    field_mul(s1, p->Y, r->X);    // s1 = y1 * t0
+    field_mul(r->Y, p->Z, z1z1
