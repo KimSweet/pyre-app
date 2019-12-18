@@ -350,4 +350,10 @@ void group_add(Group *r, const Group *p, const Group *q)
         return;
     }
 
-    if (field_eq(p->X, q->X) && field_eq(p->Y, q->Y)
+    if (field_eq(p->X, q->X) && field_eq(p->Y, q->Y) && field_eq(p->Z, q->Z)) {
+        return group_dbl(r, p);
+    }
+
+    Field z1z1, z2z2;
+    field_sq(z1z1, p->Z);         // Z1Z1 = Z1^2
+    field_
