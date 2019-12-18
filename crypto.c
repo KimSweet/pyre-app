@@ -356,4 +356,8 @@ void group_add(Group *r, const Group *p, const Group *q)
 
     Field z1z1, z2z2;
     field_sq(z1z1, p->Z);         // Z1Z1 = Z1^2
-    field_
+    field_sq(z2z2, q->Z);         // Z2Z2 = Z2^2
+
+    Field u1, u2, s1, s2;
+    field_mul(u1, p->X, z2z2);    // u1 = x1 * z2z2
+    field
