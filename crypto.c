@@ -378,4 +378,8 @@ void group_add(Group *r, const Group *p, const Group *q)
     // X3 = w^2 - j - 2*v
     field_sq(r->X, w);            // t4 = w^2
     field_add(r->Y, v, v);        // t5 = 2 * v
-    field_sub(r->Z, r->X, j);  
+    field_sub(r->Z, r->X, j);     // t6 = t4 - j
+    field_sub(r->X, r->Z, r->Y);  // t6 - t5
+
+    // Y3 = w * (v - X3) - 2*s1*j
+    field_sub(r->Y, v, r->X);     // t7 = v - 
