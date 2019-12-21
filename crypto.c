@@ -382,4 +382,7 @@ void group_add(Group *r, const Group *p, const Group *q)
     field_sub(r->X, r->Z, r->Y);  // t6 - t5
 
     // Y3 = w * (v - X3) - 2*s1*j
-    field_sub(r->Y, v, r->X);     // t7 = v - 
+    field_sub(r->Y, v, r->X);     // t7 = v - X3
+    field_mul(r->Z, s1, j);       // t8 = s1 * j
+    field_add(s1, r->Z, r->Z);    // t9 = 2 * t8
+    field_mul(r->Z, w, r->Y);     // t10 = w * t7
