@@ -373,4 +373,9 @@ void group_add(Group *r, const Group *p, const Group *q)
     field_mul(j, h, i);           // j = h * i
     field_sub(r->X, s2, s1);      // t3 = s2 - s1
     field_add(w, r->X, r->X);     // w = 2 * t3
-    field_mul(v, u1, i);          // v = u1 * 
+    field_mul(v, u1, i);          // v = u1 * i
+
+    // X3 = w^2 - j - 2*v
+    field_sq(r->X, w);            // t4 = w^2
+    field_add(r->Y, v, v);        // t5 = 2 * v
+    field_sub(r->Z, r->X, j);  
