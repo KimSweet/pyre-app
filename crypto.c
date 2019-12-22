@@ -398,4 +398,12 @@ void group_add(Group *r, const Group *p, const Group *q)
 
 // https://www.hyperelliptic.org/EFD/g1p/auto-code/shortw/jacobian-0/addition/madd-2007-bl.op3
 // for p = (X1, Y1, Z1), q = (X2, Y2, Z2); assumes Z2 = 1
-// cost 7M + 4S + 9a
+// cost 7M + 4S + 9add + 3*2 + 1*4 ?
+void group_madd(Group *r, const Group *p, const Group *q)
+{
+    if (is_zero(p)) {
+        *r = *q;
+        return;
+    }
+    if (is_zero(q)) {
+      
