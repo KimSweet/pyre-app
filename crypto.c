@@ -396,4 +396,6 @@ void group_add(Group *r, const Group *p, const Group *q)
     field_mul(r->Z, j, h);        // ((z1 + z2)^2 - z1z1 - z2z2) * h
 }
 
-// https://
+// https://www.hyperelliptic.org/EFD/g1p/auto-code/shortw/jacobian-0/addition/madd-2007-bl.op3
+// for p = (X1, Y1, Z1), q = (X2, Y2, Z2); assumes Z2 = 1
+// cost 7M + 4S + 9a
