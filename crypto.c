@@ -392,4 +392,8 @@ void group_add(Group *r, const Group *p, const Group *q)
     field_add(r->Z, p->Z, q->Z);  // t11 = z1 + z2
     field_sq(s1, r->Z);           // t12 = (z1 + z2)^2
     field_sub(r->Z, s1, z1z1);    // t13 = (z1 + z2)^2 - z1z1
-    field_sub(j, r->Z,
+    field_sub(j, r->Z, z2z2);     // t14 = (z1 + z2)^2 - z1z1 - z2z2
+    field_mul(r->Z, j, h);        // ((z1 + z2)^2 - z1z1 - z2z2) * h
+}
+
+// https://
