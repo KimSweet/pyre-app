@@ -419,4 +419,8 @@ void group_madd(Group *r, const Group *p, const Group *q)
     field_mul(s2, q->Y, r->X);       // s2 = Y2 * t0
 
     Field h, hh;
-    field
+    field_sub(h, u2, p->X);          // h = u2 - X1
+    field_sq(hh, h);                 // hh = h^2
+
+    Field j, w, v;
+    field_mul(r->X, FIELD_FOUR, hh); // i =
