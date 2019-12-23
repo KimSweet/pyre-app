@@ -412,4 +412,11 @@ void group_madd(Group *r, const Group *p, const Group *q)
 
     Field z1z1, u2;
     field_sq(z1z1, p->Z);            // z1z1 = Z1^2
-    field_mul(u2, q->X, z1z1);       // u2 = X2 *
+    field_mul(u2, q->X, z1z1);       // u2 = X2 * z1z1
+
+    Field s2;
+    field_mul(r->X, p->Z, z1z1);     // t0 = Z1 * z1z1
+    field_mul(s2, q->Y, r->X);       // s2 = Y2 * t0
+
+    Field h, hh;
+    field
