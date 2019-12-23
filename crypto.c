@@ -423,4 +423,7 @@ void group_madd(Group *r, const Group *p, const Group *q)
     field_sq(hh, h);                 // hh = h^2
 
     Field j, w, v;
-    field_mul(r->X, FIELD_FOUR, hh); // i =
+    field_mul(r->X, FIELD_FOUR, hh); // i = 4 * hh
+    field_mul(j, h, r->X);           // j = h * i
+    field_sub(r->Y, s2, p->Y);       // t1 = s2 - Y1
+    field_add(w, r->Y, r->Y)
