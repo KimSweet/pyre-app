@@ -406,4 +406,10 @@ void group_madd(Group *r, const Group *p, const Group *q)
         return;
     }
     if (is_zero(q)) {
-      
+        *r = *p;
+        return;
+    }
+
+    Field z1z1, u2;
+    field_sq(z1z1, p->Z);            // z1z1 = Z1^2
+    field_mul(u2, q->X, z1z1);       // u2 = X2 *
