@@ -446,4 +446,13 @@ void group_madd(Group *r, const Group *p, const Group *q)
     field_add(w, p->Z, h);           // t9 = Z1 + h
     field_sq(v, w);                  // t10 = t9^2
     field_sub(w, v, z1z1);           // t11 = t10 - z1z1
-    field_sub(r->Z, w, hh);          // (Z1 + h)^2 - Z1Z1 - hh = t11 - h
+    field_sub(r->Z, w, hh);          // (Z1 + h)^2 - Z1Z1 - hh = t11 - hh
+}
+
+void group_scalar_mul(Group *r, const Scalar k, const Group *p)
+{
+    *r = GROUP_ZERO;
+    if (is_zero(p)) {
+        return;
+    }
+    if (scalar_eq
