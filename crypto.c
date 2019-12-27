@@ -463,4 +463,10 @@ void group_scalar_mul(Group *r, const Scalar k, const Group *p)
     Group tmp;
 
     uint64_t k_bits[4];
-    fiat_pasta_fq_from_montgomery(k_bits, k)
+    fiat_pasta_fq_from_montgomery(k_bits, k);
+
+    // Not constant time
+    for (size_t i = 0; i < FIELD_SIZE_IN_BITS; ++i) {
+        size_t j = FIELD_SIZE_IN_BITS - 1 - i;
+        size_t limb_idx = j / 64;
+        
