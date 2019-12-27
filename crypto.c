@@ -469,4 +469,10 @@ void group_scalar_mul(Group *r, const Scalar k, const Group *p)
     for (size_t i = 0; i < FIELD_SIZE_IN_BITS; ++i) {
         size_t j = FIELD_SIZE_IN_BITS - 1 - i;
         size_t limb_idx = j / 64;
-        
+        size_t in_limb_idx = (j % 64);
+        bool di = (k_bits[limb_idx] >> in_limb_idx) & 1;
+
+        group_dbl(&tmp, r);
+
+        if (di) {
+      
