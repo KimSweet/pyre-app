@@ -455,4 +455,12 @@ void group_scalar_mul(Group *r, const Scalar k, const Group *p)
     if (is_zero(p)) {
         return;
     }
-    if (scalar_eq
+    if (scalar_eq(k, SCALAR_ZERO)) {
+        return;
+    }
+
+    // Group r1 = *p;
+    Group tmp;
+
+    uint64_t k_bits[4];
+    fiat_pasta_fq_from_montgomery(k_bits, k)
