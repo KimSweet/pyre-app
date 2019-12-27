@@ -475,4 +475,8 @@ void group_scalar_mul(Group *r, const Scalar k, const Group *p)
         group_dbl(&tmp, r);
 
         if (di) {
-      
+          group_add(r, &tmp, p);
+        } else {
+          field_copy(r->X, tmp.X);
+          field_copy(r->Y, tmp.Y);
+          field_copy(r-
