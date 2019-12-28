@@ -479,4 +479,13 @@ void group_scalar_mul(Group *r, const Scalar k, const Group *p)
         } else {
           field_copy(r->X, tmp.X);
           field_copy(r->Y, tmp.Y);
-          field_copy(r-
+          field_copy(r->Z, tmp.Z);
+        }
+    }
+}
+
+void group_negate(Group *q, const Group *p)
+{
+    field_copy(q->X, p->X);
+    field_negate(q->Y, p->Y);
+    field_
