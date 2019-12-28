@@ -488,4 +488,11 @@ void group_negate(Group *q, const Group *p)
 {
     field_copy(q->X, p->X);
     field_negate(q->Y, p->Y);
-    field_
+    field_copy(q->Z, p->Z);
+}
+
+void affine_scalar_mul(Affine *r, const Scalar k, const Affine *p)
+{
+    Group pp, pr;
+    affine_to_group(&pp, p);
+    group
