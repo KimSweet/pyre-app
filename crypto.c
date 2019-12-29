@@ -501,4 +501,11 @@ void affine_scalar_mul(Affine *r, const Scalar k, const Affine *p)
 
 bool affine_eq(const Affine *p, const Affine *q)
 {
-    return field_eq(p->x, q->x) && field_eq(p->y, 
+    return field_eq(p->x, q->x) && field_eq(p->y, q->y);
+}
+
+void affine_add(Affine *r, const Affine *p, const Affine *q)
+{
+    Group gr, gp, gq;
+    affine_to_group(&gp, p);
+    affine_to_group(&gq, q
