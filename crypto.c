@@ -508,4 +508,11 @@ void affine_add(Affine *r, const Affine *p, const Affine *q)
 {
     Group gr, gp, gq;
     affine_to_group(&gp, p);
-    affine_to_group(&gq, q
+    affine_to_group(&gq, q);
+    group_add(&gr, &gp, &gq);
+    affine_from_group(r, &gr);
+}
+
+void affine_negate(Affine *q, const Affine *p)
+{
+    Group gq, gp
