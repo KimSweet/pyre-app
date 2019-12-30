@@ -529,4 +529,9 @@ bool affine_is_on_curve(const Affine *p)
 }
 
 void roinput_print_fields(const ROInput *input) {
-  for (size_t i = 0; i < 
+  for (size_t i = 0; i < LIMBS_PER_FIELD * input->fields_len; ++i) {
+    printf("fs[%zu] = 0x%" PRIx64 "\n", i, input->fields[i]);
+  }
+}
+
+void roinput_print_bits(const ROInput *in
