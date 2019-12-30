@@ -523,4 +523,10 @@ void affine_negate(Affine *q, const Affine *p)
 
 bool affine_is_on_curve(const Affine *p)
 {
-    
+    Group gp;
+    affine_to_group(&gp, p);
+    return group_is_on_curve(&gp);
+}
+
+void roinput_print_fields(const ROInput *input) {
+  for (size_t i = 0; i < 
