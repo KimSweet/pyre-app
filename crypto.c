@@ -515,4 +515,12 @@ void affine_add(Affine *r, const Affine *p, const Affine *q)
 
 void affine_negate(Affine *q, const Affine *p)
 {
-    Group gq, gp
+    Group gq, gp;
+    affine_to_group(&gp, p);
+    group_negate(&gq, &gp);
+    affine_from_group(q, &gq);
+}
+
+bool affine_is_on_curve(const Affine *p)
+{
+    
