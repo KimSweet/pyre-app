@@ -534,4 +534,10 @@ void roinput_print_fields(const ROInput *input) {
   }
 }
 
-void roinput_print_bits(const ROInput *in
+void roinput_print_bits(const ROInput *input) {
+  for (size_t i = 0; i < input->bits_len; ++i) {
+    printf("bs[%zu] = %u\n", i, packed_bit_array_get(input->bits, i));
+  }
+}
+
+// input for
