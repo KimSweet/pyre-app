@@ -543,4 +543,11 @@ void roinput_print_bits(const ROInput *input) {
 // input for poseidon
 void roinput_add_field(ROInput *input, const Field a) {
   int remaining = (int)input->fields_capacity - (int)input->fields_len;
-  if (remaining < 1
+  if (remaining < 1) {
+    printf("fields at capacity\n");
+    exit(1);
+  }
+
+  size_t offset = LIMBS_PER_FIELD * input->fields_len;
+
+  fiat_pasta_fp_copy(input->fields + offset, a
