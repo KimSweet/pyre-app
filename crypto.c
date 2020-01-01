@@ -556,4 +556,13 @@ void roinput_add_field(ROInput *input, const Field a) {
 }
 
 void roinput_add_bit(ROInput *input, bool b) {
-  int remaining = (int)input->bits_capacity - (int)input->b
+  int remaining = (int)input->bits_capacity - (int)input->bits_len;
+
+  if (remaining < 1) {
+    printf("add_bit: bits at capacity\n");
+    exit(1);
+  }
+
+  size_t offset = input->bits_len;
+
+  packed_
