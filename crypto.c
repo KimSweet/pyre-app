@@ -540,4 +540,7 @@ void roinput_print_bits(const ROInput *input) {
   }
 }
 
-// input for
+// input for poseidon
+void roinput_add_field(ROInput *input, const Field a) {
+  int remaining = (int)input->fields_capacity - (int)input->fields_len;
+  if (remaining < 1
