@@ -550,4 +550,10 @@ void roinput_add_field(ROInput *input, const Field a) {
 
   size_t offset = LIMBS_PER_FIELD * input->fields_len;
 
-  fiat_pasta_fp_copy(input->fields + offset, a
+  fiat_pasta_fp_copy(input->fields + offset, a);
+
+  input->fields_len += 1;
+}
+
+void roinput_add_bit(ROInput *input, bool b) {
+  int remaining = (int)input->bits_capacity - (int)input->b
