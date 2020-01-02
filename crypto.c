@@ -565,4 +565,9 @@ void roinput_add_bit(ROInput *input, bool b) {
 
   size_t offset = input->bits_len;
 
-  packed_
+  packed_bit_array_set(input->bits, offset, b);
+  input->bits_len += 1;
+}
+
+void roinput_add_scalar(ROInput *input, const Scalar a) {
+  int rema
