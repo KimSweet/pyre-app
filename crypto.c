@@ -570,4 +570,8 @@ void roinput_add_bit(ROInput *input, bool b) {
 }
 
 void roinput_add_scalar(ROInput *input, const Scalar a) {
-  int rema
+  int remaining = (int)input->bits_capacity - (int)input->bits_len;
+  const size_t len = FIELD_SIZE_IN_BITS;
+
+  uint64_t scalar_bigint[4];
+  fiat_pasta_fq_from_montgomery(scalar_bigint, a);
