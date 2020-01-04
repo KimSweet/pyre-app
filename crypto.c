@@ -575,3 +575,12 @@ void roinput_add_scalar(ROInput *input, const Scalar a) {
 
   uint64_t scalar_bigint[4];
   fiat_pasta_fq_from_montgomery(scalar_bigint, a);
+
+  if (remaining < len) {
+    printf("add_scalar: bits at capacity\n");
+    exit(1);
+  }
+
+  size_t offset = input->bits_len;
+  for (size_t i = 0; i < len; ++i) {
+    size_t limb
