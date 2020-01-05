@@ -586,4 +586,11 @@ void roinput_add_scalar(ROInput *input, const Scalar a) {
     size_t limb_idx = i / 64;
     size_t in_limb_idx = (i % 64);
     bool b = (scalar_bigint[limb_idx] >> in_limb_idx) & 1;
-    packed_bit_array_set(input->bits
+    packed_bit_array_set(input->bits, offset + i, b);
+  }
+
+  input->bits_len += len;
+}
+
+void roinput_add_bytes(ROInput *input, const uint8_t *bytes, size_t len) {
+  int remaining = (i
