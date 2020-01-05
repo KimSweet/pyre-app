@@ -583,4 +583,7 @@ void roinput_add_scalar(ROInput *input, const Scalar a) {
 
   size_t offset = input->bits_len;
   for (size_t i = 0; i < len; ++i) {
-    size_t limb
+    size_t limb_idx = i / 64;
+    size_t in_limb_idx = (i % 64);
+    bool b = (scalar_bigint[limb_idx] >> in_limb_idx) & 1;
+    packed_bit_array_set(input->bits
