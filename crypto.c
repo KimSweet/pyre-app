@@ -593,4 +593,10 @@ void roinput_add_scalar(ROInput *input, const Scalar a) {
 }
 
 void roinput_add_bytes(ROInput *input, const uint8_t *bytes, size_t len) {
-  int remaining = (i
+  int remaining = (int)input->bits_capacity - (int)input->bits_len;
+  if (remaining < 8 * len) {
+    printf("add_bytes: bits at capacity (bytes)\n");
+    exit(1);
+  }
+
+  //
