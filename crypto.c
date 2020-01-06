@@ -599,4 +599,10 @@ void roinput_add_bytes(ROInput *input, const uint8_t *bytes, size_t len) {
     exit(1);
   }
 
-  //
+  // LSB bits
+  size_t k = input->bits_len;
+  for (size_t i = 0; i < len; ++i) {
+    const uint8_t b = bytes[i];
+
+    for (size_t j = 0; j < 8; ++j) {
+      pa
