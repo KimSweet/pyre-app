@@ -605,4 +605,12 @@ void roinput_add_bytes(ROInput *input, const uint8_t *bytes, size_t len) {
     const uint8_t b = bytes[i];
 
     for (size_t j = 0; j < 8; ++j) {
-      pa
+      packed_bit_array_set(input->bits, k, (b >> j) & 1);
+      ++k;
+    }
+  }
+
+  input->bits_len += 8 * len;
+}
+
+void roinput_add_uint32(ROInput *input, cons
