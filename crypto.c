@@ -632,4 +632,12 @@ void roinput_add_uint64(ROInput *input, const uint64_t x) {
     le[i] = (uint8_t) (0xff & (x >> (8 * i)));
   }
 
-  roinput_add_bytes(
+  roinput_add_bytes(input, le, NUM_BYTES);
+}
+
+void roinput_to_bytes(uint8_t *out, const ROInput *input) {
+  size_t bit_idx = 0;
+
+  Field tmp;
+
+  // first the field elements, then the 
