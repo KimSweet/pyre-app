@@ -625,4 +625,11 @@ void roinput_add_uint32(ROInput *input, const uint32_t x) {
 }
 
 void roinput_add_uint64(ROInput *input, const uint64_t x) {
-  const size_t NUM_BYTES
+  const size_t NUM_BYTES = 8;
+  uint8_t le[NUM_BYTES];
+
+  for (size_t i = 0; i < NUM_BYTES; ++i) {
+    le[i] = (uint8_t) (0xff & (x >> (8 * i)));
+  }
+
+  roinput_add_bytes(
