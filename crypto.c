@@ -640,4 +640,8 @@ void roinput_to_bytes(uint8_t *out, const ROInput *input) {
 
   Field tmp;
 
-  // first the field elements, then the 
+  // first the field elements, then the bitstrings
+  for (size_t i = 0; i < input->fields_len; ++i) {
+    fiat_pasta_fp_from_montgomery(tmp, input->fields + (i * LIMBS_PER_FIELD));
+
+    for (size_t j
