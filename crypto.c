@@ -644,4 +644,9 @@ void roinput_to_bytes(uint8_t *out, const ROInput *input) {
   for (size_t i = 0; i < input->fields_len; ++i) {
     fiat_pasta_fp_from_montgomery(tmp, input->fields + (i * LIMBS_PER_FIELD));
 
-    for (size_t j
+    for (size_t j = 0; j < FIELD_SIZE_IN_BITS; ++j) {
+      size_t limb_idx = j / 64;
+      size_t in_limb_idx = (j % 64);
+      bool b = (tmp[limb_idx] >> in_limb_idx) & 1;
+
+      pa
