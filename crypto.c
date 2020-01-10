@@ -658,4 +658,10 @@ void roinput_to_bytes(uint8_t *out, const ROInput *input) {
   }
 
   for (size_t i = 0; i < input->bits_len; ++i) {
-    packed_bit_array_set(
+    packed_bit_array_set(out, bit_idx, packed_bit_array_get(input->bits, i));
+    bit_idx += 1;
+  }
+}
+
+size_t roinput_to_fields(uint64_t *out, const ROInput *input) {
+  siz
