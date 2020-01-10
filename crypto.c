@@ -649,4 +649,13 @@ void roinput_to_bytes(uint8_t *out, const ROInput *input) {
       size_t in_limb_idx = (j % 64);
       bool b = (tmp[limb_idx] >> in_limb_idx) & 1;
 
-      pa
+      packed_bit_array_set(
+          out
+          , bit_idx
+          , b);
+      bit_idx += 1;
+    }
+  }
+
+  for (size_t i = 0; i < input->bits_len; ++i) {
+    packed_bit_array_set(
