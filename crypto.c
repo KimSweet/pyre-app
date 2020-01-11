@@ -664,4 +664,9 @@ void roinput_to_bytes(uint8_t *out, const ROInput *input) {
 }
 
 size_t roinput_to_fields(uint64_t *out, const ROInput *input) {
-  siz
+  size_t output_len = 0;
+
+  // Copy over the field elements
+  for (size_t i = 0; i < input->fields_len; ++i) {
+    size_t offset = i * LIMBS_PER_FIELD;
+    
