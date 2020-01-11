@@ -675,4 +675,7 @@ size_t roinput_to_fields(uint64_t *out, const ROInput *input) {
 
   size_t bits_consumed = 0;
 
-  // pac
+  // pack in the bits
+  uint64_t* next_chunk = out + input->fields_len * LIMBS_PER_FIELD;
+  const size_t MAX_CHUNK_SIZE = FIELD_SIZE_IN_BITS - 1;
+  wh
