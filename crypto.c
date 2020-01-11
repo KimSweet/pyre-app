@@ -669,4 +669,10 @@ size_t roinput_to_fields(uint64_t *out, const ROInput *input) {
   // Copy over the field elements
   for (size_t i = 0; i < input->fields_len; ++i) {
     size_t offset = i * LIMBS_PER_FIELD;
-    
+    fiat_pasta_fp_copy(out + offset, input->fields + offset);
+  }
+  output_len += input->fields_len;
+
+  size_t bits_consumed = 0;
+
+  // pac
