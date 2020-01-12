@@ -682,4 +682,6 @@ size_t roinput_to_fields(uint64_t *out, const ROInput *input) {
     uint64_t chunk_non_montgomery[4] = { 0, 0, 0, 0 };
 
     size_t remaining = input->bits_len - bits_consumed;
-    siz
+    size_t chunk_size_in_bits = remaining >= MAX_CHUNK_SIZE ? MAX_CHUNK_SIZE : remaining;
+
+    for (size_t i = 0; i < chunk_size_in_b
