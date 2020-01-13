@@ -691,4 +691,8 @@ size_t roinput_to_fields(uint64_t *out, const ROInput *input) {
 
       chunk_non_montgomery[limb_idx] =  chunk_non_montgomery[limb_idx] | (((uint64_t) b) << in_limb_idx);
     }
-    fiat_pasta_fp_to_
+    fiat_pasta_fp_to_montgomery(next_chunk, chunk_non_montgomery);
+
+    output_len += 1;
+    bits_consumed += chunk_size_in_bits;
+    next_chunk += LIMBS_P
