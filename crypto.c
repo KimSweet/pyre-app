@@ -695,4 +695,16 @@ size_t roinput_to_fields(uint64_t *out, const ROInput *input) {
 
     output_len += 1;
     bits_consumed += chunk_size_in_bits;
-    next_chunk += LIMBS_P
+    next_chunk += LIMBS_PER_FIELD;
+  }
+
+  return output_len;
+}
+
+void generate_keypair(Keypair *keypair, uint32_t account)
+{
+    if (!keypair) {
+        THROW(INVALID_PARAMETER);
+    }
+
+    
