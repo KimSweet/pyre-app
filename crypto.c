@@ -707,4 +707,7 @@ void generate_keypair(Keypair *keypair, uint32_t account)
         THROW(INVALID_PARAMETER);
     }
 
-    
+    uint64_t priv_non_montgomery[4] = { 0, 0, 0, 0 };
+    FILE* fr = fopen("/dev/urandom", "r");
+    if (!fr) perror("urandom"), exit(EXIT_FAILURE);
+    fread((void*
