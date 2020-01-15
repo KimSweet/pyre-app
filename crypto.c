@@ -722,4 +722,8 @@ void generate_keypair(Keypair *keypair, uint32_t account)
     //
     // Due to constraints, this implementation take a different
     // approach and just unsets the top two bits of the 256bit bip44
-    // s
+    // secret, so
+    //
+    //     max = 28948022309329048855892746252171976963317496166410141009864396001978282409983.
+    //
+    // If p < max 
