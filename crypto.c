@@ -718,4 +718,8 @@ void generate_keypair(Keypair *keypair, uint32_t account)
     // Note: Mina does rejection sampling to obtain a private key in
     // [0, p), where the field modulus
     //
-    //     p = 2894802230932904885589274625217197696336305648194156071595467676434
+    //     p = 28948022309329048855892746252171976963363056481941560715954676764349967630337
+    //
+    // Due to constraints, this implementation take a different
+    // approach and just unsets the top two bits of the 256bit bip44
+    // s
