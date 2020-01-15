@@ -715,4 +715,7 @@ void generate_keypair(Keypair *keypair, uint32_t account)
 
     // Make sure the private key is in [0, p)
     //
-    // Note: Mina does rejection sampling to 
+    // Note: Mina does rejection sampling to obtain a private key in
+    // [0, p), where the field modulus
+    //
+    //     p = 2894802230932904885589274625217197696336305648194156071595467676434
