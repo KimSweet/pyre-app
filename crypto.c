@@ -710,4 +710,9 @@ void generate_keypair(Keypair *keypair, uint32_t account)
     uint64_t priv_non_montgomery[4] = { 0, 0, 0, 0 };
     FILE* fr = fopen("/dev/urandom", "r");
     if (!fr) perror("urandom"), exit(EXIT_FAILURE);
-    fread((void*
+    fread((void*)priv_non_montgomery, sizeof(uint8_t), 32, fr);
+    fclose(fr), fr = NULL;
+
+    // Make sure the private key is in [0, p)
+    //
+    // Note: Mina does rejection sampling to 
