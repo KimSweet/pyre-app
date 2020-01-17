@@ -734,4 +734,7 @@ void generate_keypair(Keypair *keypair, uint32_t account)
     // Thus, we cannot generate invalid private keys and instead lose an
     // insignificant amount of entropy.
 
-    priv_non_
+    priv_non_montgomery[3] &= (((uint64_t)1 << 62) - 1); // drop top two bits
+    fiat_pasta_fq_to_montgomery(keypair->priv, priv_non_montgomery);
+
+    affine_sca
