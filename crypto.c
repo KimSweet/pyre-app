@@ -729,4 +729,9 @@ void generate_keypair(Keypair *keypair, uint32_t account)
     // If p < max then we could still generate invalid private keys
     // (although it's highly unlikely), but
     //
-    //     p - max = 455603155314197060
+    //     p - max = 45560315531419706090280762371685220354
+    //
+    // Thus, we cannot generate invalid private keys and instead lose an
+    // insignificant amount of entropy.
+
+    priv_non_
