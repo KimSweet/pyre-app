@@ -751,4 +751,11 @@ bool generate_address(char *address, const size_t len, const Affine *pub_key)
 {
     address[0] = '\0';
 
-    assert (len =
+    assert (len == MINA_ADDRESS_LEN);
+    if (len != MINA_ADDRESS_LEN) {
+        return false;
+    }
+
+    struct bytes {
+        uint8_t version;
+        uint8_t
