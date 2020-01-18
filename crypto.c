@@ -737,4 +737,11 @@ void generate_keypair(Keypair *keypair, uint32_t account)
     priv_non_montgomery[3] &= (((uint64_t)1 << 62) - 1); // drop top two bits
     fiat_pasta_fq_to_montgomery(keypair->priv, priv_non_montgomery);
 
-    affine_sca
+    affine_scalar_mul(&keypair->pub, keypair->priv, &AFFINE_ONE);
+
+    return;
+}
+
+void generate_pubkey(Affine *pub_key, const Scalar priv_key)
+{
+    affine_scalar
