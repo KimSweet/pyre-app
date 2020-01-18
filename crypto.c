@@ -744,4 +744,11 @@ void generate_keypair(Keypair *keypair, uint32_t account)
 
 void generate_pubkey(Affine *pub_key, const Scalar priv_key)
 {
-    affine_scalar
+    affine_scalar_mul(pub_key, priv_key, &AFFINE_ONE);
+}
+
+bool generate_address(char *address, const size_t len, const Affine *pub_key)
+{
+    address[0] = '\0';
+
+    assert (len =
