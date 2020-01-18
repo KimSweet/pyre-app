@@ -758,4 +758,9 @@ bool generate_address(char *address, const size_t len, const Affine *pub_key)
 
     struct bytes {
         uint8_t version;
-        uint8_t
+        uint8_t payload[35];
+        uint8_t checksum[4];
+    } raw;
+
+    raw.version    = 0xcb; // version for base58 check
+    raw.payload[0] = 0x01; 
