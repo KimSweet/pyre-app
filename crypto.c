@@ -763,4 +763,8 @@ bool generate_address(char *address, const size_t len, const Affine *pub_key)
     } raw;
 
     raw.version    = 0xcb; // version for base58 check
-    raw.payload[0] = 0x01; 
+    raw.payload[0] = 0x01; // non_zero_curve_point version
+    raw.payload[1] = 0x01; // compressed_poly version
+
+    // x-coordinate
+    fiat_pasta_fp_from_montgomery((uint64_t *)&raw.payload[
