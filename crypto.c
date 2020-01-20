@@ -773,4 +773,9 @@ bool generate_address(char *address, const size_t len, const Affine *pub_key)
     raw.payload[34] = field_is_odd(pub_key->y);
 
     uint8_t hash1[SHA256_BLOCK_SIZE];
-    sha256_ha
+    sha256_hash(&raw, 36, hash1, sizeof(hash1));
+
+    uint8_t hash2[SHA256_BLOCK_SIZE];
+    sha256_hash(hash1, sizeof(hash1), hash2, sizeof(hash2));
+
+   
