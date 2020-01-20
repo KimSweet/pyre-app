@@ -767,4 +767,10 @@ bool generate_address(char *address, const size_t len, const Affine *pub_key)
     raw.payload[1] = 0x01; // compressed_poly version
 
     // x-coordinate
-    fiat_pasta_fp_from_montgomery((uint64_t *)&raw.payload[
+    fiat_pasta_fp_from_montgomery((uint64_t *)&raw.payload[2], pub_key->x);
+
+    // y-coordinate parity
+    raw.payload[34] = field_is_odd(pub_key->y);
+
+    uint8_t hash1[SHA256_BLOCK_SIZE];
+    sha256_ha
