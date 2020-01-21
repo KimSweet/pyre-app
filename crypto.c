@@ -778,4 +778,9 @@ bool generate_address(char *address, const size_t len, const Affine *pub_key)
     uint8_t hash2[SHA256_BLOCK_SIZE];
     sha256_hash(hash1, sizeof(hash1), hash2, sizeof(hash2));
 
-   
+    memcpy(raw.checksum, hash2, 4);
+
+    // Encode as address
+    size_t out_len = len;
+    bool result = b58enc(address, &out_len, &raw, sizeof(raw));
+    address[M
