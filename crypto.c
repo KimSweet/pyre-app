@@ -783,4 +783,12 @@ bool generate_address(char *address, const size_t len, const Affine *pub_key)
     // Encode as address
     size_t out_len = len;
     bool result = b58enc(address, &out_len, &raw, sizeof(raw));
-    address[M
+    address[MINA_ADDRESS_LEN - 1] = '\0';
+    assert(out_len == len);
+    if (out_len != len) {
+        return false;
+    }
+    return result;
+}
+
+voi
