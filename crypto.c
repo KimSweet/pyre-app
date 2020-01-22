@@ -791,4 +791,7 @@ bool generate_address(char *address, const size_t len, const Affine *pub_key)
     return result;
 }
 
-voi
+void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t network_id)
+{
+    ROInput input;
+    uint64_t input_fields[LIMBS_PER_FI
