@@ -796,4 +796,8 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
     ROInput input;
     uint64_t input_fields[LIMBS_PER_FIELD * (msg->fields_capacity + 2)];
     uint8_t input_bits[msg->bits_capacity/8 + SCALAR_BYTES + 1];
-    size_t bits_capacity = 8 * sizeof(
+    size_t bits_capacity = 8 * sizeof(input_bits);
+    uint8_t input_bytes[sizeof(input_fields) + sizeof(input_bits)];
+    bzero(input_bytes, sizeof(input_bytes));
+
+    input.fields = inp
