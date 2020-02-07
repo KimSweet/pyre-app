@@ -800,4 +800,8 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
     uint8_t input_bytes[sizeof(input_fields) + sizeof(input_bits)];
     bzero(input_bytes, sizeof(input_bytes));
 
-    input.fields = inp
+    input.fields = input_fields;
+    input.bits = input_bits;
+
+    for (size_t i = 0; i < msg->fields_len * LIMBS_PER_FIELD; ++i) {
+      input.fields[
