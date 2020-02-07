@@ -809,4 +809,9 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
     memcpy(input.bits, msg->bits, sizeof(uint8_t) * ((msg->bits_len + 7) / 8));
 
     input.fields_len = msg->fields_len;
-    input.bits_len = m
+    input.bits_len = msg->bits_len;
+    input.fields_capacity = 5;
+    input.bits_capacity = bits_capacity;
+
+    roinput_add_field(&input, kp->pub.x);
+    roinput_ad
