@@ -820,4 +820,8 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
 
     size_t input_size_in_bits = input.bits_len + FIELD_SIZE_IN_BITS * input.fields_len;
     size_t input_size_in_bytes = (input_size_in_bits + 7) / 8;
-    assert(input_size
+    assert(input_size_in_bytes <= sizeof(input_bytes));
+    roinput_to_bytes(input_bytes, &input);
+
+    uint8_t hash_out[32];
+    blake2b(hash_out, 32, input_b
