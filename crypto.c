@@ -818,4 +818,6 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
     roinput_add_scalar(&input, kp->priv);
     roinput_add_bytes(&input, &network_id, 1);
 
-    size_t input_size_in_bi
+    size_t input_size_in_bits = input.bits_len + FIELD_SIZE_IN_BITS * input.fields_len;
+    size_t input_size_in_bytes = (input_size_in_bits + 7) / 8;
+    assert(input_size
