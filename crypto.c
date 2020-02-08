@@ -814,4 +814,8 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
     input.bits_capacity = bits_capacity;
 
     roinput_add_field(&input, kp->pub.x);
-    roinput_ad
+    roinput_add_field(&input, kp->pub.y);
+    roinput_add_scalar(&input, kp->priv);
+    roinput_add_bytes(&input, &network_id, 1);
+
+    size_t input_size_in_bi
