@@ -824,4 +824,8 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
     roinput_to_bytes(input_bytes, &input);
 
     uint8_t hash_out[32];
-    blake2b(hash_out, 32, input_b
+    blake2b(hash_out, 32, input_bytes, input_size_in_bytes, NULL, 0);
+
+    // take 254 bits / drop the top 2 bits
+    packed_bit_array_set(hash_out, 255, 0);
+    packed_bit_array_set(hash_out, 254, 
