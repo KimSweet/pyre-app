@@ -834,4 +834,10 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
     for (size_t i = 0; i < 4; ++i) {
       // 8 bytes
       for (size_t j = 0; j < 8; ++j) {
-        tmp[i] |= ((u
+        tmp[i] |= ((uint64_t) hash_out[8*i + j]) << (8 * j);
+      }
+    }
+    fiat_pasta_fq_to_montgomery(out, tmp);
+}
+
+void message_hash(Scalar out, const Affine *pub, const Field r
