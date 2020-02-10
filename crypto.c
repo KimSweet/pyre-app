@@ -828,4 +828,10 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
 
     // take 254 bits / drop the top 2 bits
     packed_bit_array_set(hash_out, 255, 0);
-    packed_bit_array_set(hash_out, 254, 
+    packed_bit_array_set(hash_out, 254, 0);
+
+    uint64_t tmp[4] = { 0, 0, 0, 0 };
+    for (size_t i = 0; i < 4; ++i) {
+      // 8 bytes
+      for (size_t j = 0; j < 8; ++j) {
+        tmp[i] |= ((u
