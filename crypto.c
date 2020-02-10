@@ -840,4 +840,8 @@ void message_derive(Scalar out, const Keypair *kp, const ROInput *msg, uint8_t n
     fiat_pasta_fq_to_montgomery(out, tmp);
 }
 
-void message_hash(Scalar out, const Affine *pub, const Field r
+void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *msg, const uint8_t hash_type, const uint8_t network_id)
+{
+    ROInput input;
+
+    uint64_t input_fields[LIMBS_PER_FIELD * (msg->fie
