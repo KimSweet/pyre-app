@@ -844,4 +844,8 @@ void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *
 {
     ROInput input;
 
-    uint64_t input_fields[LIMBS_PER_FIELD * (msg->fie
+    uint64_t input_fields[LIMBS_PER_FIELD * (msg->fields_capacity + 3)];
+    uint8_t input_bits[msg->bits_capacity/8];
+
+    input.fields_capacity = msg->fields_capacity + 3;
+    input.bits_capa
