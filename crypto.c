@@ -853,4 +853,8 @@ void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *
 
     input.fields = input_fields;
     input.bits = input_bits;
-    inpu
+    input.fields_len = msg->fields_len;
+    input.bits_len = msg->bits_len;
+
+    memcpy(input.fields, msg->fields, sizeof(uint64_t) * LIMBS_PER_FIELD * msg->fields_len);
+    memcp
