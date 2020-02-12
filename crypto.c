@@ -848,4 +848,9 @@ void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *
     uint8_t input_bits[msg->bits_capacity/8];
 
     input.fields_capacity = msg->fields_capacity + 3;
-    input.bits_capa
+    input.bits_capacity = 8 * sizeof(input_bits);
+    assert(msg->bits_len <= input.bits_capacity);
+
+    input.fields = input_fields;
+    input.bits = input_bits;
+    inpu
