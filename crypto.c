@@ -857,4 +857,8 @@ void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *
     input.bits_len = msg->bits_len;
 
     memcpy(input.fields, msg->fields, sizeof(uint64_t) * LIMBS_PER_FIELD * msg->fields_len);
-    memcp
+    memcpy(input.bits, msg->bits, sizeof(uint8_t) * ((msg->bits_len + 7) / 8));
+
+    roinput_add_field(&input, pub->x);
+    roinput_add_field(&input, pub->y);
+    
