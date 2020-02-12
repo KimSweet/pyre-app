@@ -861,4 +861,10 @@ void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *
 
     roinput_add_field(&input, pub->x);
     roinput_add_field(&input, pub->y);
-    
+    roinput_add_field(&input, rx);
+
+    // Initial sponge state
+    PoseidonCtx ctx;
+    poseidon_init(&ctx, hash_type, network_id);
+
+    F
