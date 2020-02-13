@@ -871,4 +871,8 @@ void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *
     size_t packed_elements_len = roinput_to_fields((uint64_t *)packed_elements, &input);
     assert(packed_elements_len == sizeof(packed_elements)/FIELD_BYTES);
 
-    poseidon_update(&ctx, (Field *)packed_elemen
+    poseidon_update(&ctx, (Field *)packed_elements, packed_elements_len);
+    poseidon_digest(out, &ctx);
+}
+
+#define FULL_BITS_LEN (FEE_BITS + TOKEN_ID_BITS + 1 + NONCE_BITS + GLOBAL_SLOT_BI
