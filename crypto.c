@@ -868,4 +868,7 @@ void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *
     poseidon_init(&ctx, hash_type, network_id);
 
     Field packed_elements[input.fields_len + (size_t)ceil((float)input.bits_len/(FIELD_SIZE_IN_BITS - 1))];
-    size_t packed_elements_len = roinput_to_f
+    size_t packed_elements_len = roinput_to_fields((uint64_t *)packed_elements, &input);
+    assert(packed_elements_len == sizeof(packed_elements)/FIELD_BYTES);
+
+    poseidon_update(&ctx, (Field *)packed_elemen
