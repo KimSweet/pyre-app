@@ -878,4 +878,10 @@ void message_hash(Scalar out, const Affine *pub, const Field rx, const ROInput *
 #define FULL_BITS_LEN (FEE_BITS + TOKEN_ID_BITS + 1 + NONCE_BITS + GLOBAL_SLOT_BITS + MEMO_BITS + TAG_BITS + 1 + 1 + TOKEN_ID_BITS + AMOUNT_BITS + 1)
 #define FULL_BITS_BYTES ((FULL_BITS_LEN + 7) / 8)
 
-void compress(Compress
+void compress(Compressed *compressed, const Affine *pt) {
+  fiat_pasta_fp_copy(compressed->x, pt->x);
+
+  Field y_bigint;
+  fiat_pasta_fp_from_montgomery(y_bigint, pt->y);
+
+  compressed->is_o
