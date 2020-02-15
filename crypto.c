@@ -889,3 +889,10 @@ void compress(Compressed *compressed, const Affine *pt) {
 
 bool decompress(Affine *pt, const Compressed *compressed) {
   fiat_pasta_fp_copy(pt->x, compressed->x);
+
+  Field x2;
+  fiat_pasta_fp_square(x2, pt->x);
+  Field x3;
+  fiat_pasta_fp_mul(x3, x2, pt->x); // x^3
+  Field y2;
+  fiat_pasta_fp_add(y2, x3, GROUP_COEFF_
