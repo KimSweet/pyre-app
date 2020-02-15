@@ -884,4 +884,8 @@ void compress(Compressed *compressed, const Affine *pt) {
   Field y_bigint;
   fiat_pasta_fp_from_montgomery(y_bigint, pt->y);
 
-  compressed->is_o
+  compressed->is_odd = y_bigint[0] & 1;
+}
+
+bool decompress(Affine *pt, const Compressed *compressed) {
+  fiat_pasta_fp_copy(pt->x, compressed->x);
