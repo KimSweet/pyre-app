@@ -895,4 +895,11 @@ bool decompress(Affine *pt, const Compressed *compressed) {
   Field x3;
   fiat_pasta_fp_mul(x3, x2, pt->x); // x^3
   Field y2;
-  fiat_pasta_fp_add(y2, x3, GROUP_COEFF_
+  fiat_pasta_fp_add(y2, x3, GROUP_COEFF_B);
+
+  Field y_pre;
+  if (!fiat_pasta_fp_sqrt(y_pre, y2)) {
+    return false;
+  }
+  Field y_pre_bigint;
+  fiat_pasta_fp_from_montgomery(y_pre_bigint, 
