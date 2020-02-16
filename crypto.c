@@ -902,4 +902,8 @@ bool decompress(Affine *pt, const Compressed *compressed) {
     return false;
   }
   Field y_pre_bigint;
-  fiat_pasta_fp_from_montgomery(y_pre_bigint, 
+  fiat_pasta_fp_from_montgomery(y_pre_bigint, y_pre);
+
+  const bool y_pre_odd = (y_pre_bigint[0] & 1);
+  if (y_pre_odd == compressed->is_odd) {
+    fiat_pasta_fp_copy(pt->y, y_pre)
