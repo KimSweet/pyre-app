@@ -915,4 +915,8 @@ bool decompress(Affine *pt, const Compressed *compressed) {
 }
 
 void read_public_key_compressed(Compressed *out, const char *pubkeyBase58) {
-  size_
+  size_t pubkeyBytesLen = 40;
+  unsigned char pubkeyBytes[40];
+  b58tobin(pubkeyBytes, &pubkeyBytesLen, pubkeyBase58, 0);
+
+  uint64_t x_coord_non_montgomery[
