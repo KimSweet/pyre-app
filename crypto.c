@@ -906,4 +906,13 @@ bool decompress(Affine *pt, const Compressed *compressed) {
 
   const bool y_pre_odd = (y_pre_bigint[0] & 1);
   if (y_pre_odd == compressed->is_odd) {
-    fiat_pasta_fp_copy(pt->y, y_pre)
+    fiat_pasta_fp_copy(pt->y, y_pre);
+  } else {
+    fiat_pasta_fp_opp(pt->y, y_pre);
+  }
+
+  return true;
+}
+
+void read_public_key_compressed(Compressed *out, const char *pubkeyBase58) {
+  size_
