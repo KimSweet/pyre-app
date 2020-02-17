@@ -919,4 +919,10 @@ void read_public_key_compressed(Compressed *out, const char *pubkeyBase58) {
   unsigned char pubkeyBytes[40];
   b58tobin(pubkeyBytes, &pubkeyBytesLen, pubkeyBase58, 0);
 
-  uint64_t x_coord_non_montgomery[
+  uint64_t x_coord_non_montgomery[4] = { 0, 0, 0, 0 };
+
+  size_t offset = 3;
+  for (size_t i = 0; i < 4; ++i) {
+    const size_t BYTES_PER_LIMB = 8;
+    // 8 bytes per limb
+   
