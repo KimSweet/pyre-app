@@ -925,4 +925,6 @@ void read_public_key_compressed(Compressed *out, const char *pubkeyBase58) {
   for (size_t i = 0; i < 4; ++i) {
     const size_t BYTES_PER_LIMB = 8;
     // 8 bytes per limb
-   
+    for (size_t j = 0; j < BYTES_PER_LIMB; ++j) {
+      size_t k = offset + BYTES_PER_LIMB * i + j;
+      x_coord_non_montgomery[i] |= ( ((uint64_t) pubke
