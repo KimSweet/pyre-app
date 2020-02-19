@@ -939,4 +939,12 @@ void prepare_memo(uint8_t *out, const char *s) {
   size_t len = strlen(s);
   out[0] = 1;
   out[1] = len; // length
-  for (size_t i = 0; i < len; 
+  for (size_t i = 0; i < len; ++i) {
+    out[2 + i] = s[i];
+  }
+  for (size_t i = 2 + len; i < MEMO_BYTES; ++i) {
+    out[i] = 0;
+  }
+}
+
+bool verify(Signature *sig, const Compressed *pub_compressed, co
