@@ -935,4 +935,8 @@ void read_public_key_compressed(Compressed *out, const char *pubkeyBase58) {
   out->is_odd = (bool) pubkeyBytes[offset + 32];
 }
 
-v
+void prepare_memo(uint8_t *out, const char *s) {
+  size_t len = strlen(s);
+  out[0] = 1;
+  out[1] = len; // length
+  for (size_t i = 0; i < len; 
