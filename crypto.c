@@ -927,4 +927,12 @@ void read_public_key_compressed(Compressed *out, const char *pubkeyBase58) {
     // 8 bytes per limb
     for (size_t j = 0; j < BYTES_PER_LIMB; ++j) {
       size_t k = offset + BYTES_PER_LIMB * i + j;
-      x_coord_non_montgomery[i] |= ( ((uint64_t) pubke
+      x_coord_non_montgomery[i] |= ( ((uint64_t) pubkeyBytes[k]) << (8 * j));
+    }
+  }
+
+  fiat_pasta_fp_to_montgomery(out->x, x_coord_non_montgomery);
+  out->is_odd = (bool) pubkeyBytes[offset + 32];
+}
+
+v
