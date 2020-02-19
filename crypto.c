@@ -947,4 +947,8 @@ void prepare_memo(uint8_t *out, const char *s) {
   }
 }
 
-bool verify(Signature *sig, const Compressed *pub_compressed, co
+bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction *transaction, uint8_t network_id)
+{
+    // Convert transaction to ROInput
+    uint64_t input_fields[4 * 3];
+    uint8_t input_bits[FULL_BITS_BY
