@@ -961,4 +961,8 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     input.bits_len = 0;
 
     roinput_add_field(&input, transaction->fee_payer_pk.x);
-    roinput_add
+    roinput_add_field(&input, transaction->source_pk.x);
+    roinput_add_field(&input, transaction->receiver_pk.x);
+
+    roinput_add_uint64(&input, transaction->fee);
+ 
