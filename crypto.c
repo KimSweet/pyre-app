@@ -951,4 +951,9 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
 {
     // Convert transaction to ROInput
     uint64_t input_fields[4 * 3];
-    uint8_t input_bits[FULL_BITS_BY
+    uint8_t input_bits[FULL_BITS_BYTES];
+    ROInput input;
+    input.fields_capacity = 3;
+    input.bits_capacity = 8 * FULL_BITS_BYTES;
+    input.fields = input_fields;
+    input.bits = in
