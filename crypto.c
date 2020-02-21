@@ -968,4 +968,6 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     roinput_add_uint64(&input, transaction->fee_token);
     roinput_add_bit(&input, transaction->fee_payer_pk.is_odd);
     roinput_add_uint32(&input, transaction->nonce);
-    roin
+    roinput_add_uint32(&input, transaction->valid_until);
+    roinput_add_bytes(&input, transaction->memo, MEMO_BYTES);
+    for (size_t i = 0; i < 
