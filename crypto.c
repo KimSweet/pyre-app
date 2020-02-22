@@ -985,4 +985,10 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     }
 
     Scalar e;
-    message
+    message_hash(e, &pub, sig->rx, &input, POSEIDON_LEGACY, network_id);
+
+    Group g;
+    affine_to_group(&g, &AFFINE_ONE);
+
+    Group sg;
+    group_scalar_mul(&sg, si
