@@ -977,4 +977,12 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     roinput_add_bit(&input, transaction->receiver_pk.is_odd);
     roinput_add_uint64(&input, transaction->token_id);
     roinput_add_uint64(&input, transaction->amount);
-    roinput_
+    roinput_add_bit(&input, transaction->token_locked);
+
+    Affine pub;
+    if (!decompress(&pub, pub_compressed)) {
+      return false;
+    }
+
+    Scalar e;
+    message
