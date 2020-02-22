@@ -991,4 +991,12 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     affine_to_group(&g, &AFFINE_ONE);
 
     Group sg;
-    group_scalar_mul(&sg, si
+    group_scalar_mul(&sg, sig->s, &g);
+
+    Group pub_proj;
+    affine_to_group(&pub_proj, &pub);
+    Group epub;
+    group_scalar_mul(&epub, e, &pub_proj);
+
+    Group neg_epub;
+   
