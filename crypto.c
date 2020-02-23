@@ -999,4 +999,9 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     group_scalar_mul(&epub, e, &pub_proj);
 
     Group neg_epub;
-   
+    fiat_pasta_fp_copy(neg_epub.X, epub.X);
+    fiat_pasta_fp_opp(neg_epub.Y, epub.Y);
+    fiat_pasta_fp_copy(neg_epub.Z, epub.Z);
+
+    Group r;
+    group_add(&r, &sg, &neg_epub
