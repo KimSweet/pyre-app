@@ -1004,4 +1004,12 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     fiat_pasta_fp_copy(neg_epub.Z, epub.Z);
 
     Group r;
-    group_add(&r, &sg, &neg_epub
+    group_add(&r, &sg, &neg_epub);
+
+    Affine raff;
+    affine_from_group(&raff, &r);
+
+    Field ry_bigint;
+    fiat_pasta_fp_from_montgomery(ry_bigint, raff.y);
+
+    const bool ry_eve
