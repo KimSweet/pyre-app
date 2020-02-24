@@ -1012,4 +1012,9 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     Field ry_bigint;
     fiat_pasta_fp_from_montgomery(ry_bigint, raff.y);
 
-    const bool ry_eve
+    const bool ry_even = (ry_bigint[0] & 1) == 0;
+
+    return (ry_even && fiat_pasta_fp_equals(raff.x, sig->rx));
+}
+
+void sign(Signature *sig, const Keypair *kp, const Transaction *transacti
