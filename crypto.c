@@ -1017,4 +1017,8 @@ bool verify(Signature *sig, const Compressed *pub_compressed, const Transaction 
     return (ry_even && fiat_pasta_fp_equals(raff.x, sig->rx));
 }
 
-void sign(Signature *sig, const Keypair *kp, const Transaction *transacti
+void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uint8_t network_id)
+{
+    // Convert transaction to ROInput
+    uint64_t input_fields[4 * 3];
+    uint8_t input_bits[FULL_BITS
