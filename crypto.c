@@ -1026,4 +1026,9 @@ void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uin
     input.fields_capacity = 3;
     input.bits_capacity = 8 * FULL_BITS_BYTES;
     input.fields = input_fields;
-    in
+    input.bits = input_bits;
+    input.fields_len = 0;
+    input.bits_len = 0;
+
+    roinput_add_field(&input, transaction->fee_payer_pk.x);
+    roinput_add_
