@@ -1031,4 +1031,8 @@ void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uin
     input.bits_len = 0;
 
     roinput_add_field(&input, transaction->fee_payer_pk.x);
-    roinput_add_
+    roinput_add_field(&input, transaction->source_pk.x);
+    roinput_add_field(&input, transaction->receiver_pk.x);
+
+    roinput_add_uint64(&input, transaction->fee);
+    r
