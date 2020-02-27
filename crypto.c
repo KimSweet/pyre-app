@@ -1044,4 +1044,6 @@ void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uin
       roinput_add_bit(&input, transaction->tag[i]);
     }
     roinput_add_bit(&input, transaction->source_pk.is_odd);
-    roinput_add_bit
+    roinput_add_bit(&input, transaction->receiver_pk.is_odd);
+    roinput_add_uint64(&input, transaction->token_id);
+    roinput_add_uint64(&input, transaction->amount)
