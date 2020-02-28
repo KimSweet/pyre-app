@@ -1053,4 +1053,11 @@ void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uin
     message_derive(k, kp, &input, network_id);
 
     uint64_t k_nonzero;
-    fiat_pa
+    fiat_pasta_fq_nonzero(&k_nonzero, k);
+    if (! k_nonzero) {
+      exit(1);
+    }
+
+    // r = k*g
+    Affine r;
+    affine_scalar_mul(&r, k, &AFF
