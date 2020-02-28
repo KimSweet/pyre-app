@@ -1060,4 +1060,11 @@ void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uin
 
     // r = k*g
     Affine r;
-    affine_scalar_mul(&r, k, &AFF
+    affine_scalar_mul(&r, k, &AFFINE_ONE);
+
+    field_copy(sig->rx, r.x);
+
+    if (field_is_odd(r.y)) {
+        // negate (k = -k)
+        Scalar tmp;
+        fiat_pasta_fq_cop
