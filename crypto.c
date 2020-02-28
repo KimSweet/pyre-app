@@ -1046,4 +1046,11 @@ void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uin
     roinput_add_bit(&input, transaction->source_pk.is_odd);
     roinput_add_bit(&input, transaction->receiver_pk.is_odd);
     roinput_add_uint64(&input, transaction->token_id);
-    roinput_add_uint64(&input, transaction->amount)
+    roinput_add_uint64(&input, transaction->amount);
+    roinput_add_bit(&input, transaction->token_locked);
+
+    Scalar k;
+    message_derive(k, kp, &input, network_id);
+
+    uint64_t k_nonzero;
+    fiat_pa
