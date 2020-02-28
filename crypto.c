@@ -1067,4 +1067,11 @@ void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uin
     if (field_is_odd(r.y)) {
         // negate (k = -k)
         Scalar tmp;
-        fiat_pasta_fq_cop
+        fiat_pasta_fq_copy(tmp, k);
+        scalar_negate(k, tmp);
+    }
+
+    Scalar e;
+    message_hash(e, &kp->pub, r.x, &input, POSEIDON_LEGACY, network_id);
+
+    //
