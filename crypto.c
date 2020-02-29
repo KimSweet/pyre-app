@@ -1074,4 +1074,8 @@ void sign(Signature *sig, const Keypair *kp, const Transaction *transaction, uin
     Scalar e;
     message_hash(e, &kp->pub, r.x, &input, POSEIDON_LEGACY, network_id);
 
-    //
+    // s = k + e*sk
+    Scalar e_priv;
+    scalar_mul(e_priv, e, kp->priv);
+    scalar_add(sig->s, k, e_priv);
+}
