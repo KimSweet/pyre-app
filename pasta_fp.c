@@ -2,4 +2,6 @@
 /* curve description: pasta_fp */
 /* machine_wordsize = 64 (from "64") */
 /* requested operations: (all) */
-/* m = 0x40000000000000000000000000000000224698fc094cf91b992d30ed00000001 
+/* m = 0x40000000000000000000000000000000224698fc094cf91b992d30ed00000001 (from "2^254 + 45560315531419706090280762371685220353") */
+/*                                                                    */
+/* NOTE: In addition t
