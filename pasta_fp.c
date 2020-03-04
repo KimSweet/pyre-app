@@ -12,4 +12,5 @@
 /*   return values.                                                   */
 /*  */
 /* Computed values: */
-/* eval 
+/* eval z = z[0] + (z[1] << 64) + (z[2] << 128) + (z[3] << 192) */
+/* bytes_eval z = z[0] + (z[1] << 8) + (z[2] << 16) + (z[3] << 24) + (z[4] << 32) + (z[5] << 
