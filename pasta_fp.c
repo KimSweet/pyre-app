@@ -24,4 +24,8 @@ typedef unsigned char fiat_pasta_fp_uint1;
 typedef signed char fiat_pasta_fp_int1;
 
 #if (-1 & 3) != 3
-#
+#error "This code only works on a two's complement system"
+#endif
+
+// x^{(p - 1) / 2}
+const bool P_MINUS_1_OVER_2[] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
