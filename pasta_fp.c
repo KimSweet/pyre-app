@@ -41,4 +41,8 @@ const size_t P_MINUS_1_OVER_2_LEN = 254;
  *   arg1: [0x0 ~> 0x1]
  *   arg2: [0x0 ~> 0xffffffffffffffff]
  *   arg3: [0x0 ~> 0xffffffffffffffff]
- * Outpu
+ * Output Bounds:
+ *   out1: [0x0 ~> 0xffffffffffffffff]
+ *   out2: [0x0 ~> 0x1]
+ */
+void fiat_pasta_fp_addcarryx_u64(uint64_t* out1, fiat_pasta_fp_uint1*
