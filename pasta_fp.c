@@ -32,4 +32,7 @@ const bool P_MINUS_1_OVER_2[] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 const size_t P_MINUS_1_OVER_2_LEN = 254;
 
 /*
- * The functi
+ * The function fiat_pasta_fp_addcarryx_u64 is an addition with carry.
+ * Postconditions:
+ *   out1 = (arg1 + arg2 + arg3) mod 2^64
+ *   out2 = ⌊(arg1 +
