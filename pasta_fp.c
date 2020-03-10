@@ -35,4 +35,10 @@ const size_t P_MINUS_1_OVER_2_LEN = 254;
  * The function fiat_pasta_fp_addcarryx_u64 is an addition with carry.
  * Postconditions:
  *   out1 = (arg1 + arg2 + arg3) mod 2^64
- *   out2 = ⌊(arg1 +
+ *   out2 = ⌊(arg1 + arg2 + arg3) / 2^64⌋
+ *
+ * Input Bounds:
+ *   arg1: [0x0 ~> 0x1]
+ *   arg2: [0x0 ~> 0xffffffffffffffff]
+ *   arg3: [0x0 ~> 0xffffffffffffffff]
+ * Outpu
