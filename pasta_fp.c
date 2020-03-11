@@ -45,4 +45,8 @@ const size_t P_MINUS_1_OVER_2_LEN = 254;
  *   out1: [0x0 ~> 0xffffffffffffffff]
  *   out2: [0x0 ~> 0x1]
  */
-void fiat_pasta_fp_addcarryx_u64(uint64_t* out1, fiat_pasta_fp_uint1*
+void fiat_pasta_fp_addcarryx_u64(uint64_t* out1, fiat_pasta_fp_uint1* out2, fiat_pasta_fp_uint1 arg1, uint64_t arg2, uint64_t arg3) {
+  uint64_t tmp = arg3 + arg1;
+  *out1 = arg2 + tmp;
+  *out2 = (arg2 > *out1) | (arg3 > tmp);
+}
