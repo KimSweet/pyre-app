@@ -60,4 +60,9 @@ void fiat_pasta_fp_addcarryx_u64(uint64_t* out1, fiat_pasta_fp_uint1* out2, fiat
  * Input Bounds:
  *   arg1: [0x0 ~> 0x1]
  *   arg2: [0x0 ~> 0xffffffffffffffff]
- *   arg3: [0x0 ~> 0xffffffffffffff
+ *   arg3: [0x0 ~> 0xffffffffffffffff]
+ * Output Bounds:
+ *   out1: [0x0 ~> 0xffffffffffffffff]
+ *   out2: [0x0 ~> 0x1]
+ */
+void fiat_pasta_fp_subborrowx_u64(uint64_t* out1
