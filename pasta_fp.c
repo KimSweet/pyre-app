@@ -68,4 +68,9 @@ void fiat_pasta_fp_addcarryx_u64(uint64_t* out1, fiat_pasta_fp_uint1* out2, fiat
 void fiat_pasta_fp_subborrowx_u64(uint64_t* out1, fiat_pasta_fp_uint1* out2, fiat_pasta_fp_uint1 arg1, uint64_t arg2, uint64_t arg3) {
   uint64_t tmp = arg3 + arg1;
   *out1 = arg2 - tmp;
-  *out2 = (arg2 < *out1) |
+  *out2 = (arg2 < *out1) | (arg3 > tmp);
+}
+
+/*
+ * The function fiat_pasta_fp_mulx_u64 is a multiplication, returning the full double-width result.
+ * Postcon
