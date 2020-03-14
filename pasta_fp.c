@@ -79,4 +79,9 @@ void fiat_pasta_fp_subborrowx_u64(uint64_t* out1, fiat_pasta_fp_uint1* out2, fia
  *
  * Input Bounds:
  *   arg1: [0x0 ~> 0xffffffffffffffff]
- *  
+ *   arg2: [0x0 ~> 0xffffffffffffffff]
+ * Output Bounds:
+ *   out1: [0x0 ~> 0xffffffffffffffff]
+ *   out2: [0x0 ~> 0xffffffffffffffff]
+ */
+void fiat_pasta_fp_mulx_u64(uint
