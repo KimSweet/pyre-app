@@ -92,4 +92,8 @@ void fiat_pasta_fp_mulx_u64(uint64_t* out1, uint64_t* out2, uint64_t a, uint64_t
 
   uint64_t    a_x_b_hi =  a_hi * b_hi;
   uint64_t    a_x_b_mid = a_hi * b_lo;
-  uint64_t    b_x_a_mid = b_hi * a
+  uint64_t    b_x_a_mid = b_hi * a_lo;
+  uint64_t    a_x_b_lo =  a_lo * b_lo;
+
+  uint64_t    carry_bit = ((uint64_t)(uint32_t)a_x_b_mid +
+                          (uint64_t)(uint32_t)b_x_a_mid
