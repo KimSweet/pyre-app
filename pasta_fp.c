@@ -100,4 +100,13 @@ void fiat_pasta_fp_mulx_u64(uint64_t* out1, uint64_t* out2, uint64_t a, uint64_t
                           (a_x_b_lo >> 32) ) >> 32;
 
   uint64_t    multhi = a_x_b_hi +
-                      (a_x_b_mid >> 32) + (b_x_a_mid 
+                      (a_x_b_mid >> 32) + (b_x_a_mid >> 32) +
+                      carry_bit;
+
+  *out2 = multhi;
+  // TODO: This multiplication could be avoided.
+  *out1 = a * b;
+}
+
+/*
+ * The function f
