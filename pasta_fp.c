@@ -109,4 +109,8 @@ void fiat_pasta_fp_mulx_u64(uint64_t* out1, uint64_t* out2, uint64_t a, uint64_t
 }
 
 /*
- * The function f
+ * The function fiat_pasta_fp_cmovznz_u64 is a single-word conditional move.
+ * Postconditions:
+ *   out1 = (if arg1 = 0 then arg2 else arg3)
+ *
+ * Input B
