@@ -123,4 +123,12 @@ void fiat_pasta_fp_mulx_u64(uint64_t* out1, uint64_t* out2, uint64_t a, uint64_t
 void fiat_pasta_fp_cmovznz_u64(uint64_t* out1, fiat_pasta_fp_uint1 arg1, uint64_t arg2, uint64_t arg3) {
   fiat_pasta_fp_uint1 x1;
   uint64_t x2;
-  uint64_t x
+  uint64_t x3;
+  x1 = (!(!arg1));
+  x2 = ((fiat_pasta_fp_int1)(0x0 - x1) & UINT64_C(0xffffffffffffffff));
+  x3 = ((x2 & arg3) | ((~x2) & arg2));
+  *out1 = x3;
+}
+
+/*
+ * The
