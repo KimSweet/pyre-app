@@ -118,4 +118,9 @@ void fiat_pasta_fp_mulx_u64(uint64_t* out1, uint64_t* out2, uint64_t a, uint64_t
  *   arg2: [0x0 ~> 0xffffffffffffffff]
  *   arg3: [0x0 ~> 0xffffffffffffffff]
  * Output Bounds:
- *   out1: [0x0 ~> 0xf
+ *   out1: [0x0 ~> 0xffffffffffffffff]
+ */
+void fiat_pasta_fp_cmovznz_u64(uint64_t* out1, fiat_pasta_fp_uint1 arg1, uint64_t arg2, uint64_t arg3) {
+  fiat_pasta_fp_uint1 x1;
+  uint64_t x2;
+  uint64_t x
