@@ -140,4 +140,5 @@ void fiat_pasta_fp_cmovznz_u64(uint64_t* out1, fiat_pasta_fp_uint1 arg1, uint64_
  *   0 ≤ eval out1 < m
  *
  * Input Bounds:
- *   ar
+ *   arg1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ *   arg2: [[0x0 ~> 0x
