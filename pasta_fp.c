@@ -179,4 +179,10 @@ void fiat_pasta_fp_mul(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   uint64_t x31;
   fiat_pasta_fp_uint1 x32;
   uint64_t x33;
-  fiat_pasta
+  fiat_pasta_fp_uint1 x34;
+  uint64_t x35;
+  fiat_pasta_fp_uint1 x36;
+  uint64_t x37;
+  fiat_pasta_fp_uint1 x38;
+  uint64_t x39;
+  fiat_pasta_fp_uint1 x40;
