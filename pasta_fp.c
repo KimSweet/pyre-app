@@ -446,4 +446,13 @@ void fiat_pasta_fp_mul(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   fiat_pasta_fp_subborrowx_u64(&x190, &x191, x189, x181, 0x0);
   fiat_pasta_fp_cmovznz_u64(&x192, x191, x182, x173);
   fiat_pasta_fp_cmovznz_u64(&x193, x191, x184, x175);
-  fiat_pasta_fp_cmovznz_u64(&x194, x191, x186, x1
+  fiat_pasta_fp_cmovznz_u64(&x194, x191, x186, x177);
+  fiat_pasta_fp_cmovznz_u64(&x195, x191, x188, x179);
+  out1[0] = x192;
+  out1[1] = x193;
+  out1[2] = x194;
+  out1[3] = x195;
+}
+
+/*
+ * 
