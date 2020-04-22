@@ -455,4 +455,7 @@ void fiat_pasta_fp_mul(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
 }
 
 /*
- * 
+ * The function fiat_pasta_fp_square squares a field element in the Montgomery domain.
+ * Preconditions:
+ *   0 ≤ eval arg1 < m
+ * Postconditi
