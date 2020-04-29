@@ -578,4 +578,12 @@ void fiat_pasta_fp_square(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fp_uint1 x108;
   uint64_t x109;
   fiat_pasta_fp_uint1 x110;
-  uin
+  uint64_t x111;
+  fiat_pasta_fp_uint1 x112;
+  uint64_t x113;
+  uint64_t x114;
+  uint64_t x115;
+  uint64_t x116;
+  uint64_t x117;
+  uint64_t x118;
+  uint64
