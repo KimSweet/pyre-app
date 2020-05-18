@@ -706,4 +706,6 @@ void fiat_pasta_fp_square(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fp_addcarryx_u64(&x74, &x75, 0x0, x73, x70);
   x76 = (x75 + x71);
   fiat_pasta_fp_addcarryx_u64(&x77, &x78, 0x0, x56, x72);
-  fiat_pasta_fp_
+  fiat_pasta_fp_addcarryx_u64(&x79, &x80, x78, x58, x74);
+  fiat_pasta_fp_addcarryx_u64(&x81, &x82, x80, x60, x76);
+  fiat_pasta_fp_addcarryx_u64(&x83, &x84, x82, x62, x68);
