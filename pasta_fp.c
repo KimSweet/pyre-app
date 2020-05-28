@@ -771,4 +771,12 @@ void fiat_pasta_fp_square(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fp_cmovznz_u64(&x194, x191, x186, x177);
   fiat_pasta_fp_cmovznz_u64(&x195, x191, x188, x179);
   out1[0] = x192;
-  out1[1] = x19
+  out1[1] = x193;
+  out1[2] = x194;
+  out1[3] = x195;
+}
+
+/*
+ * The function fiat_pasta_fp_add adds two field elements in the Montgomery domain.
+ * Preconditions:
+ *   0
