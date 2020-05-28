@@ -779,4 +779,7 @@ void fiat_pasta_fp_square(uint64_t out1[4], const uint64_t arg1[4]) {
 /*
  * The function fiat_pasta_fp_add adds two field elements in the Montgomery domain.
  * Preconditions:
- *   0
+ *   0 ≤ eval arg1 < m
+ *   0 ≤ eval arg2 < m
+ * Postconditions:
+ *   eval (from_montgomery out1) mod m = (eval (from_montgomery arg1) + eval (from_montgome
