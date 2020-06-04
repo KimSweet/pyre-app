@@ -834,4 +834,9 @@ void fiat_pasta_fp_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
 }
 
 /*
- * The function fiat_pasta_fp_sub subtracts tw
+ * The function fiat_pasta_fp_sub subtracts two field elements in the Montgomery domain.
+ * Preconditions:
+ *   0 ≤ eval arg1 < m
+ *   0 ≤ eval arg2 < m
+ * Postconditions:
+ *   eval (from_montgomery out1) m
