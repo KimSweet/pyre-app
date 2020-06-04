@@ -808,4 +808,10 @@ void fiat_pasta_fp_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   fiat_pasta_fp_uint1 x14;
   uint64_t x15;
   fiat_pasta_fp_uint1 x16;
-  uint64_t x17
+  uint64_t x17;
+  fiat_pasta_fp_uint1 x18;
+  uint64_t x19;
+  uint64_t x20;
+  uint64_t x21;
+  uint64_t x22;
+  fiat_pasta_fp_addcarryx_u64(&x1, &x2, 0x0, (arg1[0]),
