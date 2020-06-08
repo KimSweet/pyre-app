@@ -850,4 +850,12 @@ void fiat_pasta_fp_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
  */
 void fiat_pasta_fp_sub(uint64_t out1[4], const uint64_t arg1[4], const uint64_t arg2[4]) {
   uint64_t x1;
-  fiat_pasta_fp_
+  fiat_pasta_fp_uint1 x2;
+  uint64_t x3;
+  fiat_pasta_fp_uint1 x4;
+  uint64_t x5;
+  fiat_pasta_fp_uint1 x6;
+  uint64_t x7;
+  fiat_pasta_fp_uint1 x8;
+  uint64_t x9;
+  uint64_t 
