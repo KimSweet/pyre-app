@@ -901,4 +901,11 @@ void fiat_pasta_fp_opp(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fp_uint1 x4;
   uint64_t x5;
   fiat_pasta_fp_uint1 x6;
-  uint64_t x7
+  uint64_t x7;
+  fiat_pasta_fp_uint1 x8;
+  uint64_t x9;
+  uint64_t x10;
+  fiat_pasta_fp_uint1 x11;
+  uint64_t x12;
+  fiat_pasta_fp_uint1 x13;
+  uint64_t x1
