@@ -919,4 +919,6 @@ void fiat_pasta_fp_opp(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fp_cmovznz_u64(&x9, x8, 0x0, UINT64_C(0xffffffffffffffff));
   fiat_pasta_fp_addcarryx_u64(&x10, &x11, 0x0, x1, (x9 & UINT64_C(0x992d30ed00000001)));
   fiat_pasta_fp_addcarryx_u64(&x12, &x13, x11, x3, (x9 & UINT64_C(0x224698fc094cf91b)));
-  fiat_pasta_fp_addcarry
+  fiat_pasta_fp_addcarryx_u64(&x14, &x15, x13, x5, 0x0);
+  fiat_pasta_fp_addcarryx_u64(&x16, &x17, x15, x7, (x9 & UINT64_C(0x4000000000000000)));
+  ou
