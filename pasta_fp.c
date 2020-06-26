@@ -1029,4 +1029,11 @@ void fiat_pasta_fp_from_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fp_uint1 x86;
   uint64_t x87;
   fiat_pasta_fp_uint1 x88;
-  ui
+  uint64_t x89;
+  fiat_pasta_fp_uint1 x90;
+  uint64_t x91;
+  fiat_pasta_fp_uint1 x92;
+  uint64_t x93;
+  fiat_pasta_fp_uint1 x94;
+  uint64_t x95;
+  u
