@@ -1089,4 +1089,11 @@ void fiat_pasta_fp_from_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fp_subborrowx_u64(&x93, &x94, x92, 0x0, 0x0);
   fiat_pasta_fp_cmovznz_u64(&x95, x94, x85, x78);
   fiat_pasta_fp_cmovznz_u64(&x96, x94, x87, x80);
-  fiat_pasta_fp_cmovznz_u64(&x9
+  fiat_pasta_fp_cmovznz_u64(&x97, x94, x89, x82);
+  fiat_pasta_fp_cmovznz_u64(&x98, x94, x91, x84);
+  out1[0] = x95;
+  out1[1] = x96;
+  out1[2] = x97;
+  out1[3] = x98;
+}
+
