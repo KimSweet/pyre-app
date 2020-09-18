@@ -1224,4 +1224,12 @@ void fiat_pasta_fp_to_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
   uint64_t x111;
   fiat_pasta_fp_uint1 x112;
   uint64_t x113;
-  fiat_pasta_f
+  fiat_pasta_fp_uint1 x114;
+  uint64_t x115;
+  fiat_pasta_fp_uint1 x116;
+  uint64_t x117;
+  uint64_t x118;
+  uint64_t x119;
+  uint64_t x120;
+  uint64_t x121;
+  uint64_t
