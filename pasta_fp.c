@@ -1392,4 +1392,10 @@ void fiat_pasta_fp_to_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
  */
 void fiat_pasta_fp_nonzero(uint64_t* out1, const uint64_t arg1[4]) {
   uint64_t x1;
-  x1 = ((ar
+  x1 = ((arg1[0]) | ((arg1[1]) | ((arg1[2]) | (arg1[3]))));
+  *out1 = x1;
+}
+
+/*
+ * The function fiat_pasta_fp_selectznz is a multi-limb conditional select.
+ * Postconditions:
