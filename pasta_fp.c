@@ -1403,4 +1403,5 @@ void fiat_pasta_fp_nonzero(uint64_t* out1, const uint64_t arg1[4]) {
  *
  * Input Bounds:
  *   arg1: [0x0 ~> 0x1]
- *   arg2: [[0x0 ~> 0xffffffffffffffff], [0x0
+ *   arg2: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ *   arg3: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffff
