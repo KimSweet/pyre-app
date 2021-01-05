@@ -1414,4 +1414,6 @@ void fiat_pasta_fp_selectznz(uint64_t out1[4], fiat_pasta_fp_uint1 arg1, const u
   uint64_t x3;
   uint64_t x4;
   fiat_pasta_fp_cmovznz_u64(&x1, arg1, (arg2[0]), (arg3[0]));
-  fiat_pasta
+  fiat_pasta_fp_cmovznz_u64(&x2, arg1, (arg2[1]), (arg3[1]));
+  fiat_pasta_fp_cmovznz_u64(&x3, arg1, (arg2[2]), (arg3[2]));
+  fiat_pasta_fp_cmovznz_u64(&x4, arg1, (arg2[3]), (ar
