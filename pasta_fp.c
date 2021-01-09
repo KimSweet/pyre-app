@@ -1424,4 +1424,8 @@ void fiat_pasta_fp_selectznz(uint64_t out1[4], fiat_pasta_fp_uint1 arg1, const u
 }
 
 /*
- * The function fiat_pasta_fp_to_bytes serializes a f
+ * The function fiat_pasta_fp_to_bytes serializes a field element NOT in the Montgomery domain to bytes in little-endian order.
+ * Preconditions:
+ *   0 ≤ eval arg1 < m
+ * Postconditions:
+ *   out1 = map (λ x, 
