@@ -1470,4 +1470,15 @@ void fiat_pasta_fp_to_bytes(uint8_t out1[32], const uint64_t arg1[4]) {
   uint8_t x32;
   uint8_t x33;
   uint64_t x34;
-  uint8_t
+  uint8_t x35;
+  uint64_t x36;
+  uint8_t x37;
+  uint64_t x38;
+  uint8_t x39;
+  uint64_t x40;
+  uint8_t x41;
+  uint64_t x42;
+  uint8_t x43;
+  uint64_t x44;
+  uint8_t x45;
+  uint8_
