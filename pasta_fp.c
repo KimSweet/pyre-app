@@ -1519,4 +1519,9 @@ void fiat_pasta_fp_to_bytes(uint8_t out1[32], const uint64_t arg1[4]) {
   x21 = (uint8_t)(x20 & UINT8_C(0xff));
   x22 = (x20 >> 8);
   x23 = (uint8_t)(x22 & UINT8_C(0xff));
-  x24 = (x22
+  x24 = (x22 >> 8);
+  x25 = (uint8_t)(x24 & UINT8_C(0xff));
+  x26 = (x24 >> 8);
+  x27 = (uint8_t)(x26 & UINT8_C(0xff));
+  x28 = (x26 >> 8);
+  x29 = (uint8_t)(x28 & UI
