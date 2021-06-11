@@ -1617,4 +1617,14 @@ void fiat_pasta_fp_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
   uint64_t x11;
   uint64_t x12;
   uint64_t x13;
-  uint64_t x14
+  uint64_t x14;
+  uint64_t x15;
+  uint8_t x16;
+  uint64_t x17;
+  uint64_t x18;
+  uint64_t x19;
+  uint64_t x20;
+  uint64_t x21;
+  uint64_t x22;
+  uint64_t x23;
+  ui
