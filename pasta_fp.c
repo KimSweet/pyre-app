@@ -1721,4 +1721,14 @@ void fiat_pasta_fp_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
   x55 = (x6 + x54);
   x56 = (x5 + x55);
   x57 = (x4 + x56);
-  x58 = (x
+  x58 = (x3 + x57);
+  x59 = (x2 + x58);
+  x60 = (x1 + x59);
+  out1[0] = x39;
+  out1[1] = x46;
+  out1[2] = x53;
+  out1[3] = x60;
+}
+
+/*
+ * The function f
