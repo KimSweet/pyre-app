@@ -1742,4 +1742,10 @@ void fiat_pasta_fp_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
  */
 void fiat_pasta_fp_set_one(uint64_t out1[4]) {
   out1[0] = UINT64_C(0x34786d38fffffffd);
-  out1[1] = UINT64_C(0x992c350be41914a
+  out1[1] = UINT64_C(0x992c350be41914ad);
+  out1[2] = UINT64_C(0xffffffffffffffff);
+  out1[3] = UINT64_C(0x3fffffffffffffff);
+}
+
+/*
+ * The function fiat_pasta_fp_msat returns the saturated repre
