@@ -1748,4 +1748,11 @@ void fiat_pasta_fp_set_one(uint64_t out1[4]) {
 }
 
 /*
- * The function fiat_pasta_fp_msat returns the saturated repre
+ * The function fiat_pasta_fp_msat returns the saturated represtation of the prime modulus.
+ * Postconditions:
+ *   twos_complement_eval out1 = m
+ *   0 ≤ eval out1 < m
+ *
+ * Input Bounds:
+ * Output Bounds:
+ *   out
