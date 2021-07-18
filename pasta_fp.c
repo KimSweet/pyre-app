@@ -1755,4 +1755,6 @@ void fiat_pasta_fp_set_one(uint64_t out1[4]) {
  *
  * Input Bounds:
  * Output Bounds:
- *   out
+ *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ */
+void fiat_
