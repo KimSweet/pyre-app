@@ -1757,4 +1757,8 @@ void fiat_pasta_fp_set_one(uint64_t out1[4]) {
  * Output Bounds:
  *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  */
-void fiat_
+void fiat_pasta_fp_msat(uint64_t out1[5]) {
+  out1[0] = UINT64_C(0x992d30ed00000001);
+  out1[1] = UINT64_C(0x224698fc094cf91b);
+  out1[2] = 0x0;
+  out1[3] = U
