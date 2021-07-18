@@ -1761,4 +1761,9 @@ void fiat_pasta_fp_msat(uint64_t out1[5]) {
   out1[0] = UINT64_C(0x992d30ed00000001);
   out1[1] = UINT64_C(0x224698fc094cf91b);
   out1[2] = 0x0;
-  out1[3] = U
+  out1[3] = UINT64_C(0x4000000000000000);
+  out1[4] = 0x0;
+}
+
+/*
+ * The function fiat_pasta_fp_divstep_precomp returns the precomputed value for Bernstein-Yang-inversion
