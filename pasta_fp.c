@@ -1779,4 +1779,10 @@ void fiat_pasta_fp_divstep_precomp(uint64_t out1[4]) {
   out1[0] = UINT64_C(0xeb9f9ebd71876582);
   out1[1] = UINT64_C(0x61d4a765274d339b);
   out1[2] = UINT64_C(0x4bf06d486f0671ed);
-  out1[3] = U
+  out1[3] = UINT64_C(0x278227fb0b195a26);
+}
+
+/*
+ * The function fiat_pasta_fp_divstep computes a divstep.
+ * Preconditions:
+ *   0 ≤ eval arg4 < m
