@@ -1786,3 +1786,7 @@ void fiat_pasta_fp_divstep_precomp(uint64_t out1[4]) {
  * The function fiat_pasta_fp_divstep computes a divstep.
  * Preconditions:
  *   0 ≤ eval arg4 < m
+ *   0 ≤ eval arg5 < m
+ * Postconditions:
+ *   out1 = (if 0 < arg1 ∧ (twos_complement_eval arg3) is odd then 1 - arg1 else 1 + arg1)
+ *   twos_complement_eva
