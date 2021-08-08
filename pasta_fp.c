@@ -1796,4 +1796,8 @@ void fiat_pasta_fp_divstep_precomp(uint64_t out1[4]) {
  *   0 ≤ eval out5 < m
  *   0 ≤ eval out5 < m
  *   0 ≤ eval out2 < m
- *   0 ≤ eval 
+ *   0 ≤ eval out3 < m
+ *
+ * Input Bounds:
+ *   arg1: [0x0 ~> 0xffffffffffffffff]
+ *   arg2: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]
