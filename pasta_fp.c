@@ -1990,3 +1990,6 @@ void fiat_pasta_fp_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   x74 = (fiat_pasta_fp_uint1)(x22 & 0x1);
   fiat_pasta_fp_cmovznz_u64(&x75, x74, 0x0, x7);
   fiat_pasta_fp_cmovznz_u64(&x76, x74, 0x0, x8);
+  fiat_pasta_fp_cmovznz_u64(&x77, x74, 0x0, x9);
+  fiat_pasta_fp_cmovznz_u64(&x78, x74, 0x0, x10);
+  fiat_pasta_fp_cmovznz_u64(&x79, x74, 0x0
