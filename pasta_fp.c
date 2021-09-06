@@ -2012,4 +2012,6 @@ void fiat_pasta_fp_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   fiat_pasta_fp_subborrowx_u64(&x108, &x109, x107, x100, UINT64_C(0x4000000000000000));
   fiat_pasta_fp_subborrowx_u64(&x110, &x111, x109, x101, 0x0);
   fiat_pasta_fp_addcarryx_u64(&x112, &x113, 0x0, x6, 0x1);
-  x114 = 
+  x114 = ((x80 >> 1) | ((x82 << 63) & UINT64_C(0xffffffffffffffff)));
+  x115 = ((x82 >> 1) | ((x84 << 63) & UINT64_C(0xffffffffffffffff)));
+  x116 = ((x84 >>
