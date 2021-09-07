@@ -2018,4 +2018,7 @@ void fiat_pasta_fp_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   x117 = ((x86 >> 1) | ((x88 << 63) & UINT64_C(0xffffffffffffffff)));
   x118 = ((x88 & UINT64_C(0x8000000000000000)) | (x88 >> 1));
   fiat_pasta_fp_cmovznz_u64(&x119, x48, x39, x31);
-  fiat_pasta_fp_cmovznz_u64(&x120, x
+  fiat_pasta_fp_cmovznz_u64(&x120, x48, x41, x33);
+  fiat_pasta_fp_cmovznz_u64(&x121, x48, x43, x35);
+  fiat_pasta_fp_cmovznz_u64(&x122, x48, x45, x37);
+  fiat_pasta_fp_cmovznz_u64(&x123, x111, x102, x94);
