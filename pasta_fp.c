@@ -2022,3 +2022,6 @@ void fiat_pasta_fp_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   fiat_pasta_fp_cmovznz_u64(&x121, x48, x43, x35);
   fiat_pasta_fp_cmovznz_u64(&x122, x48, x45, x37);
   fiat_pasta_fp_cmovznz_u64(&x123, x111, x102, x94);
+  fiat_pasta_fp_cmovznz_u64(&x124, x111, x104, x96);
+  fiat_pasta_fp_cmovznz_u64(&x125, x111, x106, x98);
+  fiat_pasta_fp_cmovznz_u64(&x126, x111, x108, x100);
