@@ -2047,4 +2047,8 @@ void fiat_pasta_fp_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
 }
 
 void fiat_pasta_fp_copy(uint64_t out[4], const uint64_t value[4]) {
-    for (size_t j = 0; j < 4; ++j) { out[j] =
+    for (size_t j = 0; j < 4; ++j) { out[j] = value[j]; }
+}
+
+void fiat_pasta_fp_pow(uint64_t out1[4], const uint64_t arg1[4], const bool* msb_bits, const size_t bits_len) {
+  fiat_pasta_fp_set_on
