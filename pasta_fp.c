@@ -2042,4 +2042,9 @@ void fiat_pasta_fp_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   out4[3] = x122;
   out5[0] = x123;
   out5[1] = x124;
-  out5[2
+  out5[2] = x125;
+  out5[3] = x126;
+}
+
+void fiat_pasta_fp_copy(uint64_t out[4], const uint64_t value[4]) {
+    for (size_t j = 0; j < 4; ++j) { out[j] =
