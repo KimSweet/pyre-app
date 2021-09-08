@@ -2034,3 +2034,12 @@ void fiat_pasta_fp_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   out3[0] = x114;
   out3[1] = x115;
   out3[2] = x116;
+  out3[3] = x117;
+  out3[4] = x118;
+  out4[0] = x119;
+  out4[1] = x120;
+  out4[2] = x121;
+  out4[3] = x122;
+  out5[0] = x123;
+  out5[1] = x124;
+  out5[2
