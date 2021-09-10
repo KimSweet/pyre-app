@@ -2051,4 +2051,11 @@ void fiat_pasta_fp_copy(uint64_t out[4], const uint64_t value[4]) {
 }
 
 void fiat_pasta_fp_pow(uint64_t out1[4], const uint64_t arg1[4], const bool* msb_bits, const size_t bits_len) {
-  fiat_pasta_fp_set_on
+  fiat_pasta_fp_set_one(out1);
+
+  uint64_t tmp[4];
+
+  // square and multiply
+  for (size_t i = 0; i < bits_len; ++i) {
+    // out1 = out1 * out1
+    fiat_pasta_fp_copy(tmp
