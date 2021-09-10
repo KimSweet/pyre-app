@@ -2064,4 +2064,13 @@ void fiat_pasta_fp_pow(uint64_t out1[4], const uint64_t arg1[4], const bool* msb
     if (msb_bits[i]) {
       // out1 = out1 * arg1
       fiat_pasta_fp_copy(tmp, out1);
-      fiat_pasta_fp_mul(o
+      fiat_pasta_fp_mul(out1, tmp, arg1);
+    }
+  }
+}
+
+void fiat_pasta_fp_inv(uint64_t out1[4], const uint64_t arg1[4]) {
+  // invert by Fermat's little theorem:
+  // x^{p - 2} * x = 1
+
+  const bool P_MIN
