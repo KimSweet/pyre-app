@@ -2058,4 +2058,10 @@ void fiat_pasta_fp_pow(uint64_t out1[4], const uint64_t arg1[4], const bool* msb
   // square and multiply
   for (size_t i = 0; i < bits_len; ++i) {
     // out1 = out1 * out1
-    fiat_pasta_fp_copy(tmp
+    fiat_pasta_fp_copy(tmp, out1);
+    fiat_pasta_fp_square(out1, tmp);
+
+    if (msb_bits[i]) {
+      // out1 = out1 * arg1
+      fiat_pasta_fp_copy(tmp, out1);
+      fiat_pasta_fp_mul(o
