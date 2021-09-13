@@ -2077,4 +2077,10 @@ void fiat_pasta_fp_inv(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fp_pow(out1, arg1, P_MINUS_2, 255);
 }
 
-bool fiat_pasta_fp_equals(const uint64_t x[4], const uint64
+bool fiat_pasta_fp_equals(const uint64_t x[4], const uint64_t y[4]) {
+  uint64_t x_minus_y[4];
+  fiat_pasta_fp_sub(x_minus_y, x, y);
+
+  uint64_t x_minus_y_nonzero;
+  fiat_pasta_fp_nonzero(&x_minus_y_nonzero, x_minus_y);
+  if (x_minu
