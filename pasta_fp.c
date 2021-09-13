@@ -2100,4 +2100,12 @@ bool fiat_pasta_fp_equals_zero(const uint64_t x[4]) {
   }
 }
 
-bool fiat_pasta_fp_equals_one(const uint64
+bool fiat_pasta_fp_equals_one(const uint64_t x[4]) {
+  uint64_t one[4];
+  fiat_pasta_fp_set_one(one);
+
+  uint64_t x_minus_1[4];
+  fiat_pasta_fp_sub(x_minus_1, x, one);
+
+  uint64_t x_minus_1_nonzero;
+  fiat_p
