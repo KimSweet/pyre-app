@@ -2092,4 +2092,12 @@ bool fiat_pasta_fp_equals(const uint64_t x[4], const uint64_t y[4]) {
 
 bool fiat_pasta_fp_equals_zero(const uint64_t x[4]) {
   uint64_t x_nonzero;
-  fia
+  fiat_pasta_fp_nonzero(&x_nonzero, x);
+  if (x_nonzero) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+bool fiat_pasta_fp_equals_one(const uint64
