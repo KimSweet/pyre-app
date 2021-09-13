@@ -2108,4 +2108,12 @@ bool fiat_pasta_fp_equals_one(const uint64_t x[4]) {
   fiat_pasta_fp_sub(x_minus_1, x, one);
 
   uint64_t x_minus_1_nonzero;
-  fiat_p
+  fiat_pasta_fp_nonzero(&x_minus_1_nonzero, x_minus_1);
+  if (x_minus_1_nonzero) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+int fiat_pasta_fp_l
