@@ -2116,4 +2116,10 @@ bool fiat_pasta_fp_equals_one(const uint64_t x[4]) {
   }
 }
 
-int fiat_pasta_fp_l
+int fiat_pasta_fp_legendre(const uint64_t arg1[4]) {
+  uint64_t tmp[4];
+
+  fiat_pasta_fp_pow(tmp, arg1, P_MINUS_1_OVER_2, 254);
+
+  uint64_t input_non_zero;
+  fiat_pasta_fp_nonzero(&input_non_zer
