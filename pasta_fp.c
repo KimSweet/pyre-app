@@ -2139,4 +2139,10 @@ int fiat_pasta_fp_legendre(const uint64_t arg1[4]) {
 void fiat_pasta_fp_print(const uint64_t x[4]) {
     printf("[ ");
     for (size_t j = 0; j < 4; ++j) {
-   
+      printf("0x%" PRIx64 ", ", x[j]);
+    }
+    printf("] \n");
+}
+
+bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
+    // A few assertions to make 
