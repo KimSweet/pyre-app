@@ -2122,4 +2122,10 @@ int fiat_pasta_fp_legendre(const uint64_t arg1[4]) {
   fiat_pasta_fp_pow(tmp, arg1, P_MINUS_1_OVER_2, 254);
 
   uint64_t input_non_zero;
-  fiat_pasta_fp_nonzero(&input_non_zer
+  fiat_pasta_fp_nonzero(&input_non_zero, arg1);
+  if (input_non_zero) {
+    if (fiat_pasta_fp_equals_one(tmp)) {
+      return 1;
+    } else {
+      return -1;
+    }
