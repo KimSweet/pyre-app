@@ -2129,3 +2129,14 @@ int fiat_pasta_fp_legendre(const uint64_t arg1[4]) {
     } else {
       return -1;
     }
+  } else {
+    return 0;
+  }
+}
+
+#include <stdio.h>
+
+void fiat_pasta_fp_print(const uint64_t x[4]) {
+    printf("[ ");
+    for (size_t j = 0; j < 4; ++j) {
+   
