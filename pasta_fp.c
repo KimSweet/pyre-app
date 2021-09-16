@@ -2145,4 +2145,8 @@ void fiat_pasta_fp_print(const uint64_t x[4]) {
 }
 
 bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
-    // A few assertions to make 
+    // A few assertions to make sure s, t, and nqr are initialized.
+
+    if (fiat_pasta_fp_equals_zero(value)) {
+      for (size_t j = 0; j < 4; ++j) { x[j] = 0; }
+      re
