@@ -2155,4 +2155,13 @@ bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
     uint64_t check[4];
     fiat_pasta_fp_pow(check, value, P_MINUS_1_OVER_2, P_MINUS_1_OVER_2_LEN);
     if (!fiat_pasta_fp_equals_one(check)) {
-      re
+      return false;
+    }
+
+    uint64_t one[4];
+    fiat_pasta_fp_set_one(one);
+
+    size_t v = 32;
+
+    // z = 5^( (p - 1)/2^32 )
+    uint64
