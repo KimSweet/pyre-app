@@ -2166,4 +2166,4 @@ bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
     // z = 5^( (p - 1)/2^32 )
     uint64_t z[4] = { 0xa28db849bad6dbf0, 0x9083cd03d3b539df, 0xfba6b9ca9dc8448e, 0x3ec928747b89c6da };
 
-    const bool T_MINUS_ONE_DIV_TWO[] = {1, 0, 0, 0, 0,
+    const bool T_MINUS_ONE_DIV_TWO[] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
