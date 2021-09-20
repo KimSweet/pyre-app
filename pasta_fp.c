@@ -2175,4 +2175,10 @@ bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
     uint64_t w[4];
     fiat_pasta_fp_pow(w, value, T_MINUS_ONE_DIV_TWO, T_MINUS_ONE_DIV_TWO_LEN);
 
-    fiat_pasta_fp_mul(x, value, w)
+    fiat_pasta_fp_mul(x, value, w);
+
+    uint64_t b[4];
+    fiat_pasta_fp_mul(b, x, w);
+
+    // compute square root with Tonelli--Shanks
+    // (does not terminate if not 
