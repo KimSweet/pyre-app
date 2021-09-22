@@ -2210,4 +2210,11 @@ bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
             fiat_pasta_fp_copy(tmp, w);
             fiat_pasta_fp_square(w, tmp);
             --j;
-     
+        } // w = z^2^(v-m-1)
+
+        fiat_pasta_fp_square(z, w);
+
+        fiat_pasta_fp_copy(tmp, b);
+        fiat_pasta_fp_mul(b, tmp, z);
+
+        fiat_
