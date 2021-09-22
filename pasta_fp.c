@@ -2196,3 +2196,11 @@ bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
           // looping here
           // b2m = b2m * b2m
             fiat_pasta_fp_copy(tmp, b2m);
+            fiat_pasta_fp_square(b2m, tmp);
+
+            /* invariant: b2m = b^(2^m) after entering this loop */
+            m += 1;
+        }
+
+        int j = v-m-1;
+      
