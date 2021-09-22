@@ -2203,4 +2203,11 @@ bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
         }
 
         int j = v-m-1;
-      
+        fiat_pasta_fp_copy(w, z);
+
+        while (j > 0)
+        {
+            fiat_pasta_fp_copy(tmp, w);
+            fiat_pasta_fp_square(w, tmp);
+            --j;
+     
