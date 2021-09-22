@@ -2189,4 +2189,10 @@ bool fiat_pasta_fp_sqrt(uint64_t x[4], const uint64_t value[4]) {
     while (! fiat_pasta_fp_equals_one(b))
     {
         size_t m = 0;
-        fiat_pasta_fp_copy(
+        fiat_pasta_fp_copy(b2m, b);
+
+        while (! fiat_pasta_fp_equals_one(b2m))
+        {
+          // looping here
+          // b2m = b2m * b2m
+            fiat_pasta_fp_copy(tmp, b2m);
