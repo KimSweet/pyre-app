@@ -4,4 +4,6 @@
 /* requested operations: (all) */
 /* m = 0x40000000000000000000000000000000224698fc0994a8dd8c46eb2100000001 (from "2^254 + 45560315531506369815346746415080538113") */
 /*                                                                    */
-/* NOTE: In addition to the bo
+/* NOTE: In addition to the bounds specified above each function, all */
+/*   functions synthesized for this Montgomery arithmetic require the */
+/*   input
