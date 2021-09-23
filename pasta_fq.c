@@ -8,4 +8,5 @@
 /*   functions synthesized for this Montgomery arithmetic require the */
 /*   input to be strictly less than the prime modulus (m), and also   */
 /*   require the input to be in the unique saturated representation.  */
-/*   
+/*   All functions also ensure that these two properties are true of  */
+/*   return values.                                             
