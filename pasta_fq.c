@@ -6,4 +6,6 @@
 /*                                                                    */
 /* NOTE: In addition to the bounds specified above each function, all */
 /*   functions synthesized for this Montgomery arithmetic require the */
-/*   input
+/*   input to be strictly less than the prime modulus (m), and also   */
+/*   require the input to be in the unique saturated representation.  */
+/*   
