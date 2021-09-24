@@ -20,4 +20,10 @@
 typedef unsigned char fiat_pasta_fq_uint1;
 typedef signed char fiat_pasta_fq_int1;
 
-#if (-1 
+#if (-1 & 3) != 3
+#error "This code only works on a two's complement system"
+#endif
+
+
+/*
+ * The function fiat_pasta_fq_addcarryx_u64 is an addi
