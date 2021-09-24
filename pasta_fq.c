@@ -9,4 +9,8 @@
 /*   input to be strictly less than the prime modulus (m), and also   */
 /*   require the input to be in the unique saturated representation.  */
 /*   All functions also ensure that these two properties are true of  */
-/*   return values.                                             
+/*   return values.                                                   */
+/*  */
+/* Computed values: */
+/* eval z = z[0] + (z[1] << 64) + (z[2] << 128) + (z[3] << 192) */
+/* bytes_eval z = z[0] + (z[1] << 8) + (z[2] << 16) + 
