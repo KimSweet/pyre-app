@@ -26,4 +26,10 @@ typedef signed char fiat_pasta_fq_int1;
 
 
 /*
- * The function fiat_pasta_fq_addcarryx_u64 is an addi
+ * The function fiat_pasta_fq_addcarryx_u64 is an addition with carry.
+ * Postconditions:
+ *   out1 = (arg1 + arg2 + arg3) mod 2^64
+ *   out2 = ⌊(arg1 + arg2 + arg3) / 2^64⌋
+ *
+ * Input Bounds:
+ *   arg1: 
