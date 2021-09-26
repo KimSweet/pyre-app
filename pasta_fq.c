@@ -32,4 +32,8 @@ typedef signed char fiat_pasta_fq_int1;
  *   out2 = ⌊(arg1 + arg2 + arg3) / 2^64⌋
  *
  * Input Bounds:
- *   arg1: 
+ *   arg1: [0x0 ~> 0x1]
+ *   arg2: [0x0 ~> 0xffffffffffffffff]
+ *   arg3: [0x0 ~> 0xffffffffffffffff]
+ * Output Bounds:
+ *   out1: [0x0 ~> 0xffffff
