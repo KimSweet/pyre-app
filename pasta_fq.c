@@ -39,4 +39,11 @@ typedef signed char fiat_pasta_fq_int1;
  *   out1: [0x0 ~> 0xffffffffffffffff]
  *   out2: [0x0 ~> 0x1]
  */
-void fiat_pasta_fq_addcarryx_u64(uint64_t* out1, fiat_pasta_fq_uint1* out2, fiat_pasta_fq_uin
+void fiat_pasta_fq_addcarryx_u64(uint64_t* out1, fiat_pasta_fq_uint1* out2, fiat_pasta_fq_uint1 arg1, uint64_t arg2, uint64_t arg3) {
+  uint64_t tmp = arg3 + arg1;
+  *out1 = arg2 + tmp;
+  *out2 = (arg2 > *out1) | (arg3 > tmp);
+}
+
+/*
+ * The function fi
