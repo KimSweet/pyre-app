@@ -67,4 +67,10 @@ void fiat_pasta_fq_subborrowx_u64(uint64_t* out1, fiat_pasta_fq_uint1* out2, fia
 
 /*
  * The function fiat_pasta_fq_mulx_u64 is a multiplication, returning the full double-width result.
- * Pos
+ * Postconditions:
+ *   out1 = (arg1 * arg2) mod 2^64
+ *   out2 = ⌊arg1 * arg2 / 2^64⌋
+ *
+ * Input Bounds:
+ *   arg1: [0x0 ~> 0xffffffffffffffff]
+ *  
