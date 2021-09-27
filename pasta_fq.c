@@ -46,4 +46,7 @@ void fiat_pasta_fq_addcarryx_u64(uint64_t* out1, fiat_pasta_fq_uint1* out2, fiat
 }
 
 /*
- * The function fi
+ * The function fiat_pasta_fq_subborrowx_u64 is a subtraction with borrow.
+ * Postconditions:
+ *   out1 = (-arg1 + arg2 + -arg3) mod 2^64
+ *   out2 = -⌊(-arg1
