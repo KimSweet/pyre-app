@@ -81,4 +81,9 @@ void fiat_pasta_fq_subborrowx_u64(uint64_t* out1, fiat_pasta_fq_uint1* out2, fia
 void fiat_pasta_fq_mulx_u64(uint64_t* out1, uint64_t* out2, uint64_t a, uint64_t b) {
   uint64_t    a_lo = (uint32_t)a;
   uint64_t    a_hi = a >> 32;
-  uint64_t    b_l
+  uint64_t    b_lo = (uint32_t)b;
+  uint64_t    b_hi = b >> 32;
+
+  uint64_t    a_x_b_hi =  a_hi * b_hi;
+  uint64_t    a_x_b_mid = a_hi * b_lo;
+  uint64_t    b_x_a_mid =
