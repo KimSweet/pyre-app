@@ -90,4 +90,8 @@ void fiat_pasta_fq_mulx_u64(uint64_t* out1, uint64_t* out2, uint64_t a, uint64_t
   uint64_t    a_x_b_lo =  a_lo * b_lo;
 
   uint64_t    carry_bit = ((uint64_t)(uint32_t)a_x_b_mid +
-                   
+                          (uint64_t)(uint32_t)b_x_a_mid +
+                          (a_x_b_lo >> 32) ) >> 32;
+
+  uint64_t    multhi = a_x_b_hi +
+                      (a_x_b
