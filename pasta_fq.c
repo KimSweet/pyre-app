@@ -108,4 +108,8 @@ void fiat_pasta_fq_mulx_u64(uint64_t* out1, uint64_t* out2, uint64_t a, uint64_t
  *   out1 = (if arg1 = 0 then arg2 else arg3)
  *
  * Input Bounds:
- *   
+ *   arg1: [0x0 ~> 0x1]
+ *   arg2: [0x0 ~> 0xffffffffffffffff]
+ *   arg3: [0x0 ~> 0xffffffffffffffff]
+ * Output Bounds:
+ *   out1: [0x0 ~> 0xffff
