@@ -125,4 +125,8 @@ void fiat_pasta_fq_cmovznz_u64(uint64_t* out1, fiat_pasta_fq_uint1 arg1, uint64_
 }
 
 /*
- * The functio
+ * The function fiat_pasta_fq_mul multiplies two field elements in the Montgomery domain.
+ * Preconditions:
+ *   0 ≤ eval arg1 < m
+ *   0 ≤ eval arg2 < m
+ * Postco
