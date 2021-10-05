@@ -129,4 +129,7 @@ void fiat_pasta_fq_cmovznz_u64(uint64_t* out1, fiat_pasta_fq_uint1 arg1, uint64_
  * Preconditions:
  *   0 ≤ eval arg1 < m
  *   0 ≤ eval arg2 < m
- * Postco
+ * Postconditions:
+ *   eval (from_montgomery out1) mod m = (eval (from_montgomery arg1) * eval (from_montgomery arg2)) mod m
+ *   0 ≤ eval out1 < m
+ *
