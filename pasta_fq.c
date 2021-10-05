@@ -133,3 +133,6 @@ void fiat_pasta_fq_cmovznz_u64(uint64_t* out1, fiat_pasta_fq_uint1 arg1, uint64_
  *   eval (from_montgomery out1) mod m = (eval (from_montgomery arg1) * eval (from_montgomery arg2)) mod m
  *   0 ≤ eval out1 < m
  *
+ * Input Bounds:
+ *   arg1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ *   arg2: [[0x0
