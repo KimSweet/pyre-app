@@ -139,4 +139,8 @@ void fiat_pasta_fq_cmovznz_u64(uint64_t* out1, fiat_pasta_fq_uint1 arg1, uint64_
  * Output Bounds:
  *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  */
-void fiat_pasta_
+void fiat_pasta_fq_mul(uint64_t out1[4], const uint64_t arg1[4], const uint64_t arg2[4]) {
+  uint64_t x1;
+  uint64_t x2;
+  uint64_t x3;
+  uint64_t x4;
