@@ -246,4 +246,10 @@ void fiat_pasta_fq_mul(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   fiat_pasta_fq_uint1 x104;
   uint64_t x105;
   fiat_pasta_fq_uint1 x106;
-  uin
+  uint64_t x107;
+  fiat_pasta_fq_uint1 x108;
+  uint64_t x109;
+  fiat_pasta_fq_uint1 x110;
+  uint64_t x111;
+  fiat_pasta_fq_uint1 x112;
+  uint6
