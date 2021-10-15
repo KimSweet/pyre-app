@@ -373,4 +373,6 @@ void fiat_pasta_fq_mul(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   fiat_pasta_fq_addcarryx_u64(&x64, &x65, x63, x40, x55);
   fiat_pasta_fq_mulx_u64(&x66, &x67, x56, UINT64_C(0x8c46eb20ffffffff));
   fiat_pasta_fq_mulx_u64(&x68, &x69, x66, UINT64_C(0x4000000000000000));
-  fia
+  fiat_pasta_fq_mulx_u64(&x70, &x71, x66, UINT64_C(0x224698fc0994a8dd));
+  fiat_pasta_fq_mulx_u64(&x72, &x73, x66, UINT64_C(0x8c46eb2100000001));
+  fiat_pasta_
