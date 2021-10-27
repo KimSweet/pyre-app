@@ -447,3 +447,9 @@ void fiat_pasta_fq_mul(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   out1[2] = x194;
   out1[3] = x195;
 }
+
+/*
+ * The function fiat_pasta_fq_square squares a field element in the Montgomery domain.
+ * Preconditions:
+ *   0 ≤ eval arg1 < m
+ * Postcondi
