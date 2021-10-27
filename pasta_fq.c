@@ -437,4 +437,7 @@ void fiat_pasta_fq_mul(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   fiat_pasta_fq_subborrowx_u64(&x184, &x185, x183, x175, UINT64_C(0x224698fc0994a8dd));
   fiat_pasta_fq_subborrowx_u64(&x186, &x187, x185, x177, 0x0);
   fiat_pasta_fq_subborrowx_u64(&x188, &x189, x187, x179, UINT64_C(0x4000000000000000));
-  fiat_pasta_fq_subborrowx_u64(&x190, &x19
+  fiat_pasta_fq_subborrowx_u64(&x190, &x191, x189, x181, 0x0);
+  fiat_pasta_fq_cmovznz_u64(&x192, x191, x182, x173);
+  fiat_pasta_fq_cmovznz_u64(&x193, x191, x184, x175);
+  fiat_pasta_fq_cmovznz_u64(&x1
