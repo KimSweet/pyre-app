@@ -767,3 +767,10 @@ void fiat_pasta_fq_square(uint64_t out1[4], const uint64_t arg1[4]) {
   out1[0] = x192;
   out1[1] = x193;
   out1[2] = x194;
+  out1[3] = x195;
+}
+
+/*
+ * The function fiat_pasta_fq_add adds two field elements in the Montgomery domain.
+ * Preconditions:
+ *   0 ≤ e
