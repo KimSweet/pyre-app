@@ -785,4 +785,12 @@ void fiat_pasta_fq_square(uint64_t out1[4], const uint64_t arg1[4]) {
  * Output Bounds:
  *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  */
-void fiat_pasta_fq_add(uint64_t out1[4], const uint64_t arg1[4],
+void fiat_pasta_fq_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t arg2[4]) {
+  uint64_t x1;
+  fiat_pasta_fq_uint1 x2;
+  uint64_t x3;
+  fiat_pasta_fq_uint1 x4;
+  uint64_t x5;
+  fiat_pasta_fq_uint1 x6;
+  uint64_t x7;
+  fiat_pasta_fq_u
