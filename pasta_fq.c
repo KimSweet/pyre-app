@@ -808,4 +808,6 @@ void fiat_pasta_fq_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   uint64_t x20;
   uint64_t x21;
   uint64_t x22;
-  fiat_pasta_fq_addcarryx_u
+  fiat_pasta_fq_addcarryx_u64(&x1, &x2, 0x0, (arg1[0]), (arg2[0]));
+  fiat_pasta_fq_addcarryx_u64(&x3, &x4, x2, (arg1[1]), (arg2[1]));
+  fiat_pasta_fq_addcarryx_
