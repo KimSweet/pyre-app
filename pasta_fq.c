@@ -793,4 +793,12 @@ void fiat_pasta_fq_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   uint64_t x5;
   fiat_pasta_fq_uint1 x6;
   uint64_t x7;
-  fiat_pasta_fq_u
+  fiat_pasta_fq_uint1 x8;
+  uint64_t x9;
+  fiat_pasta_fq_uint1 x10;
+  uint64_t x11;
+  fiat_pasta_fq_uint1 x12;
+  uint64_t x13;
+  fiat_pasta_fq_uint1 x14;
+  uint64_t x15;
+  fia
