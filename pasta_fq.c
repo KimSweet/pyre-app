@@ -812,4 +812,6 @@ void fiat_pasta_fq_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   fiat_pasta_fq_addcarryx_u64(&x3, &x4, x2, (arg1[1]), (arg2[1]));
   fiat_pasta_fq_addcarryx_u64(&x5, &x6, x4, (arg1[2]), (arg2[2]));
   fiat_pasta_fq_addcarryx_u64(&x7, &x8, x6, (arg1[3]), (arg2[3]));
-  fiat_pasta_fq_subborrowx_u64(&x9, &x10, 0x0, x1
+  fiat_pasta_fq_subborrowx_u64(&x9, &x10, 0x0, x1, UINT64_C(0x8c46eb2100000001));
+  fiat_pasta_fq_subborrowx_u64(&x11, &x12, x10, x3, UINT64_C(0x224698fc0994a8dd));
+  fiat_pasta_fq_subborrowx_u64(&x13, &x14, x12
