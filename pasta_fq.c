@@ -820,4 +820,12 @@ void fiat_pasta_fq_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   fiat_pasta_fq_cmovznz_u64(&x19, x18, x9, x1);
   fiat_pasta_fq_cmovznz_u64(&x20, x18, x11, x3);
   fiat_pasta_fq_cmovznz_u64(&x21, x18, x13, x5);
-  fi
+  fiat_pasta_fq_cmovznz_u64(&x22, x18, x15, x7);
+  out1[0] = x19;
+  out1[1] = x20;
+  out1[2] = x21;
+  out1[3] = x22;
+}
+
+/*
+ * The funct
