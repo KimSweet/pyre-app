@@ -857,4 +857,8 @@ void fiat_pasta_fq_sub(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   uint64_t x12;
   fiat_pasta_fq_uint1 x13;
   uint64_t x14;
-  fiat
+  fiat_pasta_fq_uint1 x15;
+  uint64_t x16;
+  fiat_pasta_fq_uint1 x17;
+  fiat_pasta_fq_subborrowx_u64(&x1, &x2, 0x0, (arg1[0]), (arg2[0]));
+  fiat_pasta_fq_subborrowx_u64(&x3, &x4, x
