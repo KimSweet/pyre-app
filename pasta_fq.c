@@ -837,4 +837,5 @@ void fiat_pasta_fq_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
  *   0 ≤ eval out1 < m
  *
  * Input Bounds:
- *   arg1: [[
+ *   arg1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ *   arg2: [[0x0 ~> 0xffff
