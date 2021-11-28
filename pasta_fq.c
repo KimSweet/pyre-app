@@ -840,4 +840,6 @@ void fiat_pasta_fq_add(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
  *   arg1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  *   arg2: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  * Output Bounds:
- *   out1: [[0x0 ~> 0xffffff
+ *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ */
+void fiat_pasta_fq_sub(uint64_t out1[4], const uint64_t arg1[4], const uint64_t
