@@ -868,3 +868,12 @@ void fiat_pasta_fq_sub(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
   fiat_pasta_fq_addcarryx_u64(&x10, &x11, 0x0, x1, (x9 & UINT64_C(0x8c46eb2100000001)));
   fiat_pasta_fq_addcarryx_u64(&x12, &x13, x11, x3, (x9 & UINT64_C(0x224698fc0994a8dd)));
   fiat_pasta_fq_addcarryx_u64(&x14, &x15, x13, x5, 0x0);
+  fiat_pasta_fq_addcarryx_u64(&x16, &x17, x15, x7, (x9 & UINT64_C(0x4000000000000000)));
+  out1[0] = x10;
+  out1[1] = x12;
+  out1[2] = x14;
+  out1[3] = x16;
+}
+
+/*
+ * The func
