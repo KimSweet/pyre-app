@@ -880,4 +880,8 @@ void fiat_pasta_fq_sub(uint64_t out1[4], const uint64_t arg1[4], const uint64_t 
  * Preconditions:
  *   0 ≤ eval arg1 < m
  * Postconditions:
- *   e
+ *   eval (from_montgomery out1) mod m = -eval (from_montgomery arg1) mod m
+ *   0 ≤ eval out1 < m
+ *
+ * Input Bounds:
+ *   arg1: [[0x0 ~> 0xffffffffffffffff],
