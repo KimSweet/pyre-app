@@ -923,4 +923,11 @@ void fiat_pasta_fq_opp(uint64_t out1[4], const uint64_t arg1[4]) {
 
 /*
  * The function fiat_pasta_fq_from_montgomery translates a field element out of the Montgomery domain.
- * Precond
+ * Preconditions:
+ *   0 ≤ eval arg1 < m
+ * Postconditions:
+ *   eval out1 mod m = (eval arg1 * ((2^64)⁻¹ mod m)^4) mod m
+ *   0 ≤ eval out1 < m
+ *
+ * Input Bounds:
+ *
