@@ -932,4 +932,6 @@ void fiat_pasta_fq_opp(uint64_t out1[4], const uint64_t arg1[4]) {
  * Input Bounds:
  *   arg1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  * Output Bounds:
- *   out1: [[0x0 ~> 0xfffff
+ *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ */
+void fiat_pasta_fq_from_montgomery(uint6
