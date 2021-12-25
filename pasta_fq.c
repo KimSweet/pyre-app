@@ -1092,4 +1092,8 @@ void fiat_pasta_fq_from_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
 }
 
 /*
- * The function fiat_pasta_fq_to_montgomery translates a field 
+ * The function fiat_pasta_fq_to_montgomery translates a field element into the Montgomery domain.
+ * Preconditions:
+ *   0 ≤ eval arg1 < m
+ * Postconditions:
+ *   eval (from_montgomery out1) mod m = eval arg1 mod
