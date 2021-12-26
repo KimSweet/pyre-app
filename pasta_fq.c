@@ -1104,4 +1104,10 @@ void fiat_pasta_fq_from_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
  * Output Bounds:
  *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  */
-void fi
+void fiat_pasta_fq_to_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
+  uint64_t x1;
+  uint64_t x2;
+  uint64_t x3;
+  uint64_t x4;
+  uint64_t x5;
+  uint64_
