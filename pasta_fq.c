@@ -1167,3 +1167,13 @@ void fiat_pasta_fq_to_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
   uint64_t x60;
   uint64_t x61;
   uint64_t x62;
+  uint64_t x63;
+  uint64_t x64;
+  uint64_t x65;
+  uint64_t x66;
+  uint64_t x67;
+  fiat_pasta_fq_uint1 x68;
+  uint64_t x69;
+  fiat_pasta_fq_uint1 x70;
+  uint64_t x71;
+  
