@@ -1300,4 +1300,7 @@ void fiat_pasta_fq_to_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
   fiat_pasta_fq_mulx_u64(&x39, &x40, x1, UINT64_C(0x7fae231004ccf590));
   fiat_pasta_fq_mulx_u64(&x41, &x42, x1, UINT64_C(0x67bb433d891a16e3));
   fiat_pasta_fq_mulx_u64(&x43, &x44, x1, UINT64_C(0xfc9678ff0000000f));
-  fiat_pasta_fq_addcarryx_u64(&x45, &x46, 0x0, x44, x41)
+  fiat_pasta_fq_addcarryx_u64(&x45, &x46, 0x0, x44, x41);
+  fiat_pasta_fq_addcarryx_u64(&x47, &x48, x46, x42, x39);
+  fiat_pasta_fq_addcarryx_u64(&x49, &x50, x48, x40, x37);
+  fiat_pasta_fq_addcarryx_u64(&x51, &x52,
