@@ -1375,4 +1375,9 @@ void fiat_pasta_fq_to_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
 /*
  * The function fiat_pasta_fq_nonzero outputs a single non-zero word if the input is non-zero and zero otherwise.
  * Preconditions:
- *   
+ *   0 ≤ eval arg1 < m
+ * Postconditions:
+ *   out1 = 0 ↔ eval (from_montgomery arg1) mod m = 0
+ *
+ * Input Bounds:
+ *   arg1: [[0x0 ~> 0xffffffffffffffff
