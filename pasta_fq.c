@@ -1369,3 +1369,10 @@ void fiat_pasta_fq_to_montgomery(uint64_t out1[4], const uint64_t arg1[4]) {
   out1[0] = x168;
   out1[1] = x169;
   out1[2] = x170;
+  out1[3] = x171;
+}
+
+/*
+ * The function fiat_pasta_fq_nonzero outputs a single non-zero word if the input is non-zero and zero otherwise.
+ * Preconditions:
+ *   
