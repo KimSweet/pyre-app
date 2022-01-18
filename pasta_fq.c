@@ -1510,4 +1510,10 @@ void fiat_pasta_fq_to_bytes(uint8_t out1[32], const uint64_t arg1[4]) {
   x18 = (uint8_t)(x16 >> 8);
   x19 = (uint8_t)(x3 & UINT8_C(0xff));
   x20 = (x3 >> 8);
-  x21 = (uint8_t)(x20 & UINT8_C(0x
+  x21 = (uint8_t)(x20 & UINT8_C(0xff));
+  x22 = (x20 >> 8);
+  x23 = (uint8_t)(x22 & UINT8_C(0xff));
+  x24 = (x22 >> 8);
+  x25 = (uint8_t)(x24 & UINT8_C(0xff));
+  x26 = (x24 >> 8);
+  x2
