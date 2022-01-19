@@ -1530,3 +1530,8 @@ void fiat_pasta_fq_to_bytes(uint8_t out1[32], const uint64_t arg1[4]) {
   x38 = (x36 >> 8);
   x39 = (uint8_t)(x38 & UINT8_C(0xff));
   x40 = (x38 >> 8);
+  x41 = (uint8_t)(x40 & UINT8_C(0xff));
+  x42 = (x40 >> 8);
+  x43 = (uint8_t)(x42 & UINT8_C(0xff));
+  x44 = (x42 >> 8);
+  x45 = (uint
