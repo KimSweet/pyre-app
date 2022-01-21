@@ -1582,3 +1582,8 @@ void fiat_pasta_fq_to_bytes(uint8_t out1[32], const uint64_t arg1[4]) {
   out1[29] = x57;
   out1[30] = x59;
   out1[31] = x60;
+}
+
+/*
+ * The function fiat_pasta_fq_from_bytes deserializes a field element NOT in the Montgomery domain from bytes in little-endian order.
+ * Precon
