@@ -1599,4 +1599,13 @@ void fiat_pasta_fq_to_bytes(uint8_t out1[32], const uint64_t arg1[4]) {
  */
 void fiat_pasta_fq_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
   uint64_t x1;
-  uint64_t
+  uint64_t x2;
+  uint64_t x3;
+  uint64_t x4;
+  uint64_t x5;
+  uint64_t x6;
+  uint64_t x7;
+  uint8_t x8;
+  uint64_t x9;
+  uint64_t x10;
+  uint64_t x11;
