@@ -1627,4 +1627,13 @@ void fiat_pasta_fq_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
   uint64_t x27;
   uint64_t x28;
   uint64_t x29;
+  uint64_t x30;
+  uint64_t x31;
+  uint8_t x32;
+  uint64_t x33;
+  uint64_t x34;
+  uint64_t x35;
+  uint64_t x36;
+  uint64_t x37;
+  uint64_t x38;
   uint64_t x
