@@ -1720,4 +1720,9 @@ void fiat_pasta_fq_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
   x60 = (x1 + x59);
   out1[0] = x39;
   out1[1] = x46;
-  out1[2]
+  out1[2] = x53;
+  out1[3] = x60;
+}
+
+/*
+ * The function fiat_pasta_fq_set_one returns the field element one in the Montgomery domain
