@@ -1712,4 +1712,12 @@ void fiat_pasta_fq_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
   x52 = (x10 + x51);
   x53 = (x9 + x52);
   x54 = (x7 + (uint64_t)x8);
-  x55 = (x6 + 
+  x55 = (x6 + x54);
+  x56 = (x5 + x55);
+  x57 = (x4 + x56);
+  x58 = (x3 + x57);
+  x59 = (x2 + x58);
+  x60 = (x1 + x59);
+  out1[0] = x39;
+  out1[1] = x46;
+  out1[2]
