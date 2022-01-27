@@ -1725,4 +1725,11 @@ void fiat_pasta_fq_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
 }
 
 /*
- * The function fiat_pasta_fq_set_one returns the field element one in the Montgomery domain
+ * The function fiat_pasta_fq_set_one returns the field element one in the Montgomery domain.
+ * Postconditions:
+ *   eval (from_montgomery out1) mod m = 1 mod m
+ *   0 ≤ eval out1 < m
+ *
+ * Input Bounds:
+ * Output Bounds:
+ *   out1: [[0x0 ~> 0xffff
