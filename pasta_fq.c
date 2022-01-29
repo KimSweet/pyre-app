@@ -1734,4 +1734,8 @@ void fiat_pasta_fq_from_bytes(uint64_t out1[4], const uint8_t arg1[32]) {
  * Output Bounds:
  *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  */
-void fiat_pasta_fq_
+void fiat_pasta_fq_set_one(uint64_t out1[4]) {
+  out1[0] = UINT64_C(0x5b2b3e9cfffffffd);
+  out1[1] = UINT64_C(0x992c350be3420567);
+  out1[2] = UINT64_C(0xffffffffffffffff);
+  out1[3] = UINT64_C(0x3fffff
