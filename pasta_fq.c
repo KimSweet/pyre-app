@@ -1738,4 +1738,10 @@ void fiat_pasta_fq_set_one(uint64_t out1[4]) {
   out1[0] = UINT64_C(0x5b2b3e9cfffffffd);
   out1[1] = UINT64_C(0x992c350be3420567);
   out1[2] = UINT64_C(0xffffffffffffffff);
-  out1[3] = UINT64_C(0x3fffff
+  out1[3] = UINT64_C(0x3fffffffffffffff);
+}
+
+/*
+ * The function fiat_pasta_fq_msat returns the saturated represtation of the prime modulus.
+ * Postconditions:
+ *   twos_comple
