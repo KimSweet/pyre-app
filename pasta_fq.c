@@ -1757,3 +1757,9 @@ void fiat_pasta_fq_msat(uint64_t out1[5]) {
   out1[2] = 0x0;
   out1[3] = UINT64_C(0x4000000000000000);
   out1[4] = 0x0;
+}
+
+/*
+ * The function fiat_pasta_fq_divstep_precomp returns the precomputed value for Bernstein-Yang-inversion (in montgomery form).
+ * Postconditions:
+ *   eval (f
