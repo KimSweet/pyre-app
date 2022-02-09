@@ -1752,4 +1752,8 @@ void fiat_pasta_fq_set_one(uint64_t out1[4]) {
  *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  */
 void fiat_pasta_fq_msat(uint64_t out1[5]) {
-  out1[0] = UI
+  out1[0] = UINT64_C(0x8c46eb2100000001);
+  out1[1] = UINT64_C(0x224698fc0994a8dd);
+  out1[2] = 0x0;
+  out1[3] = UINT64_C(0x4000000000000000);
+  out1[4] = 0x0;
