@@ -1763,4 +1763,8 @@ void fiat_pasta_fq_msat(uint64_t out1[5]) {
  * The function fiat_pasta_fq_divstep_precomp returns the precomputed value for Bernstein-Yang-inversion (in montgomery form).
  * Postconditions:
  *   eval (from_montgomery out1) = ⌊(m - 1) / 2⌋^(if (log2 m) + 1 < 46 then ⌊(49 * ((log2 m) + 1) + 80) / 17⌋ else ⌊(49 * ((log2 m) + 1) + 57) / 17⌋)
- *   0 ≤ eval out1 < 
+ *   0 ≤ eval out1 < m
+ *
+ * Input Bounds:
+ * Output Bounds:
+ *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x
