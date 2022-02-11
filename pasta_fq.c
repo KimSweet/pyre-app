@@ -1771,4 +1771,10 @@ void fiat_pasta_fq_msat(uint64_t out1[5]) {
  */
 void fiat_pasta_fq_divstep_precomp(uint64_t out1[4]) {
   out1[0] = UINT64_C(0xe6083b32dccd2992);
-  out1[1] = UINT64_C(0x
+  out1[1] = UINT64_C(0x624453584f3bdab6);
+  out1[2] = UINT64_C(0xba6367a9c5d2c08e);
+  out1[3] = UINT64_C(0x1468dbacb19ab3af);
+}
+
+/*
+ * The function fiat_pasta_fq_divstep computes a divste
