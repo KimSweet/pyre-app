@@ -1767,4 +1767,8 @@ void fiat_pasta_fq_msat(uint64_t out1[5]) {
  *
  * Input Bounds:
  * Output Bounds:
- *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x
+ *   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ */
+void fiat_pasta_fq_divstep_precomp(uint64_t out1[4]) {
+  out1[0] = UINT64_C(0xe6083b32dccd2992);
+  out1[1] = UINT64_C(0x
