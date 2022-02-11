@@ -1777,4 +1777,9 @@ void fiat_pasta_fq_divstep_precomp(uint64_t out1[4]) {
 }
 
 /*
- * The function fiat_pasta_fq_divstep computes a divste
+ * The function fiat_pasta_fq_divstep computes a divstep.
+ * Preconditions:
+ *   0 ≤ eval arg4 < m
+ *   0 ≤ eval arg5 < m
+ * Postconditions:
+ *   out1 = (if 0 < arg1 ∧ (twos_complement_eval arg3)
