@@ -1794,4 +1794,5 @@ void fiat_pasta_fq_divstep_precomp(uint64_t out1[4]) {
  *
  * Input Bounds:
  *   arg1: [0x0 ~> 0xffffffffffffffff]
- *   arg2: [[0x
+ *   arg2: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
+ *   arg3: [[0x0 ~> 0xfffffffff
