@@ -1805,4 +1805,7 @@ void fiat_pasta_fq_divstep_precomp(uint64_t out1[4]) {
  *   out4: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  *   out5: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
  */
-void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], uint64_t out4[4], uint64_t out5[4], uint64_t arg1,
+void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], uint64_t out4[4], uint64_t out5[4], uint64_t arg1, const uint64_t arg2[5], const uint64_t arg3[5], const uint64_t arg4[4], const uint64_t arg5[4]) {
+  uint64_t x1;
+  fiat_pasta_fq_uint1 x2;
+  fiat_pasta_fq
