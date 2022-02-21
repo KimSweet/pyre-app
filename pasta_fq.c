@@ -1853,4 +1853,12 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   uint64_t x45;
   fiat_pasta_fq_uint1 x46;
   uint64_t x47;
-  fiat_pasta_
+  fiat_pasta_fq_uint1 x48;
+  uint64_t x49;
+  uint64_t x50;
+  uint64_t x51;
+  uint64_t x52;
+  uint64_t x53;
+  fiat_pasta_fq_uint1 x54;
+  uint64_t x55;
+  fiat_pasta_fq
