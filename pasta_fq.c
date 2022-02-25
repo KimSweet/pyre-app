@@ -1930,4 +1930,7 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   uint64_t x122;
   uint64_t x123;
   uint64_t x124;
-  ui
+  uint64_t x125;
+  uint64_t x126;
+  fiat_pasta_fq_addcarryx_u64(&x1, &x2, 0x0, (~arg1), 0x1);
+  x3 = (fiat_pasta_fq_uint1)((fiat_pasta_fq_uint1)(x1 >> 63) & (fiat_pasta_
