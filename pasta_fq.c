@@ -1933,4 +1933,7 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   uint64_t x125;
   uint64_t x126;
   fiat_pasta_fq_addcarryx_u64(&x1, &x2, 0x0, (~arg1), 0x1);
-  x3 = (fiat_pasta_fq_uint1)((fiat_pasta_fq_uint1)(x1 >> 63) & (fiat_pasta_
+  x3 = (fiat_pasta_fq_uint1)((fiat_pasta_fq_uint1)(x1 >> 63) & (fiat_pasta_fq_uint1)((arg3[0]) & 0x1));
+  fiat_pasta_fq_addcarryx_u64(&x4, &x5, 0x0, (~arg1), 0x1);
+  fiat_pasta_fq_cmovznz_u64(&x6, x3, arg1, x4);
+  fiat_pas
