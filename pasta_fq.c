@@ -1938,4 +1938,7 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   fiat_pasta_fq_cmovznz_u64(&x6, x3, arg1, x4);
   fiat_pasta_fq_cmovznz_u64(&x7, x3, (arg2[0]), (arg3[0]));
   fiat_pasta_fq_cmovznz_u64(&x8, x3, (arg2[1]), (arg3[1]));
-  fiat_pasta_fq_cmovznz_u64(&x9, x3, (arg2[2])
+  fiat_pasta_fq_cmovznz_u64(&x9, x3, (arg2[2]), (arg3[2]));
+  fiat_pasta_fq_cmovznz_u64(&x10, x3, (arg2[3]), (arg3[3]));
+  fiat_pasta_fq_cmovznz_u64(&x11, x3, (arg2[4]), (arg3[4]));
+  f
