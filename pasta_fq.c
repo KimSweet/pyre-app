@@ -1968,4 +1968,6 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   x50 = (arg4[2]);
   x51 = (arg4[1]);
   x52 = (arg4[0]);
-  fiat_pasta_fq_subbor
+  fiat_pasta_fq_subborrowx_u64(&x53, &x54, 0x0, 0x0, x52);
+  fiat_pasta_fq_subborrowx_u64(&x55, &x56, x54, 0x0, x51);
+  fiat_pasta_fq_subborrowx_u64(&x57, &x58, x56, 0x0, x50);
