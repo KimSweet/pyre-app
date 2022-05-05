@@ -2000,3 +2000,5 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   fiat_pasta_fq_addcarryx_u64(&x96, &x97, x95, x71, x91);
   fiat_pasta_fq_addcarryx_u64(&x98, &x99, x97, x72, x92);
   fiat_pasta_fq_addcarryx_u64(&x100, &x101, x99, x73, x93);
+  fiat_pasta_fq_subborrowx_u64(&x102, &x103, 0x0, x94, UINT64_C(0x8c46eb2100000001));
+  fiat_pasta_fq_subborrowx_u64(&x104, &x105, x103, x96, UINT64_C(0x
