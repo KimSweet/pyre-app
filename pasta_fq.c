@@ -2003,4 +2003,7 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   fiat_pasta_fq_subborrowx_u64(&x102, &x103, 0x0, x94, UINT64_C(0x8c46eb2100000001));
   fiat_pasta_fq_subborrowx_u64(&x104, &x105, x103, x96, UINT64_C(0x224698fc0994a8dd));
   fiat_pasta_fq_subborrowx_u64(&x106, &x107, x105, x98, 0x0);
-  fiat_pasta_fq_subborrowx_u64(&x108, &x109, x107, x100, UINT64_C(0x4000
+  fiat_pasta_fq_subborrowx_u64(&x108, &x109, x107, x100, UINT64_C(0x4000000000000000));
+  fiat_pasta_fq_subborrowx_u64(&x110, &x111, x109, x101, 0x0);
+  fiat_pasta_fq_addcarryx_u64(&x112, &x113, 0x0, x6, 0x1);
+  x114 = ((x80 >> 1
