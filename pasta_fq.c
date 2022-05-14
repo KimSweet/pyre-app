@@ -2010,4 +2010,7 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   x115 = ((x82 >> 1) | ((x84 << 63) & UINT64_C(0xffffffffffffffff)));
   x116 = ((x84 >> 1) | ((x86 << 63) & UINT64_C(0xffffffffffffffff)));
   x117 = ((x86 >> 1) | ((x88 << 63) & UINT64_C(0xffffffffffffffff)));
-  x118 = ((x88 & UINT64_C(0x800
+  x118 = ((x88 & UINT64_C(0x8000000000000000)) | (x88 >> 1));
+  fiat_pasta_fq_cmovznz_u64(&x119, x48, x39, x31);
+  fiat_pasta_fq_cmovznz_u64(&x120, x48, x41, x33);
+  fiat_past
