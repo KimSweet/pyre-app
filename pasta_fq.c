@@ -2036,3 +2036,12 @@ void fiat_pasta_fq_divstep(uint64_t* out1, uint64_t out2[5], uint64_t out3[5], u
   out4[3] = x122;
   out5[0] = x123;
   out5[1] = x124;
+  out5[2] = x125;
+  out5[3] = x126;
+}
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+
+void fiat_pasta_fq_print(const uint6
