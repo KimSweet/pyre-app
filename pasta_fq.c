@@ -2064,3 +2064,7 @@ bool fiat_pasta_fq_equals(const uint64_t x[4], const uint64_t y[4]) {
     return true;
   }
 }
+
+void fiat_pasta_fq_copy(uint64_t out[4], const uint64_t value[4]) {
+    for (size_t j = 0; j < 4; ++j) { out[j] = value[j]; }
+}
