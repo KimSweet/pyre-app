@@ -2056,4 +2056,11 @@ bool fiat_pasta_fq_equals(const uint64_t x[4], const uint64_t y[4]) {
   uint64_t x_minus_y[4];
   fiat_pasta_fq_sub(x_minus_y, x, y);
 
-  uint64_t x_minus_y_nonzer
+  uint64_t x_minus_y_nonzero;
+  fiat_pasta_fq_nonzero(&x_minus_y_nonzero, x_minus_y);
+  if (x_minus_y_nonzero) {
+    return false;
+  } else {
+    return true;
+  }
+}
