@@ -12,4 +12,5 @@ bool fiat_pasta_fq_equals(const uint64_t x[4], const uint64_t y[4]);
 void fiat_pasta_fq_to_montgomery(uint64_t out1[4], const uint64_t arg1[4]);
 void fiat_pasta_fq_from_montgomery(uint64_t out1[4], const uint64_t arg1[4]);
 void fiat_pasta_fq_nonzero(uint64_t* out1, const uint64_t arg1[4]);
-void fiat_pasta_fq_copy(uint64_t out[4], const uint
+void fiat_pasta_fq_copy(uint64_t out[4], const uint64_t value[4]);
+void fiat_pasta_fq_print(const uint64_t x[4]);
