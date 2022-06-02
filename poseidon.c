@@ -86,3 +86,116 @@ static void permutation_kimchi(PoseidonCtx *ctx)
 
         // mds
         matrix_mul(ctx->state, ctx->mds_matrix, ctx->sponge_width);
+
+        // ark
+        for (unsigned int i = 0; i < ctx->sponge_width; i++) {
+            field_copy(tmp, ctx->state[i]);
+            field_add(ctx->state[i], tmp, ROUND_KEY(ctx, r, i));
+        }
+    }
+}
+
+struct poseidon_config_t {
+    size_t sponge_width;
+    size_t sponge_rate;
+    size_t full_rounds;
+    size_t sbox_alpha;
+    const Field ***round_keys;
+    const Field **mds_matrix;
+    const Field *sponge_iv[2];
+    void (*permutation)(PoseidonCtx *);
+} _poseidon_config[2] = {
+    // 0x00 - POSEIDON_LEGACY
+    {
+        .sponge_width = SPONGE_WIDTH_LEGACY,
+        .sponge_rate  = SPONGE_RATE_LEGACY,
+        .full_rounds  = ROUND_COUNT_LEGACY - 1,
+        .sbox_alpha   = SBOX_ALPHA_LEGACY,
+        .round_keys   = (const Field ***)round_keys_legacy,
+        .mds_matrix   = (const Field **)mds_matrix_legacy,
+        .sponge_iv    = {
+            (const Field *)testnet_iv_legacy,
+            (const Field *)mainnet_iv_legacy
+        },
+        .permutation = permutation_legacy
+    },
+    // 0x01 - POSEIDON_KIMCHI
+    {
+        .sponge_width = SPONGE_WIDTH_KIMCHI,
+        .sponge_rate  = SPONGE_RATE_KIMCHI,
+        .full_rounds  = ROUND_COUNT_KIMCHI,
+        .sbox_alpha   = SBOX_ALPHA_KIMCHI,
+        .round_keys   = (const Field ***)round_keys_kimchi,
+        .mds_matrix   = (const Field **)mds_matrix_kimchi,
+        .sponge_iv    = {
+            (const Field *)testnet_iv_kimchi,
+            (const Field *)mainnet_iv_kimchi
+        },
+        .permutation = permutation_kimchi
+    }
+};
+
+bool poseidon_init(PoseidonCtx *ctx, const uint8_t type, const uint8_t network_id)
+{
+    if (!ctx) {
+      return false;
+    }
+
+    if (type != POSEIDON_LEGACY &&
+        type != POSEIDON_KIMCHI) {
+        return false;
+    }
+
+    if (network_id != TESTNET_ID &&
+        network_id != MAINNET_ID &&
+        network_id != NULLNET_ID) {
+        return false;
+    }
+
+    ctx->sponge_width = _poseidon_config[type].sponge_width;
+    ctx->sponge_rate  = _poseidon_config[type].sponge_rate;
+    ctx->full_rounds  = _poseidon_config[type].full_rounds;
+    ctx->sbox_alpha   = _poseidon_config[type].sbox_alpha;
+    ctx->round_keys   = _poseidon_config[type].round_keys;
+    ctx->mds_matrix   = _poseidon_config[type].mds_matrix;
+    ctx->permutation  = _poseidon_config[type].permutation;
+
+    if (network_id != NULLNET_ID) {
+        memcpy(ctx->state, _poseidon_config[type].sponge_iv[network_id],
+               SPONGE_BYTES(ctx->sponge_width));
+    }
+    else {
+        bzero(ctx->state, SPONGE_BYTES(ctx->sponge_width));
+    }
+
+    ctx->absorbed = 0;
+
+    return true;
+}
+
+void poseidon_update(PoseidonCtx *ctx, const Field *input, size_t len)
+{
+    Field tmp;
+    for (size_t i = 0; i < len; i++) {
+        if (ctx->absorbed == ctx->sponge_rate) {
+            ctx->permutation(ctx);
+            ctx->absorbed = 0;
+        }
+        field_copy(tmp, ctx->state[ctx->absorbed]);
+        field_add(ctx->state[ctx->absorbed], tmp, input[i]);
+        ctx->absorbed++;
+    }
+}
+
+// Squeezing poseidon returns the first element of its current state.
+void poseidon_digest(Scalar out, PoseidonCtx *ctx) {
+    ctx->permutation(ctx);
+
+    uint64_t tmp[4];
+    fiat_pasta_fp_from_montgomery(tmp, ctx->state[0]);
+
+    // since the difference in modulus between the two fields is < 2^125,
+    // with high probability, a random value from one field will fit in the
+    // other field.
+    fiat_pasta_fq_to_montgomery(out, tmp);
+}
