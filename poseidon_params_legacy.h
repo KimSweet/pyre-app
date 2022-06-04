@@ -11,4 +11,8 @@
 #define SPONGE_RATE_LEGACY  2
 #define SBOX_ALPHA_LEGACY   5
 
-// 
+// Round constants
+static const Field round_keys_legacy[ROUND_COUNT_LEGACY][SPONGE_WIDTH_LEGACY] =
+{
+    {
+        {0xd2425a07cfec91d, 0x6130240fd42
