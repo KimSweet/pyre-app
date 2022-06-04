@@ -257,3 +257,73 @@ static const Field round_keys_kimchi[ROUND_COUNT_KIMCHI][SPONGE_WIDTH_KIMCHI] =
     {
         {0xe6a1e6b0bf56c39a, 0x5f0fa56e02b52bf1, 0x892cb6b226eba63f, 0x9d6cdf753348972},
         {0xd971e91c989d7474, 0xe50253ac0fe22673, 0xc3d129d61f3e2d2e, 0xc3d5e5747f41867},
+        {0xd167f5fb9c5beeed, 0x3f5cea239ef8c0d7, 0xcdee8cfc27846f4a, 0x24c679ef24b061de}
+    },
+    {
+        {0xad85899bc3db81fd, 0xeb233c07600fb897, 0x89f5eb6243c1b2c3, 0x1f3a8367c8aa8517},
+        {0x6d36bca7fcec3e0e, 0xc1737ff03d1ab393, 0xadccc72bbbbc7a45, 0x3db8f2e90ccdd8c8},
+        {0x717b51af8aaa8e01, 0x511486052600a48e, 0x4640f747a52c8046, 0x7617093f8e50308}
+    },
+    {
+        {0x7b7ea2d90c18ddff, 0xad55e3af10f07ecc, 0x3141081a3c5c8385, 0x196eb50d61121358},
+        {0xcc60e0cfd84379cd, 0x7c3511d0a77f4548, 0xda8925e203fca7b4, 0x913f6db8fb4666c},
+        {0xdc9424e57fe5d233, 0xeebf53528158a77f, 0x4aba101d58382099, 0x1d9d7555ba95fd2c}
+    },
+    {
+        {0x223a1f075f09c126, 0xe53c2bd3bb82086c, 0xc926e1a6742d9f28, 0x37a94c909c28a463},
+        {0xf686edf138fae20d, 0xcf8127255d41ad5f, 0xaaff6a3f5e4fca37, 0x271575f3199de25b},
+        {0xe56d4164299c073, 0x949dad529240515e, 0x492fad4fff845faf, 0x1f4ae85148dc4d36}
+    },
+    {
+        {0x88d7bc19b11f7d81, 0x5409527a4303bddc, 0x819f1fcde6fe8277, 0x3f1783d329385861},
+        {0xa0fc55787106d0e5, 0xeff61aed031a068f, 0xf2028db3e72ef3f5, 0x3723089287b22d50},
+        {0x4b2fa444ab4d0eb0, 0x7501d8bdd86b94fa, 0xc115eb42e5c68821, 0x3af0eb723bcbdf62}
+    },
+    {
+        {0xba360ab89c61e415, 0xaf79f26388cc899d, 0x9520ac3e754fa7c, 0x21421c939a61c9c1},
+        {0xe1574f78d928be85, 0xbeaf8a96e41e11cd, 0xc6fe2d415b79aaaf, 0x658c8be312e3365},
+        {0x7c93afce4237274c, 0x18ce430d1aaf175a, 0x12f33db44b4df014, 0x97dcef6c06d9bdb}
+    },
+    {
+        {0x828680253ff92f89, 0xde548e1c3824e40e, 0xc247914b9ed7bc21, 0x2e2ed0c7599fbaf7},
+        {0x4aa809d0c384c711, 0x6c10c3a79992f7b7, 0xeff44bf1c0bdb977, 0x2170102b79c7ff15},
+        {0xbeb3ef5c6a1a5a3c, 0xadd3357fded8ea40, 0x883e182ae49ddd5b, 0x98e5471c82acc69}
+    }
+};
+
+// MDS matrix
+static const Field mds_matrix_kimchi[SPONGE_WIDTH_KIMCHI][SPONGE_WIDTH_KIMCHI] =
+{
+    {
+        {0x2325ecd774ed5ef5, 0x6e29dac6a3c7cdd1, 0xe5beb6083a511912, 0x9676da44236aeec},
+        {0xd158dc717e2341f, 0xd5b60b1769712b4c, 0x34d7bcabfd238085, 0x3aaab5076493084b},
+        {0x2db4797d83bbe920, 0xd5fa286de1eee5bb, 0x9314978726295ccf, 0x15cd8c594785dab7}
+    },
+    {
+        {0x32d91577cad91dd4, 0x4e514bd4657b8720, 0x6ee3bb5668a0c9d2, 0x309fc724fced8fea},
+        {0x3924fab19a332e56, 0x54bbe6a6de98bb83, 0x192e0f01cbe529aa, 0x37dd7f40c9e278a6},
+        {0x90375eecbb700545, 0x9e03af8b6798305b, 0x7268fdbab4425d88, 0x1920c1db7e389489}
+    },
+    {
+        {0xd3313a8f123a9839, 0xba5f1ab180bf05c4, 0x1b03c308f53c2809, 0x30fc1b2d695ffb7},
+        {0x6030e8f639f0053d, 0x7f4aa2b8ff664e1, 0xb6c871de94e5901a, 0x33f6c27d988f8ed4},
+        {0xce58b7ee05c5c11d, 0xa5a7c6efdbd7f41e, 0x5dc94477718966ee, 0x3971be44ca4bbd36}
+    },
+};
+
+
+// TODO: Initial sponge state testnet
+static const Field testnet_iv_kimchi[SPONGE_WIDTH_KIMCHI] =
+{
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0}
+};
+
+// TODO: Initial sponge state mainnet
+static const Field mainnet_iv_kimchi[SPONGE_WIDTH_KIMCHI] =
+{
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0}
+};
