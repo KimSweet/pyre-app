@@ -290,4 +290,6 @@ static const Field round_keys_legacy[ROUND_COUNT_LEGACY][SPONGE_WIDTH_LEGACY] =
         {0x6440d55f63d23009, 0x74c5732854d7e658, 0x4f7e9fd81fd40c7b, 0x399992d613926dad}
     },
     {
-        {0xc29845928af2930, 0xa0130ffd9a9
+        {0xc29845928af2930, 0xa0130ffd9a9f0e2a, 0x48033877dafbdd89, 0x8c39d86214ce71a},
+        {0x9af58f43601d6790, 0xd1af4f75b46b599b, 0x4a8b0b5e6e229017, 0x187b443781223437},
+        {0
