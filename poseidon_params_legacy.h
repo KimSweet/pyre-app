@@ -331,4 +331,10 @@ static const Field round_keys_legacy[ROUND_COUNT_LEGACY][SPONGE_WIDTH_LEGACY] =
     },
     {
         {0x58ba96a14e408681, 0xa06d5b071e1ae71c, 0x1a06d51e6e7f692d, 0x1207ba481447ae8d},
-        {0xac27f34f246f6412, 0x641
+        {0xac27f34f246f6412, 0x6419a4c21404724a, 0x5eb99bc09179a67c, 0x251da17ba5f44d7f},
+        {0x7c7edb3d3d4d0be, 0xebbd780f9995055f, 0x219149388a5fd89c, 0x46ecaa2536098}
+    }
+};
+
+// MDS matrix
+static con
