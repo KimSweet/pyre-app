@@ -337,4 +337,7 @@ static const Field round_keys_legacy[ROUND_COUNT_LEGACY][SPONGE_WIDTH_LEGACY] =
 };
 
 // MDS matrix
-static con
+static const Field mds_matrix_legacy[SPONGE_WIDTH_LEGACY][SPONGE_WIDTH_LEGACY] =
+{
+    {
+        {0x32f4f94379d14f6, 0x666eef381fb1d4b0, 0xd760525c85a9299a, 
