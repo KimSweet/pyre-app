@@ -345,4 +345,6 @@ static const Field mds_matrix_legacy[SPONGE_WIDTH_LEGACY][SPONGE_WIDTH_LEGACY] =
         {0x1b2098a19e203e93, 0x914dcdea2a56e245, 0xc64ed9aa2aef8379, 0xb176f95c389478e}
     },
     {
-        {0x8f85e752c76f7c9c, 0x8297f4f031b02763, 0x30e4ea62df5067b7, 
+        {0x8f85e752c76f7c9c, 0x8297f4f031b02763, 0x30e4ea62df5067b7, 0x2821d0423006dcae},
+        {0x5cece392cc5d403f, 0x123da1ba8becd2de, 0x193510960c81a54f, 0x1be17f43c42fe5c0},
+        {0x65fc36e3c120e5dd, 0x51a4797b81835701,
