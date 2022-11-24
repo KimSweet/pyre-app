@@ -352,4 +352,11 @@ static const Field mds_matrix_legacy[SPONGE_WIDTH_LEGACY][SPONGE_WIDTH_LEGACY] =
     {
         {0xd03df46130dd77b4, 0xe694d8c7d8fd4ef4, 0xf71d2a65470713aa, 0x255c475344778d2c},
         {0x78597119a27f97bb, 0x1b1fb7c15ccb3746, 0xb86d8ab32d6a6edf, 0xb1e00f75148f670},
-        {0x875597b15bf7ed8d, 0x73fa4e676bb9cc5f, 0x96babdc32ae359e, 0x31e6
+        {0x875597b15bf7ed8d, 0x73fa4e676bb9cc5f, 0x96babdc32ae359e, 0x31e6d9f5ccaa763e}
+    }
+};
+
+// initial sponge state testnet
+static const Field testnet_iv_legacy[SPONGE_WIDTH_LEGACY] =
+{
+    {0x67097c15f1a46d64, 0xc76fd61db3c20
