@@ -365,4 +365,7 @@ static const Field testnet_iv_legacy[SPONGE_WIDTH_LEGACY] =
 };
 
 // Initial sponge state mainnet
-static const Field mainnet_iv_legacy[SPONGE_WIDTH_L
+static const Field mainnet_iv_legacy[SPONGE_WIDTH_LEGACY] =
+{
+    {0xc21e7c13c81e894, 0x710189d783717f27, 0x7825ac132f04e050, 0x6fd140c96a52f28},
+    {0x25611817aeec99d8, 0x24e1697f7e63d4b4, 0x13d
