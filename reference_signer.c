@@ -171,3 +171,21 @@ int main(int argc, char* argv[]) {
   del.amount = 0;
 
   sign(&sig, &kp, &del, network_id);
+
+  if (!verify(&sig, &pub_compressed, &del, network_id)) {
+    exit(1);
+  }
+
+  printf("\ndelegation signature only:\n");
+
+  for (size_t i = 0; i < DIGITS; ++i) { buf[i] = 0; }
+  fiat_pasta_fp_from_montgomery(tmp, sig.rx);
+  bigint_to_string(buf, tmp);
+  printf("field = %s\n", buf);
+
+  for (size_t i = 0; i < DIGITS; ++i) { buf[i] = 0; }
+
+  fiat_pasta_fq_from_montgomery(tmp, sig.s);
+  bigint_to_string(buf, tmp);
+  printf("scalar = %s\n", buf);
+}
