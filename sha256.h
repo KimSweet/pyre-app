@@ -13,4 +13,7 @@
 #include <stddef.h>
 
 /****************************** MACROS ******************************/
-#define 
+#define SHA256_BLOCK_SIZE 32            // SHA256 outputs a 32 byte digest
+
+/**************************** DATA TYPES ****************************/
+typedef unsigned char BYTE;             
