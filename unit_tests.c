@@ -209,3 +209,137 @@ bool sign_transaction(char *signature, const size_t len,
            amount,
            fee,
            nonce,
+           valid_until,
+           memo,
+           network_id == MAINNET_ID ? "MAINNET_ID" : "TESTNET_ID",
+           signature);
+  }
+
+  return true;
+}
+
+bool check_get_address(const char *account_number,
+                       const char *priv_hex, const char *address) {
+  char target[MINA_ADDRESS_LEN];
+  if (!privhex_to_address(target, sizeof(target), account_number, priv_hex)) {
+    return false;
+  }
+
+  return strcmp(address, target) == 0;
+}
+
+bool check_sign_tx(const char *account_number,
+                   const char *sender_priv_hex,
+                   const char *receiver_address,
+                   Currency amount,
+                   Currency fee,
+                   Nonce nonce,
+                   GlobalSlot valid_until,
+                   const char *memo,
+                   bool delegation,
+                   const char *signature,
+                   uint8_t network_id) {
+  char target[129];
+  if (!sign_transaction(target, sizeof(target),
+                        account_number,
+                        sender_priv_hex,
+                        receiver_address,
+                        amount,
+                        fee,
+                        nonce,
+                        valid_until,
+                        memo,
+                        delegation,
+                        network_id)) {
+    return false;
+   }
+
+   return strcmp(signature, target) == 0;
+}
+
+char *field_to_hex(char *hex, size_t len, const Field x) {
+  assert(len == 65);
+  hex[64] = '\0';
+  Scalar y;
+  fiat_pasta_fp_from_montgomery(y, x);
+  uint8_t *p = (uint8_t *)y;
+  for (size_t i = 0; i < sizeof(y); i++) {
+    sprintf(&hex[2*i], "%02x", p[i]);
+  }
+
+  return hex;
+}
+
+char *scalar_to_hex(char *hex, size_t len, const Scalar x) {
+  assert(len == 65);
+  hex[64] = '\0';
+  Scalar y;
+  fiat_pasta_fq_from_montgomery(y, x);
+  uint8_t *p = (uint8_t *)y;
+  for (size_t i = 0; i < sizeof(y); i++) {
+    sprintf(&hex[2*i], "%02x", p[i]);
+  }
+
+  return hex;
+}
+
+void print_scalar_as_cstruct(const Scalar x) {
+  printf("        { ");
+  for (size_t i = 0; i < sizeof(Scalar)/sizeof(x[0]); i++) {
+    printf("0x%016" PRIx64 ", ", x[i]);
+  }
+  printf("},\n");
+}
+
+void print_affine_as_cstruct(const Affine *a) {
+  printf("        {\n");
+  printf("            { ");
+  for (size_t i = 0; i < sizeof(Field)/sizeof(a->x[0]); i++) {
+    printf("0x%016" PRIx64 ", ", a->x[i]);
+  }
+  printf(" },\n");
+  printf("            { ");
+  for (size_t i = 0; i < sizeof(Field)/sizeof(a->y[0]); i++) {
+    printf("0x%016" PRIx64 ", ", a->y[i]);
+  }
+  printf(" },");
+  printf("\n        },\n");
+}
+
+void print_scalar_as_ledger_cstruct(const Scalar x) {
+  uint64_t tmp[4];
+  uint8_t *p = (uint8_t *)tmp;
+
+  fiat_pasta_fq_from_montgomery(tmp, x);
+  printf("        {");
+  for (size_t i = sizeof(Scalar); i > 0; i--) {
+    if (i % 8 == 0) {
+      printf("\n            ");
+    }
+    printf("0x%02x, ", p[i - 1]);
+  }
+  printf("\n        },\n");
+}
+
+void print_affine_as_ledger_cstruct(const Affine *a) {
+  uint64_t tmp[4];
+  uint8_t *p = (uint8_t *)tmp;
+
+  fiat_pasta_fp_from_montgomery(tmp, a->x);
+  printf("        {\n");
+  printf("            {");
+  for (size_t i = sizeof(Field); i > 0; i--) {
+    if (i % 8 == 0) {
+      printf("\n                ");
+    }
+    printf("0x%02x, ", p[i - 1]);
+  }
+  printf("\n            },\n");
+  fiat_pasta_fp_from_montgomery(tmp, a->y);
+  printf("            {");
+  for (size_t i = sizeof(Field); i > 0; i--) {
+    if (i % 8 == 0) {
+      printf("\n                ");
+    }
+    printf("0x%02x, ", p[i - 1]);
+  }
