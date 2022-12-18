@@ -502,3 +502,145 @@ void generate_curve_checks(bool ledger_gen) {
     else {
       print_affine_as_cstruct(&a3);
     }
+
+    // Test5: Scaling commutes with negation
+    //    G*(-S0) == -(G*S0)
+    scalar_negate(u.s2, S[i][0]);
+    generate_pubkey(&a3, u.s2);   // a3 = G*(-S0)
+    affine_negate(&a4, &A[i][0]); // a4 = -(G*S0)
+    assert(affine_eq(&a3, &a4));
+    assert(affine_is_on_curve(&a3));
+
+    if (ledger_gen) {
+      print_affine_as_ledger_cstruct(&a3);
+    }
+    else {
+      print_affine_as_cstruct(&a3);
+    }
+
+    // Test6: Addition is associative
+    //     (A0 + A1) + A2 == A0 + (A1 + A2)
+    affine_add(&a3, &A[i][0], &A[i][1]);
+    affine_add(&a4, &a3, &A[i][2]);      // a4 = (A0 + A1) + A2
+    affine_add(&a3, &A[i][1], &A[i][2]);
+    affine_add(&u.a5, &A[i][0], &a3);    // a5 = A0 + (A1 + A2)
+    assert(affine_eq(&a4, &u.a5));
+    assert(affine_is_on_curve(&a4));
+
+    if (ledger_gen) {
+      print_affine_as_ledger_cstruct(&a4);
+    }
+    else {
+      print_affine_as_cstruct(&a4);
+    }
+    printf("    },\n");
+  }
+  printf("};\n\n");
+  printf("bool curve_checks(void);\n\n");
+
+  if (ledger_gen) {
+     printf("\n");
+     printf("** Copy the above constants and curve_checks.c into the ledger project\n");
+     printf("\n");
+  }
+}
+
+typedef struct poseidon_test {
+  int   input_len;
+  char *input[10];
+  char *output;
+} PoseidonTest;
+
+#define ARRAY_SAFE(...) __VA_ARGS__
+#define ASSERT_POSEIDON_EQ(type, input, len, out) { \
+  char *inputs[len] = input; \
+  Field fields[len]; \
+  for (size_t i = 0; i < len; i++) { \
+    assert(field_from_hex(fields[i], inputs[i])); \
+  } \
+  Scalar target; \
+  assert(scalar_from_hex(target, out)); \
+  PoseidonCtx ctx; \
+  assert(poseidon_init(&ctx, type, NULLNET_ID)); \
+  poseidon_update(&ctx, fields, ARRAY_LEN(fields)); \
+  Scalar output; \
+  poseidon_digest(output, &ctx); \
+  if (memcmp(output, target, sizeof(output)) != 0) { \
+    char buf[65]; \
+    fprintf(stderr, " output: %s\n", scalar_to_hex(buf, ARRAY_LEN(buf), output)); \
+    fprintf(stderr, " target: %s\n", scalar_to_hex(buf, ARRAY_LEN(buf), target)); \
+    assert(memcmp(output, target, sizeof(output)) == 0); \
+  } \
+}
+
+void test_scalars() {
+    Scalar s;
+    assert(scalar_from_hex(s, "d2f75185842484ba5a1a4e0ba5f3870ed48782cc4f89a8228f5eaf75e1833906"));
+    assert(scalar_from_hex(s, "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff3f"));
+    assert(!scalar_from_hex(s, "0000000000000000000000000000000000000000000000000000000000000040"));
+    assert(!scalar_from_hex(s, "01000000ed302d991bf94c09fc98462200000000000000000000000000000040"));
+}
+
+void test_fields() {
+    Field f;
+    assert(field_from_hex(f, "a4e2beebb09bd02ad42bbccc11051e8262b6ef50445d8382b253e91ab1557a0d"));
+    assert(field_from_hex(f, "df698e389c6f1987ffe186d806f8163738f5bf22e8be02572cce99dc6a4ab030"));
+    assert(field_from_hex(f, "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff3f"));
+    assert(!field_from_hex(f, "0000000000000000000000000000000000000000000000000000000000000040"));
+    assert(!field_from_hex(f, "01000000ed302d991bf94c09fc98462200000000000000000000000000000040"));
+}
+
+void test_poseidon() {
+    //
+    // Legacy tests
+    //
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_LEGACY,
+      ARRAY_SAFE({
+      }),
+      0,
+      "1b3251b6912d82edc78bbb0a5c88f0c6fde1781bc3e654123fa6862a4c63e617"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_LEGACY,
+      ARRAY_SAFE({
+        "df698e389c6f1987ffe186d806f8163738f5bf22e8be02572cce99dc6a4ab030"
+      }),
+      1,
+      "f9b1b6c5f8c98017c6b35ac74bc689b6533d6dbbee1fd868831b637a43ea720c"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_LEGACY,
+      ARRAY_SAFE({
+        "56b648a5a85619814900a6b40375676803fe16fb1ad2d1fb79115eb1b52ac026",
+        "f26a8a03d9c9bbd9c6b2a1324d2a3f4d894bafe25a7e4ad1a498705f4026ff2f"
+      }),
+      2,
+      "7a556e93bcfbd27b55867f533cd1df293a7def60dd929a086fdd4e70393b0918"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_LEGACY,
+      ARRAY_SAFE({
+        "075c41fa23e4690694df5ded43624fd60ab7ee6ec6dd48f44dc71bc206cecb26",
+        "a4e2beebb09bd02ad42bbccc11051e8262b6ef50445d8382b253e91ab1557a0d",
+        "7dfc23a1242d9c0d6eb16e924cfba342bb2fccf36b8cbaf296851f2e6c469639"
+      }),
+      3,
+      "f94b39a919aab06f43f4a4b5a3e965b719a4dbd2b9cd26d2bba4197b10286b35"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_LEGACY,
+      ARRAY_SAFE({
+        "a1a659b14e80d47318c6fcdbbd388de4272d5c2815eb458cf4f196d52403b639",
+        "5e33065d1801131b64d13038ff9693a7ef6283f24ec8c19438d112ff59d50f04",
+        "38a8f4d0a9b6d0facdc4e825f6a2ba2b85401d5de119bf9f2bcb908235683e06",
+        "3456d0313a30d7ccb23bd71ed6aa70ab234dad683d8187b677aef73f42f4f52e"
+      }),
+      4,
+      "cc1ccfa964fd6ef9ff1994beb53cfce9ebe1212847ce30e4c64f0777875aec34"
+    );
