@@ -802,3 +802,161 @@ void test_sign_tx() {
         uint8_t network_id = network_ids[i];
         assert(check_sign_tx("0",
                             "164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718",
+                            "B62qicipYxyEHu7QjUqS7QvBipTs5CzgkYZZZkPoKVYBu6tnDUcE9Zt",
+                            1729000000000,
+                            2000000000,
+                            16,
+                            271828,
+                            "Hello Mina!",
+                            false,
+                            signatures[i][0],
+                            network_id));
+
+        assert(check_sign_tx("12586",
+                            "3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779",
+                            "B62qrKG4Z8hnzZqp1AL8WsQhQYah3quN1qUj3SyfJA8Lw135qWWg1mi",
+                            314159265359,
+                            1618033988,
+                            0,
+                            4294967295,
+                            "",
+                            false,
+                            signatures[i][1],
+                            network_id));
+
+        assert(check_sign_tx("12586",
+                            "3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779",
+                            "B62qoqiAgERjCjXhofXiD7cMLJSKD8hE8ZtMh4jX5MPNgKB4CFxxm1N",
+                            271828182845904,
+                            100000,
+                            5687,
+                            4294967295,
+                            "01234567890123456789012345678901",
+                            false,
+                            signatures[i][2],
+                            network_id));
+
+        assert(check_sign_tx("3",
+                            "1dee867358d4000f1dafa5978341fb515f89eeddbe450bd57df091f1e63d4444",
+                            "B62qnzbXmRNo9q32n4SNu2mpB8e7FYYLH8NmaX6oFCBYjjQ8SbD7uzV",
+                            0,
+                            2000000000,
+                            0,
+                            1982,
+                            "",
+                            false,
+                            signatures[i][3],
+                            network_id));
+
+        // Sign delegation tx tests
+
+        assert(check_sign_tx("0",
+                            "164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718",
+                            "B62qicipYxyEHu7QjUqS7QvBipTs5CzgkYZZZkPoKVYBu6tnDUcE9Zt",
+                            0,
+                            2000000000,
+                            16,
+                            1337,
+                            "Delewho?",
+                            true,
+                            signatures[i][4],
+                            network_id));
+
+        assert(check_sign_tx("49370",
+                            "20f84123a26e58dd32b0ea3c80381f35cd01bc22a20346cc65b0a67ae48532ba",
+                            "B62qnzbXmRNo9q32n4SNu2mpB8e7FYYLH8NmaX6oFCBYjjQ8SbD7uzV",
+                            0,
+                            2000000000,
+                            0,
+                            4294967295,
+                            "",
+                            true,
+                            signatures[i][5],
+                            network_id));
+
+        assert(check_sign_tx("12586",
+                            "3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779",
+                            "B62qkiT4kgCawkSEF84ga5kP9QnhmTJEYzcfgGuk6okAJtSBfVcjm1M",
+                            0,
+                            42000000000,
+                            1,
+                            4294967295,
+                            "more delegates, more fun........",
+                            true,
+                            signatures[i][6],
+                            network_id));
+
+        assert(check_sign_tx("2",
+                            "336eb4a19b3d8905824b0f2254fb495573be302c17582748bf7e101965aa4774",
+                            "B62qicipYxyEHu7QjUqS7QvBipTs5CzgkYZZZkPoKVYBu6tnDUcE9Zt",
+                            0,
+                            1202056900,
+                            0,
+                            577216,
+                            "",
+                            true,
+                            signatures[i][7],
+                            network_id));
+      }
+
+      // Check testnet and mainnet signatures are not equal
+      for (size_t i = 0; i < 8; ++i) {
+          assert(strncmp(signatures[0][i], signatures[1][i], strlen(signatures[1][i])) != 0);
+      }
+}
+
+int main(int argc, char* argv[]) {
+  printf("Running unit tests\n");
+
+  if (argc > 1) {
+    if (strncmp(argv[1], "ledger_gen", 10) == 0) {
+        _ledger_gen = true;
+    }
+    else {
+        _verbose = true;
+    }
+  }
+  struct rlimit lim = {1, 1};
+  if (setrlimit(RLIMIT_STACK, &lim) == -1) {
+    printf("rlimit failed\n");
+    return 1;
+  }
+
+  // Perform crypto tests
+  if (!curve_checks()) {
+      // Dump computed c-reference signer constants
+      generate_curve_checks(false);
+      fprintf(stderr, "!! Curve checks FAILED !! (error above)\n\n");
+      exit(211);
+  }
+  if (_ledger_gen) {
+      generate_curve_checks(true);
+  }
+
+  // fiat-crypto sqrt not square
+  {
+    Affine pub;
+
+    Compressed good_pk;
+    read_public_key_compressed(&good_pk, "B62qoCvDGrbMFn5bj7PRmQC7CVvXzNQSoXXo5BmwVGTZUdUV3aCgkaK");
+    assert(decompress(&pub, &good_pk));
+
+    Compressed bad_pk;
+    read_public_key_compressed(&bad_pk, "B62qprBg8jPke59MztbJPLKnSY9xbEiNNG9JqSA5jKxqXHPCWMYJjPM");
+    assert(!decompress(&pub, &bad_pk));
+  }
+
+  test_scalars();
+
+  test_fields();
+
+  test_poseidon();
+
+  test_get_address();
+
+  test_sign_tx();
+
+  printf("Unit tests completed successfully\n");
+
+  return 0;
+}
