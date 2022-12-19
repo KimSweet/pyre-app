@@ -644,3 +644,161 @@ void test_poseidon() {
       4,
       "cc1ccfa964fd6ef9ff1994beb53cfce9ebe1212847ce30e4c64f0777875aec34"
     );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_LEGACY,
+      ARRAY_SAFE({
+        "bccfee48dc76bb991c97bd531cf489f4ee37a66a15f5cfac31bdd4f159d4a905",
+        "2d106fb21a262f85fd400a995c6d74bad48d8adab2554046871c215e585b072b",
+        "8300e93ee8587956534d0756bb2aa575e5878c670cff5c8e3e55c62632333c06",
+        "879c32da31566f6d16afdefff94cba5260fec1057e97f19fc9a61dc2c54a6417",
+        "9c0aa6e5501cfb2d08aeaea5b3cddac2c9bee85d13324118b44bafb63a59611e"
+      }),
+      5,
+      "cf7b9c2128f0e2c0fed4e1eca8d5954b629640c2458d24ba238c1bd3ccbc8e12"
+    );
+
+    //
+    // Kimchi tests
+    //
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_KIMCHI,
+      ARRAY_SAFE({
+      }),
+      0,
+      "a8eb9ee0f30046308abbfa5d20af73c81bbdabc25b459785024d045228bead2f"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_KIMCHI,
+      ARRAY_SAFE({
+        "f2eee8d8f6e5fb182c610cae6c5393fce69dc4d900e7b4923b074e54ad00fb36"
+      }),
+      1,
+      "fb5992f65c07f9335995f43fd791d39012ad466717729e61045c297507054f3d"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_KIMCHI,
+      ARRAY_SAFE({
+        "bd3f1c8f183ceedea15080edbe79d30bd7d613b86bf2ba12007091c60ae39337",
+        "65e4f04ab87706bab06d13c7eee0a7807d0b8ce268b4ece6aab1e0508ec9c42f"
+      }),
+      2,
+      "fe2436f2027620a11233318b55d0a117086f09674826d1b7ce08d48ad0736c33"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_KIMCHI,
+      ARRAY_SAFE({
+        "f5ea61ce47773495363dc4f6a41c3e2da14b13d6dd173acf87c9ca7357fb2400",
+        "f28573f49c658b4ba151e82ed0bd6aaab045311d1a72df58c21eed462bede018",
+        "73cf45c39285f17ccea99e0daeb547430cf7921218fe3726010f608e682a841a"
+      }),
+      3,
+      "9b1b94444a54af49a7623d1fe1ca72649f0a098daf5704925f024eb6ab0e4b3f"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_KIMCHI,
+      ARRAY_SAFE({
+        "4c28b87198e0012207f93cdbdaa35355ec8213fa97a60e62701f62602d465920",
+        "0787a40fc046c4dd0ff3cad0e54006577fece871c774707494984f1c7d334727",
+        "1504ffe48e4e6dfcc4ded439edd386cf271b69d94afae83079f3ee3e7c04d52d",
+        "290b6506516fe7588b5100f8db2e871427c6d74e7a60ab656f43dd9bc687c312"
+      }),
+      4,
+      "47ecd3bf2eed86dcf8d2cef3d7667104689dba4d9bcb54006e0c66f6ec8c5a16"
+    );
+
+    ASSERT_POSEIDON_EQ(
+      POSEIDON_KIMCHI,
+      ARRAY_SAFE({
+        "da99182b35f2cd9f8a137052c4262576377a16deb83652db459a74893a0cf73c",
+        "9805573990c4028292c9db171cd2b97902f9fc494983f6f7e0a0c184bc55df1b",
+        "90ff1001b9dab21358aad1f6b7906a56d0c039502c1590c3ef9921a8951e4409",
+        "88b56238a0eda34576db959fecd1c3790bb5311fdb231753243c5085974a5b37",
+        "896a7727e511a4c30d99082bf3542623fb702afab0b62ebbf301ed51e38f6812"
+      }),
+      5,
+      "09a2d55277908b7c8214f745b3605f0f9055dcd4c9b594cdd759292c34c3a20c"
+    );
+}
+
+void test_get_address() {
+      if (_ledger_gen) {
+        printf("    # Address generation tests\n");
+        printf("    #\n");
+        printf("    #     These tests were automatically generated from the Mina c-reference-signer\n");
+        printf("    #\n");
+        printf("    #     Details:  https://github.com/MinaProtocol/c-reference-signer/README.markdown\n");
+        printf("    #     Generate: ./unit_tests ledger_gen\n");
+        printf("\n");
+      }
+
+      assert(check_get_address("0",
+                               "164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718",
+                               "B62qnzbXmRNo9q32n4SNu2mpB8e7FYYLH8NmaX6oFCBYjjQ8SbD7uzV"));
+
+      assert(check_get_address("1",
+                               "3ca187a58f09da346844964310c7e0dd948a9105702b716f4d732e042e0c172e",
+                               "B62qicipYxyEHu7QjUqS7QvBipTs5CzgkYZZZkPoKVYBu6tnDUcE9Zt"));
+
+      assert(check_get_address("2",
+                               "336eb4a19b3d8905824b0f2254fb495573be302c17582748bf7e101965aa4774",
+                               "B62qrKG4Z8hnzZqp1AL8WsQhQYah3quN1qUj3SyfJA8Lw135qWWg1mi"));
+
+      assert(check_get_address("3",
+                               "1dee867358d4000f1dafa5978341fb515f89eeddbe450bd57df091f1e63d4444",
+                               "B62qoqiAgERjCjXhofXiD7cMLJSKD8hE8ZtMh4jX5MPNgKB4CFxxm1N"));
+
+      assert(check_get_address("49370",
+                               "20f84123a26e58dd32b0ea3c80381f35cd01bc22a20346cc65b0a67ae48532ba",
+                               "B62qkiT4kgCawkSEF84ga5kP9QnhmTJEYzcfgGuk6okAJtSBfVcjm1M"));
+
+      assert(check_get_address("0x312a",
+                               "3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779",
+                               "B62qoG5Yk4iVxpyczUrBNpwtx2xunhL48dydN53A2VjoRwF8NUTbVr4"));
+}
+
+void test_sign_tx() {
+      if (_ledger_gen) {
+        printf("    # Sign transaction tests\n");
+        printf("    #\n");
+        printf("    #     These tests were automatically generated from the Mina c-reference-signer\n");
+        printf("    #\n");
+        printf("    #     Details:  https://github.com/MinaProtocol/c-reference-signer/README.markdown\n");
+        printf("    #     Generate: ./unit_tests ledger_gen\n");
+        printf("\n");
+      }
+
+      uint8_t network_ids[2] = { TESTNET_ID, MAINNET_ID };
+
+      char* signatures[2][8] = {
+        {
+          "11a36a8dfe5b857b95a2a7b7b17c62c3ea33411ae6f4eb3a907064aecae353c60794f1d0288322fe3f8bb69d6fabd4fd7c15f8d09f8783b2f087a80407e299af",
+          "23a9e2375dd3d0cd061e05c33361e0ba270bf689c4945262abdcc81d7083d8c311ae46b8bebfc98c584e2fb54566851919b58cf0917a256d2c1113daa1ccb27f",
+          "2b4d0bffcb57981d11a93c05b17672b7be700d42af8496e1ba344394da5d0b0b0432c1e8a77ee1bd4b8ef6449297f7ed4956b81df95bdc6ac95d128984f77205",
+          "25bb730a25ce7180b1e5766ff8cc67452631ee46e2d255bccab8662e5f1f0c850a4bb90b3e7399e935fff7f1a06195c6ef89891c0260331b9f381a13e5507a4c",
+          "30797d7d0426e54ff195d1f94dc412300f900cc9e84990603939a77b3a4d2fc11ebab12857b47c481c182abe147279732549f0fd49e68d5541f825e9d1e6fa04",
+          "07e9f88fc671ed06781f9edb233fdbdee20fa32303015e795747ad9e43fcb47b3ce34e27e31f7c667756403df3eb4ce670d9175dd0ae8490b273485b71c56066",
+          "1ff9f77fed4711e0ebe2a7a46a7b1988d1b62a850774bf299ec71a24d5ebfdd81d04a570e4811efe867adefe3491ba8b210f24bd0ec8577df72212d61b569b15",
+          "26ca6b95dee29d956b813afa642a6a62cd89b1929320ed6b099fd191a217b08d2c9a54ba1c95e5000b44b93cfbd3b625e20e95636f1929311473c10858a27f09"
+        },
+        {
+          "124c592178ed380cdffb11a9f8e1521bf940e39c13f37ba4c55bb4454ea69fba3c3595a55b06dac86261bb8ab97126bf3f7fff70270300cb97ff41401a5ef789",
+          "204eb1a37e56d0255921edd5a7903c210730b289a622d45ed63a52d9e3e461d13dfcf301da98e218563893e6b30fa327600c5ff0788108652a06b970823a4124",
+          "076d8ebca8ccbfd9c8297a768f756ff9d08c049e585c12c636d57ffcee7f6b3b1bd4b9bd42cc2cbee34b329adbfc5127fe5a2ceea45b7f55a1048b7f1a9f7559",
+          "058ed7fb4e17d9d400acca06fe20ca8efca2af4ac9a3ed279911b0bf93c45eea0e8961519b703c2fd0e431061d8997cac4a7574e622c0675227d27ce2ff357d9",
+          "0904e9521a95334e3f6757cb0007ec8af3322421954255e8d263d0616910b04d213344f8ec020a4b873747d1cbb07296510315a2ec76e52150a4c765520d387f",
+          "2406ab43f8201bd32bdd81b361fdb7871979c0eec4e3b7a91edf87473963c8a4069f4811ebc5a0e85cbb4951bffe93b638e230ce5a250cb08d2c250113a1967c",
+          "36a80d0421b9c0cbfa08ea95b27f401df108b30213ae138f1f5978ffc59606cf2b64758db9d26bd9c5b908423338f7445c8f0a07520f2154bbb62926aa0cb8fa",
+          "093f9ef0e4e051279da0a3ded85553847590ab739ee1bfd59e5bb30f98ed8a001a7a60d8506e2572164b7a525617a09f17e1756ac37555b72e01b90f37271595",
+        }
+      };
+
+      for (size_t i = 0; i < 2; ++i) {
+        uint8_t network_id = network_ids[i];
+        assert(check_sign_tx("0",
+                            "164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718",
