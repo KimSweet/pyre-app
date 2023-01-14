@@ -12,4 +12,9 @@ void packed_bit_array_set(uint8_t *bits, size_t i, bool b) {
   }
 }
 
-bool packed_bit_array_get(uint8_t
+bool packed_bit_array_get(uint8_t *bits, size_t i) {
+  size_t byte_idx = i / 8;
+  size_t in_byte_idx = i % 8;
+
+  return (bits[byte_idx] >> in_byte_idx) & 1;
+}
